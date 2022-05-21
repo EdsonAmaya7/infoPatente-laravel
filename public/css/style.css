@@ -1,0 +1,21 @@
+
+:root{
+    --rojoNavBar :  rgb(213, 0, 0) ;
+    --logout: rgb(255, 205, 210) ;
+}
+
+
+
+.fondoNavBar{
+    background-color: var(--rojoNavBar);
+    padding: 1rem 0;
+}
+
+.btnLogout{
+    padding: 10px 15px;
+    background-color: var(--logout);
+    text-decoration: none;
+    color: #000000;
+    /* text-align: end; */
+    border-radius: .5rem;
+}

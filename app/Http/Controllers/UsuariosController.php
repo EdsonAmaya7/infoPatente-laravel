@@ -15,6 +15,8 @@ class UsuariosController extends Controller
     public function index()
     {
         //
+
+        return view('administrador.index');
     }
 
     /**

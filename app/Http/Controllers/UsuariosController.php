@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\usuarios;
 use Illuminate\Http\Request;
 
+use Yajra\DataTables\Facades\DataTables;
+
+
 class UsuariosController extends Controller
 {
     /**
@@ -83,5 +86,11 @@ class UsuariosController extends Controller
     public function destroy(usuarios $usuarios)
     {
         //
+    }
+
+    public function getUsuarios(){
+        $data = usuarios::all();
+
+        return DataTables()->of($data)->make(true);
     }
 }

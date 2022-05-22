@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
+
     <!-- Fontawesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
         integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
@@ -39,6 +40,10 @@
     <title> @yield('title') </title>
 
     <link rel="icon" href="{{ asset('img/MARCAInfoPatente.jpg') }}">
+
+    {{-- <script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+    <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script> --}}
+    {{-- <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script> --}}
     @stack('styles')
 </head>
 

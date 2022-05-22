@@ -26,3 +26,8 @@
   </div>
   {{-- <script src="js/usuarios-view.js"></script> --}}
 </section>
+
+@push('scripts')
+
+<script src="{{ asset('js/usuarios/usuarios-view.js') }}" defer></script>
+@endpush

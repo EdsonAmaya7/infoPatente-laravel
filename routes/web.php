@@ -22,20 +22,23 @@ Route::get('/', function () {
 });
 
 
+Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// ruta para obtener los datos de todos los usuarios
+Route::get('/usuarios-get',[UsuariosController::class,'getUsuarios'])->name('getUsuarios');
 
 Route::resources([
     '/usuarios' => UsuariosController::class,
 ]);
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+

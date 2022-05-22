@@ -1,21 +1,81 @@
-
-:root{
-    --rojoNavBar :  rgb(213, 0, 0) ;
-    --logout: rgb(255, 205, 210) ;
+:root {
+    --rojoNavBar: rgb(213, 0, 0);
+    --logout: rgb(255, 205, 210);
+    --rowActive: rgba(238, 110, 115, 0.7);
 }
 
-
-
-.fondoNavBar{
+.fondoNavBar {
     background-color: var(--rojoNavBar);
     padding: 1rem 0;
 }
 
-.btnLogout{
-    padding: 10px 15px;
+.btnLogout {
+    padding: 10px 13px;
     background-color: var(--logout);
     text-decoration: none;
     color: #000000;
-    /* text-align: end; */
-    border-radius: .5rem;
+    border-radius: 0.5rem;
+    text-align: center;
 }
+
+/* estilos para el encabezado
+del header para las tablas */
+/* .row-header {
+    background-color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: medium;
+    width: 100%;
+    margin: 0.9rem auto 0.5rem auto;
+    left: auto;
+    right: auto;
+}
+
+.row-columns {
+    list-style: none;
+}
+
+.active {
+    background-color: var(--rowActive);
+}
+
+.tabs {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 48px;
+    width: 100%;
+    background-color: #fff;
+    margin: 0 auto;
+    white-space: nowrap;
+}
+.tabs .tab a {
+    color: black;
+}
+
+.tabs .tab a:hover {
+    background-color: transparent;
+    color: rgb(110, 110, 110);
+}
+
+.tabs .tab a.active {
+    background-color: transparent;
+    color: black;
+}
+
+.tabs .indicator {
+    background-color: black;
+}
+
+.dataTables_filter {
+    width: 25%;
+}
+
+a:hover {
+    color: black;
+    cursor: pointer;
+}
+
+th {
+    cursor: pointer;
+} */

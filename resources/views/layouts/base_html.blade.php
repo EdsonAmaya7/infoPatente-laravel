@@ -17,11 +17,10 @@
                 {{-- <a class=" " href=""><i class="">input</i>Cerrar Sesion</a> --}}
                 <a  href="{{ route('logout') }}" role="button"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit()"
-                    class="d-flex justify-content-end btnLogout"
+                    class="d-flex justify-content-end btnLogout text-center"
                     >
-                    <i class="far fa-sign-out"></i>
+                    <i class="fas fa-sign-out-alt  mt-1"></i>
                        CERRAR SESION
-
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none" style="display: none">

@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-12 row-header">
                 <ul class="row tabs tabs-fixed-width">
-                    <li id="patentes-tab" class="tab  col-4"><a href="#patentes-tab">Patentes</a></li>
+                    <li id="patentes-tab" class="tab activo col-4"><a href="#patentes-tab">Patentes</a></li>
                     <li id="empresas-tab" class="tab  col-4"><a href="#empresas-tab">Empresas</a></li>
                     <li id="usuarios-tab" class="tab  col-4"><a href="#usuarios-tab">Usuarios</a></li>
                 </ul>

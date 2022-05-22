@@ -18,6 +18,22 @@
     text-align: center;
 }
 
+.activo{
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 48px;
+  width: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  white-space: nowrap;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  text-decoration: none ;
+  color: #000000;
+  font-weight: 400;
+}
 /* estilos para el encabezado
 del header para las tablas */
 /* .row-header {

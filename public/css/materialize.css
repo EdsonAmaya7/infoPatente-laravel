@@ -8315,7 +8315,7 @@
     background-position: center;
   }
   
-  .slider .slides li .caption {
+  .slider .slides lmi .caption {
     color: #fff;
     position: absolute;
     top: 15%;

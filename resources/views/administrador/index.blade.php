@@ -5,12 +5,13 @@
 @endsection
 
 @push('styles')
-<style>
-   
-  </style>
+    <style>
+
+    </style>
 @endpush
 
 @section('main')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
     {{-- <div class="contaier">
 
         <div class="row">
@@ -29,7 +30,6 @@
                 <div id="user-div" class="col" value=""></div>
             </div>
         </div>
-    </div>
     </div> --}}
     <div class="contaier">
 
@@ -42,18 +42,16 @@
                 </ul>
             </div>
 
-            <div class="row">
-                <div id="patentes-div" class="col" >  @include('partials.patentes-view')  </div>
-                <div id="empresas-div" class="col" >  @include('partials.empresas-view')  </div>
-                <div id="usuarios-div" class="col" >  @include("partials.usuarios-view")  </div>
+            <div class="row" width="100%">
+                <div id="patentes-div" class="col"> @include('partials.patentes-view') </div>
+                <div id="empresas-div" class="col"> @include('partials.empresas-view') </div>
+                <div id="usuarios-div" class="col"> @include('partials.usuarios-view') </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
 
 
 @push('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('js/usuarios/utilidades.js') }}" defer></script>
 @endpush

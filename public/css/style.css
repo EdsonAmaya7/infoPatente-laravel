@@ -2,19 +2,45 @@
     --rojoNavBar: rgb(213, 0, 0);
     --logout: rgb(255, 205, 210);
     --rowActive: rgba(238, 110, 115, 0.7);
+    --headerCard: #ffab91;
+
 }
 
 .fondoNavBar {
     background-color: var(--rojoNavBar);
     padding: 1rem 0;
 }
+.btnSalir{
+    background-color: var(--rowActive);
+}
+.color-headerCard{
+    background-color: var(--headerCard);
+    font-weight: 700;
+    font-size: medium;
+    padding: 1.4rem;
+    text-align: center;
 
+}
 .btnLogout {
     padding: 10px 13px;
     background-color: var(--logout);
     text-decoration: none;
     color: #000000;
     border-radius: 0.5rem;
+    text-align: center;
+}
+
+.btnLogin{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px 13px;
+    background-color: var(--rojoNavBar);
+    border:none;
+
+    text-decoration: none;
+    color: #FFF;
+    border-radius: 0.5rem;
+    width: 90%;
     text-align: center;
 }
 
@@ -34,6 +60,57 @@
   color: #000000;
   font-weight: 400;
 }
+
+
+
+/* animacion para los labels dentro de los input
+como en la pantalla de login */
+
+.wrapper {
+    display: block;
+    position: relative;
+}
+
+.wrapper input {
+    width: 100%;
+    color: black;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid black;
+    transition: .1s all linear;
+    padding: 10px 10px 12px 60px;
+}
+
+.wrapper label {
+    position: absolute;
+    top: 13px;
+    left: 15px;
+    font-size: 14px;
+    color: black;
+    transition: 300ms all linear;
+    cursor: text;
+}
+
+
+
+.item-label .wrapper.active input {
+    margin-left: 60px;
+}
+
+.item-label .wrapper.active label {
+    color: #fff;
+    font-weight: bold;
+    background: var(--rojoNavBar);
+    padding: 14px;
+    top: 0;
+    left: 0;
+}
+
+
+
+
+
+
 /* estilos para el encabezado
 del header para las tablas */
 /* .row-header {

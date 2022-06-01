@@ -26,7 +26,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>
     {{-- <script src="{{ asset('js/materialize.js') }}" ></script> --}}
-    <script src="{{ asset('js/materialize.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/materialize.min.js') }}"></script> -->
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -36,7 +36,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/materialize.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}"></script>
@@ -52,7 +52,7 @@
 
     <title> @yield('title') </title>
 
-    <link rel="icon" href="{{ asset('img/MARCAInfoPatente.jpg') }}">
+    <link rel="icon" href="{{ asset('img/check.ico') }}">
 
 
 
@@ -72,6 +72,6 @@
 <!-- Datatables Bootstrap 5-->
 <script src="{{ asset('lib/dataTables/datatables.bootstrap5.min.js') }}"></script> --}}
 
-@stack('scripts')
+@stack("scripts")
 
 </html>

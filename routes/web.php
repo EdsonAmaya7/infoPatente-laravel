@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\CecionariosController;
+use App\Http\Controllers\EmpresaController;
 // use phpDocumentor\Reflection\Types\Resource_;
 
 /*
@@ -21,7 +23,6 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -33,6 +34,8 @@ Route::get('/admin-view',[UsuariosController::class,'adminView'])->name('admin.v
 
 Route::resources([
     '/usuarios' => UsuariosController::class,
+    '/cecionarios'=>CecionariosController::class,
+    '/empresas' => EmpresaController::class,
 ]);
 
 

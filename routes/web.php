@@ -18,7 +18,7 @@ use App\Http\Controllers\UsuariosController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 
@@ -29,6 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // ruta para obtener los datos de todos los usuarios
 Route::get('/usuarios-get',[UsuariosController::class,'getUsuarios'])->name('getUsuarios');
+Route::get('/admin-view',[UsuariosController::class,'adminView'])->name('admin.view');
 
 Route::resources([
     '/usuarios' => UsuariosController::class,

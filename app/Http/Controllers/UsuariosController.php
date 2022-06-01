@@ -19,7 +19,7 @@ class UsuariosController extends Controller
     {
         //
 
-        return view('administrador.index');
+
     }
 
     /**
@@ -92,5 +92,11 @@ class UsuariosController extends Controller
         $data = usuarios::all();
 
         return DataTables()->of($data)->make(true);
+    }
+
+
+    public function adminView()
+    {
+        return view('administrador.index');
     }
 }

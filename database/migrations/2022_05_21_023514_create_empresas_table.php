@@ -23,7 +23,7 @@ class CreateEmpresasTable extends Migration
             $table->string('telefono');
             $table->string('nombre_sol');
             $table->string('email_sol');
-            $table->string('telegono_sol');
+            $table->string('telefono_sol');
             $table->timestamps();
         });
     }

@@ -18,8 +18,8 @@ class CreateRepresentantesTable extends Migration
             $table->string('nombre');
             $table->string('apellido_paterno');
             $table->string('apellido_materno');
-            $table->string('direccion1');
-            $table->string('direccion2');
+            $table->string('direccion_primaria');
+            $table->string('direccion_secundaria');
             $table->string('pais');
             $table->string('estado');
             $table->string('ciudad');

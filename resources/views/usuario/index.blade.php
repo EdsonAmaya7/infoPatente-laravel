@@ -70,10 +70,19 @@
         </div>
         <div class="card mt-3">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h5>Pagina 4</h5>
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img class="img-fluid rounded-start" src="{{ asset('img/Patentes.jpg') }}" alt="">
                     </div>
+                    <div class="col-md-8">
+                        <h5 class="card-title"><b>Paginas para conculta de patentes aplicadas</b></h5>
+                        <p class="card-text">Esta opción muestras distintas paginas en donde podras encontrar patentes ya registradas.
+                            Podras revisar en todas ellas y darte una idea de lo que ya esta patentado.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-footer border-success">
+                    <a href=""><i class="fas fa-calendar"></i> Paginas para revisar patentes registradas</a>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\CecionariosController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\PatentesController;
 // use phpDocumentor\Reflection\Types\Resource_;
 
 /*
@@ -29,20 +30,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 // ruta para obtener los datos de todos los usuarios
-Route::get('/usuarios-get',[UsuariosController::class,'getUsuarios'])->name('getUsuarios');
-Route::get('/admin-view',[UsuariosController::class,'adminView'])->name('admin.view');
+Route::get('/usuarios-get', [UsuariosController::class, 'getUsuarios'])->name('getUsuarios');
+Route::get('/admin-view', [UsuariosController::class, 'adminView'])->name('admin.view');
+Route::get('/patentes-view', [PatentesController::class, 'patentesView'])->name('patentes.view');
 
 Route::resources([
     '/usuarios' => UsuariosController::class,
-    '/cecionarios'=>CecionariosController::class,
+    '/cecionarios' => CecionariosController::class,
     '/empresas' => EmpresaController::class,
+    '/patentes' => PatentesController::class
 ]);
-
-
-
-
-
-
-
-
-

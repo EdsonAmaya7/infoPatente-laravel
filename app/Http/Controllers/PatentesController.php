@@ -15,6 +15,7 @@ class PatentesController extends Controller
     public function index()
     {
         //
+        return view('patentes.index');
     }
 
     /**
@@ -25,6 +26,7 @@ class PatentesController extends Controller
     public function create()
     {
         //
+        return view('patentes.create');
     }
 
     /**
@@ -47,6 +49,7 @@ class PatentesController extends Controller
     public function show(patentes $patentes)
     {
         //
+        return view('patentes.show');
     }
 
     /**
@@ -81,5 +84,10 @@ class PatentesController extends Controller
     public function destroy(patentes $patentes)
     {
         //
+    }
+
+    public function patentesView()
+    {
+        return view('patentes.patente-view');
     }
 }

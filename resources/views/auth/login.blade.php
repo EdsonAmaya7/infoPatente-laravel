@@ -20,8 +20,8 @@
                     @csrf
 
                     <div class="card-body">
-                        <div class="item item-label">
-                            <div class="wrapper mb-3">
+                        <div class="item item-label mb-2">
+                            <div class="wrapper mb-4 mt-4">
                                 <label for="">Correo</label>
                                 <input id="email" type="email" class="form-control   @error('email') is-invalid @enderror"
                                     name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -45,8 +45,8 @@
                                 </span>
                             @enderror
                         </div> --}}
-                        <div class="item item-label">
-                            <div class="wrapper">
+                        <div class="item item-label mb-2">
+                            <div class="wrapper mb-4 ">
                                 <label for="" id="password">Contraseña</label>
                                 <input id="password" type="password"
                                     class="form-control form-control-sm  @error('password') is-invalid @enderror" name="password" id="el4"
@@ -64,8 +64,8 @@
                             </button>
                         </div>
                         @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
+                            <a class="btn btn-link mt-5" href="{{ route('password.request') }}">
+                               olvide mi contraseña
                             </a>
                         @endif
                     </div>
@@ -75,23 +75,25 @@
 
         <div class="col-sm-12 col-md-6">
 
-            <div class="p-3">
-                <div class="card">
+            <div class="">
+                <div class="card p-4">
                     <div class="card-content" style="overflow-y: auto; max-height: 80vh;">
-                        <div class="row">
+                        {{-- <div class="row"> --}}
 
-                            <div class="col-md-6">
-                                <span class="card-title text-center">¿Que es Infopatente?</span>
+                            {{-- <div class="col-md-6"> --}}
+                            <div class="text-center mb-3">
+                                <h2 class="card-title text-center">¿Que es Infopatente?</h2>
                             </div>
 
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6"> --}}
+                            <div class="ms-1">
                                 <h6><b>Infopatente es un sistema para el apoyo al registro de patentes.<br>
                                         Los servicios que proporciona son los siguientes:</b></h6>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <h6><b>Guía estructurada para el llenado de información general de la patente.</b></h6>
+                        {{-- </div> --}}
+                        <div class="row ms-2">
+                            <div class="col-md-6 ms-2">
+                                <h6 class="ms-2"><b>Guía estructurada para el llenado de información general de la patente.</b></h6>
                                 <ul>
                                     <li><i class="fas fa-check"></i> Titulo de la patente</li>
                                     <li><i class="fas fa-check"></i> Numero de Autores</li>
@@ -103,7 +105,7 @@
                                     <li><i class="fas fa-check"></i> Solicitante</li>
                                 </ul>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <h6><b>Apoyo en la redacción de la Solicitud de Patente.</b></h6>
                                 <ul>
                                     <li><i class="fas fa-check"></i> Resumen de la invención</li>
@@ -119,14 +121,14 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <h6><b>Informacion administrativa.</b></h6>
                                 <ul>
                                     <li><i class="fas fa-check"></i> Acceso al sistema de internet PASE del
                                         IMPI</li>
                                 </ul>
                             </div>
-                            <div class=" col-6">
+                            <div class=" col-md-6">
                                 <h6><b>Búsqueda de Arte Previo relacionado.</b></h6>
                                 <ul>
                                     <li><i class="fas fa-check"></i> Descripción del proceso de búsqueda</li>

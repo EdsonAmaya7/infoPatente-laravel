@@ -15,7 +15,7 @@
             </div>
             <div class="col-md-2 mt-4" style="text-align: center">
                 {{-- <a class=" " href=""><i class="">input</i>Cerrar Sesion</a> --}}
-                
+
                 <i class="fas fa-user-plus fa-4x" style="color:white"></i>
             </div>
         </div>

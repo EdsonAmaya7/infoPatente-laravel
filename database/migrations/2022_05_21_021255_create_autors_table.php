@@ -25,6 +25,7 @@ class CreateAutorsTable extends Migration
             $table->string('ciudad');
             $table->string('cp');
             $table->string('nombre_patente');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

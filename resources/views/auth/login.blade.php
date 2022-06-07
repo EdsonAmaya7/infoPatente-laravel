@@ -49,7 +49,7 @@
                             <div class="wrapper">
                                 <label for="" id="password">Contraseña</label>
                                 <input id="password" type="password"
-                                    class="form-control  @error('password') is-invalid @enderror" name="password" id="el4"
+                                    class="form-control form-control-sm  @error('password') is-invalid @enderror" name="password" id="el4"
                                     required autocomplete="current-password">
                             </div>
                             @error('password')

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaginasTable extends Migration
+class CreateBusquedasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreatePaginasTable extends Migration
      */
     public function up()
     {
-        Schema::create('paginas', function (Blueprint $table) {
+        Schema::create('busquedas', function (Blueprint $table) {
             $table->id();
+            $table->string('palabra');
+            $table->foreignId('pagina_id')->references('id')->on('paginas');
+            $table->foreignId('usuario_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreatePaginasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paginas');
+        Schema::dropIfExists('busquedas');
     }
 }

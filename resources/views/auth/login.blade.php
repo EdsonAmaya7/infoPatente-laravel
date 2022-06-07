@@ -21,7 +21,7 @@
 
                     <div class="card-body">
                         <div class="item item-label">
-                            <div class="wrapper">
+                            <div class="wrapper mb-3">
                                 <label for="">Correo</label>
                                 <input id="email" type="email" class="form-control   @error('email') is-invalid @enderror"
                                     name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -33,7 +33,7 @@
                             @enderror
                         </div>
 
-                        <div class="item item-label">
+                        {{-- <div class="item item-label">
                             <div class="wrapper">
                                 <label for="">correo</label>
                                 <input id="password" type="password" class="" name="password" required
@@ -44,10 +44,10 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div class="item item-label">
                             <div class="wrapper">
-                                <label for="">Contraseña</label>
+                                <label for="" id="password">Contraseña</label>
                                 <input id="password" type="password"
                                     class="form-control  @error('password') is-invalid @enderror" name="password" id="el4"
                                     required autocomplete="current-password">
@@ -58,8 +58,8 @@
                                 </span>
                             @enderror
                         </div>
-                        <div class="d-flex align-center">
-                            <button type="submit" class="  btnLogin">
+                        <div class="d-flex align-center mt-3">
+                            <button type="submit" class="btnLogin">
                                 INICIAR SESION
                             </button>
                         </div>

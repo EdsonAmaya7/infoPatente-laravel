@@ -1,4 +1,4 @@
-@extends('layouts.base_html')
+@extends('layouts.headerAdmin')
 
 @section('title')
     Sistema de patentes - Administrador

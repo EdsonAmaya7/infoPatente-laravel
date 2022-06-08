@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class PatentesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['verified']);
+    }
     /**
      * Display a listing of the resource.
      *

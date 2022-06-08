@@ -24,8 +24,13 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes();
-
+/* verificar las rutas con el emial confirmado */
+Auth::routes(['verify' => true]);
+// proteger las rutas del controlador con
+/* public function __construct()
+{
+    $this->middleware(['verified']);
+} */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

@@ -19,15 +19,15 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('tipo');
-            $table->string('empresa');
+            $table->string('tipo_usuario');
+            // $table->string('empresa');
             $table->string('num_identificacion');
             $table->string('apellido_paterno');
             $table->string('apellido_materno');
             $table->string('cp');
             $table->string('telefono');
-            $table->string('estatus');
-            $table->rememberToken(); 
+            $table->string('estatus')->default(0);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -7,14 +7,15 @@
             <div class="  col-md-2 ">
                 <img src={{ asset('img/MARCAInfoPatente.jpg') }} class="img-fluid">
             </div>
-            <div class=" col-md-8">
+            <div class="mt-3 col-md-8">
                 <h3 class="text-center" style="color: white">InfoPatente</h5>
-                    <h5 class="text-center" style="color: white">Sistema de apoyo en el Registro de Patentes</h6>
+                    @yield('subtitulo')
             </div>
             <div class=" col-md-2 " style="text-align: center">
                 {{-- <a class=" " href=""><i class="">input</i>Cerrar Sesion</a> --}}
 
-                <i class="fas fa-user-plus fa-4x" style="color:white"></i>
+                @yield('menuNavBar')
+
             </div>
         </div>
     </div>

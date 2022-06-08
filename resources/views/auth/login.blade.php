@@ -10,6 +10,15 @@
     </style>
 @endpush
 
+@section('subtitulo')
+<h5 class="text-center" style="color: white">Sistema de apoyo en el Registro de Patentes</h6>
+@endsection
+@section('menuNavBar')
+<a href="{{ route('register') }}">
+    <i class="fas fa-user-plus fa-4x" style="color:white"></i>
+</a>
+@endsection
+
 @section('main')
     <div class="row">
         <div class="col-sm-12 col-md-6 ">

@@ -69,10 +69,17 @@
 
 .enlaces{
  color: #000;
-text-decoration: none;
-list-style: none !important;
+ text-decoration: none;
 }
 
+.inputTabla {
+    border: 0 !important;
+    border-radius: 0 !important;
+    outline: none;
+    background-color: rgba(238, 238, 238, 0.2);
+    width: 90px;
+    text-align: center;
+}
 .tabs .tab a:hover, .tabs .tab a.active {
   text-decoration: none ;
   color: #000000;

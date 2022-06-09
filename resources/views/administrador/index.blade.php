@@ -6,39 +6,27 @@
 
 @push('styles')
     <style>
-
-         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
+        <link rel="stylesheet"type="text/css"href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
+        /* <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/><link rel="stylesheet"href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/><link rel="stylesheet"href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css"/> */
     </style>
 @endpush
 
 @section('main')
-    {{-- <div class="contaier">
 
-        <div class="row">
-            <div class="col-12">
-                <ul class="row tabs tabs-fixed-width ">
-                    <li id="patentes-tab" class="col"><a href="#patentes-tab">Patentes</a></li>
-                    <li id="empresas-tab" class="col"><a href="#empresas-tab">Empresas</a></li>
-                    <li id="usuarios-tab" class="col"><a href="#usuarios-tab">Usuarios</a></li>
-                </ul>
-            </div>
-
-
-            <div class="row">
-                <div class="col"></div>
-                <div class="col"></div>
-                <div id="user-div" class="col" value=""></div>
-            </div>
-        </div>
-    </div> --}}
     <div class="contaier">
 
         <div class="row d-flex flex-row align-items-center justify-content-center">
             <div class="col-12 ">
                 <ul class="row mt-3 activo tabs tabs-fixed-width">
-                    <li id="patentes-tab" class="col-4"><a href="#patentes-tab" class="enlaces m-0 p-2 d-flex justify-content-center align-items-center text-black">Patentes</a></li>
-                    <li id="empresas-tab" class="col-4"><a href="#empresas-tab" class="enlaces m-0 p-2 d-flex justify-content-center align-items-center text-black">Empresas</a></li>
-                    <li id="usuarios-tab" class="col-4"><a href="#usuarios-tab" class="enlaces m-0 p-2 d-flex justify-content-center align-items-center text-black">Usuarios</a></li>
+                    <li id="patentes-tab" class="list-unstyled  col-4"><a href="#patentes-tab"
+                            class="enlaces m-0 p-2 d-flex justify-content-center align-items-center text-black">Patentes</a>
+                    </li>
+                    <li id="empresas-tab" class="list-unstyled  col-4"><a href="#empresas-tab"
+                            class="enlaces m-0 p-2 d-flex justify-content-center align-items-center text-black">Empresas</a>
+                    </li>
+                    <li id="usuarios-tab" class="list-unstyled  col-4"><a href="#usuarios-tab"
+                            class="enlaces m-0 p-2 d-flex justify-content-center align-items-center text-black">Usuarios</a>
+                    </li>
                 </ul>
             </div>
 
@@ -53,5 +41,9 @@
 
 
 @push('scripts')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('js/usuarios/utilidades.js') }}" defer></script>
+    <script>
+        window.CSRF_TOKEN = '{{ csrf_token() }}';
+    </script>
 @endpush

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\usuarios;
 use Illuminate\Http\Request;
 
@@ -84,14 +85,17 @@ class UsuariosController extends Controller
      * @param  \App\Models\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(usuarios $usuarios)
+    public function destroy(int $id)
     {
         //
+        $usuario = User::find($id)->delete();
+
+        // return redirect()->back();
+        return response()->json($usuario);
     }
 
     public function getUsuarios(){
-        $data = usuarios::all();
-
+        $data = User::all();
         return DataTables()->of($data)->make(true);
     }
 

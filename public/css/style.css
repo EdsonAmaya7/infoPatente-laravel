@@ -54,6 +54,24 @@
   margin: 0 auto;
   white-space: nowrap;
 }
+.activoSeleccionad{
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 48px;
+  width: 100%;
+  background-color:var(--rowActive);
+  opacity: 20%;
+  margin: 0 ;
+  white-space: nowrap;
+  border-bottom: 3px solid #000000 !important;
+}
+
+.enlaces{
+ color: #000;
+text-decoration: none;
+list-style: none !important;
+}
 
 .tabs .tab a:hover, .tabs .tab a.active {
   text-decoration: none ;

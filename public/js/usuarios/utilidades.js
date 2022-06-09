@@ -24,6 +24,15 @@ function seleccionarPatentesTab(e) {
     patentesDiv.style.display = "inline"
     empresasDiv.style.display = "none"
     usuariosDiv.style.display = "none"
+
+    patentesTab.classList.add('activoSeleccionad')
+
+    if (usuariosTab.classList.contains('activoSeleccionad')) {
+        usuariosTab.classList.remove('activoSeleccionad')
+    }
+     if (empresasTab.classList.contains('activoSeleccionad')) {
+        empresasTab.classList.remove('activoSeleccionad')
+    }
 }
 
 function seleccionarEmpresasTab(e) {
@@ -33,6 +42,14 @@ function seleccionarEmpresasTab(e) {
     empresasDiv.style.display = "inline"
     patentesDiv.style.display = "none"
     usuariosDiv.style.display = "none"
+
+    empresasTab.classList.add('activoSeleccionad')
+
+    if (usuariosTab.classList.contains('activoSeleccionad')) {
+        usuariosTab.classList.remove('activoSeleccionad')
+    } else if (patentesTab.classList.contains('activoSeleccionad')) {
+        patentesTab.classList.remove('activoSeleccionad')
+    }
 }
 
 function seleccionarUsuariosTab(e) {
@@ -42,4 +59,12 @@ function seleccionarUsuariosTab(e) {
     patentesDiv.style.display = "none"
     empresasDiv.style.display = "none"
     usuariosDiv.style.display = "inline"
+
+    usuariosTab.classList.add('activoSeleccionad')
+
+    if (empresasTab.classList.contains('activoSeleccionad')) {
+        empresasTab.classList.remove('activoSeleccionad')
+    } else if (patentesTab.classList.contains('activoSeleccionad')) {
+        patentesTab.classList.remove('activoSeleccionad')
+    }
 }

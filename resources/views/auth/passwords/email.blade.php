@@ -1,11 +1,29 @@
-@extends('layouts.app')
+@extends('layouts.headerAdmin')
 
-@section('content')
-<div class="container">
+@section('title')
+    Sistema de patentes - Administrador
+@endsection
+
+@push('styles')
+    <style>
+
+    </style>
+@endpush
+
+@section('subtitulo')
+    <h5 class="text-center mt-3" style="color: white">Recuperacion de Contraseña</h6>
+    @endsection
+
+    @section('menuNavBar')
+       
+    @endsection
+
+@section('main')
+<div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header">Recuperar Cuenta</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,7 +36,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end">Direcció de Correo</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -33,7 +51,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-backgorund">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>

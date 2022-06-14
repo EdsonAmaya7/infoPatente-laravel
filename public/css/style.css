@@ -126,3 +126,33 @@ como en la pantalla de login */
     font-weight: bold;
     top: -25px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-backgorund{
+    background-color: var(--headerCard);
+    padding: 6 8;
+    color: white;
+}
+.btn-backgorund:hover{
+    background-color: var(--rowActive);
+    padding: 9 12;
+    color: white;
+}

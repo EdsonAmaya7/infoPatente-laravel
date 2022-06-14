@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmpresaRequest;
 use App\Models\empresa;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,7 @@ class EmpresaController extends Controller
     public function create()
     {
         //
+        return view('empresas.create');
     }
 
     /**
@@ -33,9 +35,13 @@ class EmpresaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmpresaRequest $request)
     {
         //
+        $validated = $request->validated();
+        $empresa = empresa::create($validated);
+        
+        return redirect()->route('empresas.create')->with(['mensaje'=>'Empresa Agregada Exitosamente']);
     }
 
     /**

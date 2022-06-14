@@ -126,3 +126,9 @@ como en la pantalla de login */
     font-weight: bold;
     top: -25px;
 }
+
+.img-patents{
+    width: 40%;
+    height: auto;
+    object-fit: cover
+}

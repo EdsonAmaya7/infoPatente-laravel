@@ -1,4 +1,4 @@
-@extends('layouts.base_html')
+@extends('layouts.headerPatente')
 
 @section('title')
     Sistema de patentes - Administrador
@@ -15,12 +15,20 @@
         <div class="card mt-3">
             <div class="card-body">
                 <div class="row g-0">
-                    <div class="col-md-4">
-                        <img class="img-fluid rounded-start" style="max-height: 100%;" src="{{ asset('img/OficinaDePatentesAmericana.png') }}" alt="">
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <img class="img-fluid rounded-start img-patents"
+                            src="{{ asset('img/OficinaDePatentesAmericana.png') }}" alt="">
                     </div>
                     <div class="col-md-8">
-                        <h5 class="card-title">Oficina de patentes Americana</h5>
-                        <p class="card-text"></p>
+                        <h4 class="card-title"><b>Oficina de patentes Americana</b></h4>
+                        <div class="item item-label mb-5">
+                            <div class="wrapper mt-4">
+                                <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
+                                <input id="word_american_patent" type="word_american_patent" class="form-control"
+                                    name="word_american_patent" value="{{ old('word_american_patent') }}" required
+                                    style="width: 90%;">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card-footer border-success">
@@ -38,58 +46,173 @@
         <div class="card mt-3">
             <div class="card-body">
                 <div class="row g-0">
-                    <div class="col-md-4">
-                        <img class="img-fluid rounded-start" src="{{ asset('img/UltimaPatenteAplicada.jpg') }}" alt="">
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <img class="img-fluid rounded-start" src="{{ asset('img/wipo.png') }}" alt=""
+                            style="width: 80%; height: auto; object-fit: cover">
                     </div>
                     <div class="col-md-8">
-                        <h5 class="card-title"><b>Ultima Patente Aplicada</b></h5>
-                        <p class="card-text">En esta opción puede continuar trabajando en la última solicitud de
-                            patente en la que trabajó en el sistema. Podra editar la informacion que haya llenado con
-                            anterioridad</p>
+                        <h4 class="card-title"><b>WIPO</b></h4>
+                        <div class="item item-label mb-5">
+                            <div class="wrapper mt-4">
+                                <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
+                                <input id="word_wipo_patent" type="word_wipo_patent" class="form-control"
+                                    name="word_wipo_patent" value="{{ old('word_wipo_patent') }}" required
+                                    style="width: 90%;">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card-footer border-success">
-                    <a href="{{ route('patentes.show', 1) }}"><i class="fas fa-calendar"></i> Consultar Ultima Patente
-                        Aplicada</a>
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <button class="btn btn-success">Wipo</button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img class="img-fluid rounded-start img-patents" src="{{ asset('img/spacenet.jpg') }}" alt=""
+                                style="width: 80%; height: auto; object-fit: cover">
+                        </div>
+                        <div class="col-md-8">
+                            <h4 class="card-title"><b>SpaceNet</b></h4>
+                            <div class="item item-label mb-5">
+                                <div class="wrapper mt-4">
+                                    <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
+                                    <input id="word_spacenet_patent" type="word_spacenet_patent" class="form-control"
+                                        name="word_spacenet_patent" value="{{ old('word_spacenet_patent') }}" required
+                                        style="width: 90%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-success">
+                        <div class="row">
+                            <div class="col-md-6 text-center">
+                                <button class="btn btn-success">SpaceNet</button>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img class="img-fluid rounded-start" src="{{ asset('img/Oficina_espaniola.png') }}" alt=""
+                                style="width: 80%; height: auto; object-fit: cover">
+                        </div>
+                        <div class="col-md-8">
+                            <h4 class="card-title"><b>Oficina Española</b></h4>
+                            <div class="item item-label mb-5">
+                                <div class="wrapper mt-4">
+                                    <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
+                                    <input id="word_espaniola_patent" type="word_espaniola_patent" class="form-control"
+                                        name="word_espaniola_patent" value="{{ old('word_espaniola_patent') }}" required
+                                        style="width: 90%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-success">
+                        <div class="row">
+                            <div class="col-md-6 text-center">
+                                <button class="btn btn-success">Oficina española</button>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img class="img-fluid rounded-start" src="{{ asset('img/IMPI.jpg') }}" alt=""
+                                style="width: 80%; height: auto; object-fit: cover">
+                        </div>
+                        <div class="col-md-8">
+                            <h4 class="card-title"><b>IMPI</b></h4>
+                            <div class="item item-label mb-5">
+                                <div class="wrapper mt-4">
+                                    <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
+                                    <input id="impi" type="impi" class="form-control" name="impi"
+                                        value="{{ old('impi') }}" required style="width: 90%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-success">
+                        <div class="row">
+                            <div class="col-md-6 text-center">
+                                <button class="btn btn-success">IMPI</button>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img class="img-fluid rounded-start" src="{{ asset('img/googlePatents.jpg') }}" alt=""
+                                style="width: 80%; height: auto; object-fit: cover">
+                        </div>
+                        <div class="col-md-8">
+                            <h4 class="card-title"><b>Google patents</b></h4>
+                            <div class="item item-label mb-5">
+                                <div class="wrapper mt-4">
+                                    <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
+                                    <input id="word_google_patent" type="word_google_patent" class="form-control"
+                                        name="word_google_patent" value="{{ old('word_google_patent') }}" required
+                                        style="width: 90%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-success">
+                        <div class="row">
+                            <div class="col-md-6 text-center">
+                                <button class="btn btn-success">Google</button>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card mt-3">
-            <div class="card-body">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img class="img-fluid rounded-start" src="{{ asset('img/PatentesAplicadas.jpg') }}" alt="">
-                    </div>
-                    <div class="col-md-8">
-                        <h5 class="card-title"><b>Consultar Patentes Aplicadas</b></h5>
-                        <p class="card-text">Esta opción enumera todas las solicitudes de patentes que se encuentran en
-                            el sistema. Le muestra la lista y el estado actual de cada aplicación y le permite elegir qué
-                            aplicaciones desea ver ahora.</p>
-                    </div>
-                </div>
-                <div class="card-footer border-success">
-                    <a href="{{ route('patentes.index') }}"><i class="fas fa-calendar"></i> Consultar Patentes Aplicadas</a>
-                </div>
-            </div>
-        </div>
-        <div class="card mt-3">
-            <div class="card-body">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img class="img-fluid rounded-start" src="{{ asset('img/Patentes.jpg') }}" alt="">
-                    </div>
-                    <div class="col-md-8">
-                        <h5 class="card-title"><b>Paginas para conculta de patentes aplicadas</b></h5>
-                        <p class="card-text">Esta opción muestras distintas paginas en donde podras encontrar patentes
-                            ya registradas.
-                            Podras revisar en todas ellas y darte una idea de lo que ya esta patentado.
-                        </p>
-                    </div>
-                </div>
-                <div class="card-footer border-success">
-                    <a href=""><i class="fas fa-calendar"></i> Paginas para revisar patentes registradas</a>
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+    @endsection
+
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                $('input').each(function() {
+                    $(this).on('focus', function() {
+                        $(this).parent('.wrapper').addClass('active');
+                    });
+                    $(this).on('blur', function() {
+                        if ($(this).val().length === 0) {
+                            $(this).parent('.wrapper').removeClass('active');
+                        }
+                    });
+                    if ($(this).val() !== '') $(this).parent('.wrapper').addClass('active');
+                });
+            });
+        </script>
+    @endpush

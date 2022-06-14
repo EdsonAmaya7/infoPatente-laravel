@@ -7,6 +7,7 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\CecionariosController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PatentesController;
+use App\Http\Controllers\PaginasController;
 // use phpDocumentor\Reflection\Types\Resource_;
 
 /*
@@ -38,6 +39,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/usuarios-get', [UsuariosController::class, 'getUsuarios'])->name('getUsuarios');
 Route::get('/admin-view', [UsuariosController::class, 'adminView'])->name('admin.view');
 Route::get('/patentes-view', [PatentesController::class, 'patentesView'])->name('patentes.view');
+Route::get('/paginasPatente-view', [PaginasController::class, 'paginasPatenteView'])->name('paginasPatente.view');
 
 Route::resources([
     '/usuarios' => UsuariosController::class,

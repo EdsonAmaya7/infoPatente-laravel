@@ -82,4 +82,9 @@ class PaginasController extends Controller
     {
         //
     }
+
+    public function paginasPatenteView()
+    {
+        return view('patentes.paginasPatente-view');
+    }
 }

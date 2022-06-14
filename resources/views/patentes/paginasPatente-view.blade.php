@@ -16,19 +16,22 @@
             <div class="card-body">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img class="img-fluid rounded-start" src="{{ asset('img/NuevaAplicacion.jpg') }}" alt="">
+                        <img class="img-fluid rounded-start" style="max-height: 100%;" src="{{ asset('img/OficinaDePatentesAmericana.png') }}" alt="">
                     </div>
                     <div class="col-md-8">
-                        <h5 class="card-title">Nueva Aplicacion</h5>
-                        <p class="card-text">Esta opción implica iniciar la entrada de datos para una nueva solicitud de
-                            patente. Debes tener el título de la patente, así como el número e información de los
-                            inventores, así como el tipo de patente
-                            solicitada.<br> Por otro lado, el sistema le permite guardar la información en cualquier momento
-                            y luego retroceder y continuar o cambiar los adtos que proporcionó.</p>
+                        <h5 class="card-title">Oficina de patentes Americana</h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
                 <div class="card-footer border-success">
-                    <a href="{{ route('patentes.create') }}"><i class="fas fa-plus"></i> Crear Nueva Aplicación</a>
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <button class="btn btn-success">Oficina de patentes Americana</button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -84,8 +87,7 @@
                     </div>
                 </div>
                 <div class="card-footer border-success">
-                    <a href="{{ route('paginasPatente.view') }}"><i class="fas fa-calendar"></i> Paginas para revisar
-                        patentes registradas</a>
+                    <a href=""><i class="fas fa-calendar"></i> Paginas para revisar patentes registradas</a>
                 </div>
             </div>
         </div>

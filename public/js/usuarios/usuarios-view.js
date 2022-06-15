@@ -17,9 +17,12 @@ async function getEmpresas()
   acc[opt.id] = opt.nombre;
   return acc;
 }, {})
-console.log(JSON.stringify(empresasJson))
+// console.log(JSON.stringify(empresasJson))
+empresasJson =JSON.stringify(empresasJson)
+console.log(empresasJson)
+return  empresasJson
 }
-getEmpresas()
+// getEmpresas()
 
 addEventListener('DOMContentLoaded',() =>{
 let tablausuario = $('#tabla-usuarios').DataTable({
@@ -95,7 +98,7 @@ let tablausuario = $('#tabla-usuarios').DataTable({
                 editable: [
                     [1, 'tipo_usuario'],
                     [2, 'empresa_id', '{"1":"N/A","2":"uadec","3":"tec"}' ],
-                    // [2, 'empresa_id', empresasJson ],
+                    [2, 'empresa_id', getEmpresas() ],
                     [3, 'num_identificacion'],
                     [4, 'name'],
                     [5, 'email'],

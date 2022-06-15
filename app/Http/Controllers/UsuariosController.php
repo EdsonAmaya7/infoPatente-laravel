@@ -42,7 +42,15 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //actualizar los registros del usuario 
+        /* por medio de table edits */
+        $usuario = User::findOrFail($request->id);
+        $request->request->remove("id");
+        $request->request->remove("action");
+        $usuario->fill($request->all());
+        $usuario->save();
+
+        return response()->json('Actualizado con exito');                                         
     }
 
     /**
@@ -77,6 +85,7 @@ class UsuariosController extends Controller
     public function update(Request $request, usuarios $usuarios)
     {
         //
+        dd('si llega');
     }
 
     /**

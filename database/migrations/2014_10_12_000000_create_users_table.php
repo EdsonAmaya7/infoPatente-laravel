@@ -27,6 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('cp');
             $table->string('telefono');
             $table->string('estatus')->default(0);
+            $table->softDeletes();
+
             $table->rememberToken();
             $table->timestamps();
         });

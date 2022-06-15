@@ -11,6 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- tabledit -->
+    {{-- <script src="{{ asset('js/jquery-tabledit-1.2.3/jquery.tabledit.min.js')}}" ></script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

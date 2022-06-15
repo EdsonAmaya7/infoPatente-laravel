@@ -9,7 +9,8 @@
           {{-- <table class="table table-striped table-bordered dt-responsive nowrap" id="tabla-usuarios"> --}}
           <table class="table " id="tabla-usuarios">
             <thead>
-              {{-- <th>Id</th> --}}
+
+              <th>id</th>
               <th>Tipo</th>
               <th>Empresa</th>
               <th>Matricula</th>

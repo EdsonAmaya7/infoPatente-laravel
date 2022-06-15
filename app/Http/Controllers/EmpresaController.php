@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EmpresaRequest;
 use App\Models\empresa;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class EmpresaController extends Controller
 {
@@ -87,5 +88,11 @@ class EmpresaController extends Controller
     public function destroy(empresa $empresa)
     {
         //
+    }
+
+    public function getEmpresas()
+    {
+        $data = empresa::all('id','nombre');
+        return DataTables()->of($data)->make(true);
     }
 }

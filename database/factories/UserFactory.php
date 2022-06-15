@@ -26,8 +26,17 @@ class UserFactory extends Factory
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => '$2y$10$BP.GFgxtFmfhRYHoks6v5eMNyVPcriHq8S/IWW36gPFOZC0BcplkG', // password
             'remember_token' => Str::random(10),
+            'tipo_usuario' => $this->faker->randomElement(['Alumno','Profesor','Abogado','Investigador Independiente','Trabajador de empresa']),
+            'num_identificacion' => $this->faker->randomElement([122,233,23,243,253]),
+            'apellido_paterno' => $this->faker->lastName,
+            'apellido_materno' => $this->faker->lastName,
+            'cp' => Str::random(4),
+            'telefono' => Str::random(8),
+            'estatus' => $this->faker->randomElement([0,1]),
+            'empresa_id' => $this->faker->randomElement([1,2,3]),
+
         ];
     }
 }

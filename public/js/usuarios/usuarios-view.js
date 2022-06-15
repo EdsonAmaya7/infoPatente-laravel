@@ -1,35 +1,47 @@
 
+let empresas = {}
+let empresasJson = {}
 
+
+
+async function getEmpresas()
+{
+    let url= route('getEmpresas');
+    let init = {
+        method: "get",
+    };
+    let req = await fetch(url,init);
+    let { data } = await req.json();
+    empresas = data
+ empresasJson = empresas.reduce((acc, opt, index) => {
+  acc[opt.id] = opt.nombre;
+  return acc;
+}, {})
+console.log(JSON.stringify(empresasJson))
+}
+getEmpresas()
+
+addEventListener('DOMContentLoaded',() =>{
 let tablausuario = $('#tabla-usuarios').DataTable({
     language: {
         url: "https://cdn.datatables.net/plug-ins/1.11.4/i18n/es_es.json",
     },
-
     scrollY: "300px",
     scrollX: "500px",
     scrollCollapse: true,
     info: false,
-    // searching: true,
     paging: false,
-    // ordering: true,
     autoWidth: true,
     responsive: true,
-    // "bLengthChange": false,
     ajax: {
         url: route('getUsuarios'),
         type: "get",
     },
-    columns: [ //tipo empresa matricula nombrecompleto(concatenarvalores) correo telefono fechamodificacion acciones
-        // { data: "id" },
+    columns: [
+        { data: "id" },
         { data: "tipo_usuario" },
         { data: "empresa_id" },
-        { data: "num_identificacion",
-            render: function(data,type,row){
-                console.log(row)
-                return `<input
-                id="num_identificacion${row.id}" class="inputTabla" value="${row.num_identificacion}">`
-
-            } },
+        { data: "num_identificacion" },
         { data: "name" },
         { data: "email" },
         { data: "telefono" },
@@ -57,7 +69,50 @@ let tablausuario = $('#tabla-usuarios').DataTable({
             </div>`
             }
         },
-    ]
+    ],
+    // columnDefs: [
+    //     {
+    //         target: 1,
+    //         visible: false,
+    //         searchable: false,
+    //     }
+    // ],
+
+    drawCallback: function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': window.CSRF_TOKEN
+            }
+        });
+        $('#tabla-usuarios').Tabledit({
+
+            url: route('usuarios.store'),
+            editButton: false,
+            deleteButton: false,
+            hideIdentifier: true,
+            columns: {
+                identifier: [0, 'id'],
+                editable: [
+                    [1, 'tipo_usuario'],
+                    [2, 'empresa_id', '{"1":"N/A","2":"uadec","3":"tec"}' ],
+                    // [2, 'empresa_id', empresasJson ],
+                    [3, 'num_identificacion'],
+                    [4, 'name'],
+                    [5, 'email'],
+                    [6, 'telefono'],
+                    [7, 'name'],
+                ],
+                onSuccess(data, textStatus, jqXHR) {
+                    // console.log("SIU");
+                }
+            }
+        })
+
+
+
+    },
+
+})
 })
 
 async function deleteUsuario(id) {

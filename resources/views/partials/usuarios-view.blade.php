@@ -1,5 +1,5 @@
 
-          <div class="container-sm ms-5 me-5  p-5 mt-3 card 
+          <div class="container-fluid ms-5 me-5  p-5 mt-3 card 
           d-flex justofy-content-center">
 
               <div class="d-flex justify-content-center">
@@ -9,7 +9,6 @@
           {{-- <table class="table table-striped table-bordered dt-responsive nowrap" id="tabla-usuarios"> --}}
           <table class="table " id="tabla-usuarios">
             <thead>
-
               <th>id</th>
               <th>Tipo</th>
               <th>Empresa</th>

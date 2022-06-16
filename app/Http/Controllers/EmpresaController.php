@@ -92,7 +92,7 @@ class EmpresaController extends Controller
 
     public function getEmpresas()
     {
-        $data = empresa::all('id','nombre');
+        $data = empresa::all();
         return DataTables()->of($data)->make(true);
     }
 }

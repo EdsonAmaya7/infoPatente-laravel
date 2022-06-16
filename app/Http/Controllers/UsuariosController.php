@@ -104,7 +104,7 @@ class UsuariosController extends Controller
     }
 
     public function getUsuarios(){
-        $data = User::all();
+        $data = User::with('empresa');
         return DataTables()->of($data)->make(true);
     }
 

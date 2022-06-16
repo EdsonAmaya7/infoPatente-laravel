@@ -1,13 +1,13 @@
-<div class="container-sm ms-5 me-5  p-5 mt-3 card
+<div class="container-fluid ms-5 me-5  p-5 mt-3 card
 d-flex justofy-content-center">
 
     <div class="d-flex justify-content-center">
         <h4>Empresas Registradas</h4>
     </div>
-    <div class=" card-body d-flex flex-column justify-content-center align-items-center row">
+    <div class=" card-body ">
         <table class="responsive-table" style="width: 100%;" id="tabla-empresas">
             <thead>
-                <th>ID</th>
+                <th>id</th>
                 <th>Nombre</th>
                 <th>Representante legal</th>
                 <th>Direccion 1</th>
@@ -22,3 +22,11 @@ d-flex justofy-content-center">
 </div>
 {{-- <script src="js/empresas-view.js"></script> --}}
 </section>
+
+
+@push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+
+<script src="{{ asset('js/empresas/empresas-view.js') }}" defer></script>
+@endpush

@@ -1,4 +1,4 @@
-<div class="container-sm ms-5 me-5  p-5 mt-3 card
+<div class="container-fluid ms-5 me-5  p-5 mt-3 card
 d-flex justofy-content-center">
 
     <div class="d-flex justify-content-center">

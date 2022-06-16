@@ -13,6 +13,7 @@ async function getEmpresas()
     let req = await fetch(url,init);
     let { data } = await req.json();
     empresas = data
+
  empresasJson = empresas.reduce((acc, opt, index) => {
   acc[opt.id] = opt.nombre;
   return acc;
@@ -43,7 +44,10 @@ let tablausuario = $('#tabla-usuarios').DataTable({
     columns: [
         { data: "id" },
         { data: "tipo_usuario" },
-        { data: "empresa_id" },
+        { data: "empresa.nombre",
+    render: function(nombre){
+        return nombre;
+    } },
         { data: "num_identificacion" },
         { data: "name" },
         { data: "email" },
@@ -92,13 +96,13 @@ let tablausuario = $('#tabla-usuarios').DataTable({
             url: route('usuarios.store'),
             editButton: false,
             deleteButton: false,
-            hideIdentifier: true,
+            hideIdentifier: false,
             columns: {
                 identifier: [0, 'id'],
                 editable: [
                     [1, 'tipo_usuario'],
-                    [2, 'empresa_id', '{"1":"N/A","2":"uadec","3":"tec"}' ],
-                    [2, 'empresa_id', getEmpresas() ],
+                    // [2, 'empresa_id', '{"1":"N/A","2":"uadec","3":"tec"}' ],
+                    // [2, 'empresa_id', + "'"+ JSON.stringify(getEmpresas()) + "'" ],
                     [3, 'num_identificacion'],
                     [4, 'name'],
                     [5, 'email'],

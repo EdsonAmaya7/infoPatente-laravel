@@ -42,6 +42,14 @@ class PatentesController extends Controller
     public function store(Request $request)
     {
         //
+        if($request->action == 'edit'){
+            $empresa = patentes::findOrFail($request->id);
+            $request->request->remove("id");
+            $request->request->remove("action");
+            $empresa->fill($request->all());
+            $empresa->save();
+            return;
+        }
     }
 
     /**
@@ -85,9 +93,10 @@ class PatentesController extends Controller
      * @param  \App\Models\patentes  $patentes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(patentes $patentes)
+    public function destroy(int $id)
     {
         //
+        $patente = patentes::find($id)->delete();
     }
 
     public function patentesView()

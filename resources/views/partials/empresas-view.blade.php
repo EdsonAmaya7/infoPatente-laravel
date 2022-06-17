@@ -21,7 +21,7 @@ d-flex justofy-content-center">
     </div>
 </div>
 {{-- <script src="js/empresas-view.js"></script> --}}
-</section>
+
 
 
 @push('scripts')

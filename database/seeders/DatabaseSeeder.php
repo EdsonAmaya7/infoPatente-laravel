@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
 
         // $this->call(autoresSeeder::class);
         // $this->call(usuariosSeeder::class);
-        // $this->call(EmpresasSeeder::class);
-        // $this->call(RepresentantesSeeder::class);
+        $this->call(EmpresasSeeder::class);
+        $this->call(RepresentantesSeeder::class);
         $this->call(cecionariosSeeder::class);
         
     }

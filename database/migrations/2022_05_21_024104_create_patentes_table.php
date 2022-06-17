@@ -24,6 +24,7 @@ class CreatePatentesTable extends Migration
             $table->string('autorizacion');
             $table->foreignId("representantes_id")->references('id')->on("representantes");
             $table->foreignId("cecionario_id")->references("id")->on("cecionarios");
+            $table->softDeletes();
             $table->timestamps();
         });
     }

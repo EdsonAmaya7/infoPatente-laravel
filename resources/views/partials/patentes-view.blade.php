@@ -4,8 +4,8 @@ d-flex justofy-content-center">
     <div class="d-flex justify-content-center">
         <h4>Patentes Registradas</h4>
     </div>
-    <div class=" card-body d-flex flex-column justify-content-center align-items-center row">
-        <table class="" style="width: 100%;" id="">
+    <div class=" card-body ">
+        <table class="" style="width: 100%;" id="tabla-patentes">
             <thead>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -21,3 +21,13 @@ d-flex justofy-content-center">
     </div>
 </div>
 {{-- <script src="js/patentes-view.js"></script> --}}
+
+
+
+
+@push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+
+    <script src="{{ asset('js/patentes/tabla.js') }}" defer></script>
+@endpush

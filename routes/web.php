@@ -37,10 +37,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // ruta para obtener los datos de todos los usuarios
 Route::get('/usuarios-get', [UsuariosController::class, 'getUsuarios'])->name('getUsuarios');
+Route::get('/patentes-get', [PatentesController::class, 'getPatentes'])->name('getPatentes');
 Route::get('/empresas-get', [EmpresaController::class, 'getEmpresas'])->name('getEmpresas');
 Route::get('/admin-view', [UsuariosController::class, 'adminView'])->name('admin.view');
 Route::get('/patentes-view', [PatentesController::class, 'patentesView'])->name('patentes.view');
 Route::get('/paginasPatente-view', [PaginasController::class, 'paginasPatenteView'])->name('paginasPatente.view');
+Route::get('/index', [PaginasController::class, 'patentesIndex'])->name('patentes.index');
 
 Route::resources([
     '/usuarios' => UsuariosController::class,

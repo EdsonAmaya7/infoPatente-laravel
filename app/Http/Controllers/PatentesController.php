@@ -94,4 +94,9 @@ class PatentesController extends Controller
     {
         return view('patentes.patente-view');
     }
+
+    public function getPatentes(){
+        $data = patentes::all();
+        return DataTables()->of($data)->make(true);
+    }
 }

@@ -24,6 +24,7 @@ class CreateEmpresasTable extends Migration
             $table->string('nombre_sol');
             $table->string('email_sol');
             $table->string('telefono_sol');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

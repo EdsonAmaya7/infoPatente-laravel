@@ -17,7 +17,7 @@ class CreatePatentesTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('pais_presentacion');
-            $table->string('entidad_pequenia');
+            $table->boolean('entidad_pequenia');
             $table->string('tipo');
             $table->string('aplicacion');
             $table->string('email_registro');

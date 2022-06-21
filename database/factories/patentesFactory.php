@@ -30,7 +30,7 @@ class patentesFactory extends Factory
                 // 'representantes_id' => $this->faker->randomElement([1,2,3]),
                 'representantes_id' => $this->faker->randomElement([1,2]),
                 // 'cecionario_id' => $this->faker->randomElement([1,2,3]),
-                'cecionario_id' => $this->faker->randomElement([1,2]),
+                'cecionario_id' => $this->faker->randomElement([1,2,3]),
             ];
     }
 }

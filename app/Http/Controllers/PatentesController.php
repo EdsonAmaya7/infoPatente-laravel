@@ -61,7 +61,10 @@ class PatentesController extends Controller
     public function show(patentes $patentes)
     {
         //
-        return view('patentes.show');
+        $patente = patentes::all()->where('user_id', auth()->user()->id);
+
+        return view('patentes.show', compact('patente'));
+        // return view('patentes.show');
     }
 
     /**
@@ -107,5 +110,14 @@ class PatentesController extends Controller
     public function getPatentes(){
         $data = patentes::all();
         return DataTables()->of($data)->make(true);
+    }
+
+    public function getUltimaPatente()
+    {
+        $patente = patentes::latest('created_at')->where('user_id', auth()->user()->id)->first();
+
+        // dd($patentke);
+
+        return view('patentes.show', compact('patente'));
     }
 }

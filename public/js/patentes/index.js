@@ -13,10 +13,18 @@ let tablePatentesAplicadas = $("#table-patentes-aplicadas").DataTable({
     columns: [
         { data: "nombre"},
         { data: "pais_presentacion"},
-        { data: "entidad_pequenia"},
+        { data: null,
+        render: function(data){
+            if(data.entidad_pequenia == 1){
+                return "Si";
+            } else {
+                return "No"
+            }
+        }
+    },
         { data: "tipo"},
         { data: "aplicacion"},
-        { data: "autorizado"},
+        { data: "autorizacion"},
         { data: "updated_at"},
         { data: null,
             render: function(){

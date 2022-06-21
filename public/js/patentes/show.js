@@ -6,4 +6,34 @@ let tableUltimaPatente = $("#table-ultima-patente").DataTable({
     paging: false,
     sort: false,
     searching: false,
+    ajax: {
+        url: route('ultimaPatente'),
+        type: 'GET',
+    },
+    columns: [
+        { data: "nombre" },
+        { data: "pais_presentacion" },
+        {
+            data: null,
+            render: function (data) {
+                if (data.entidad_pequenia == 1) {
+                    return "Si";
+                } else {
+                    return "No"
+                }
+            }
+        },
+        { data: "tipo" },
+        { data: "aplicacion" },
+        { data: "autorizacion" },
+        { data: "updated_at" },
+        {
+            data: null,
+            render: function () {
+                return `
+                <button class="btn btn-primary"><i class="fa-solid fa-trash"></i></button>
+                `
+            }
+        }
+    ]
 });

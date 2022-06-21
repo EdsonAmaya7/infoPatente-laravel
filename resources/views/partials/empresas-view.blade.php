@@ -1,11 +1,11 @@
 <div class="container-fluid ms-5 me-5  p-5 mt-3 card
-d-flex justofy-content-center">
+d-flex justify-content-center">
 
     <div class="d-flex justify-content-center">
         <h4>Empresas Registradas</h4>
     </div>
     <div class=" card-body ">
-        <table class="responsive-table" style="width: 100%;" id="tabla-empresas">
+        <table class="table" style="width: 100%;" id="tabla-empresas">
             <thead>
                 <th>id</th>
                 <th>Nombre</th>

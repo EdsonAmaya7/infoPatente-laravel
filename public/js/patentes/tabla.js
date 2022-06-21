@@ -105,7 +105,7 @@ async function deletePatente(id){
     }
     let req = await fetch(url,init)
     if(req.ok){
-        await tablaEmpresa.ajax.url(route('getEmpresas')).load()
+        await tablapatente.ajax.url(route('getPatentes')).load()
         mensajeSwal("Patente Eliminada","success","success")
     }else{
         mensajeSwal("Algo Fallo ", "error", "Error")

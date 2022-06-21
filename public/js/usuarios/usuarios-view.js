@@ -20,12 +20,12 @@ async function getEmpresas()
 }, {})
 // console.log(JSON.stringify(empresasJson))
 empresasJson =JSON.stringify(empresasJson)
-console.log(empresasJson)
+// console.log(empresasJson)
 return  empresasJson
 }
 // getEmpresas()
 
-addEventListener('DOMContentLoaded',() =>{
+
 let tablausuario = $('#tabla-usuarios').DataTable({
     language: {
         url: "https://cdn.datatables.net/plug-ins/1.11.4/i18n/es_es.json",
@@ -120,7 +120,7 @@ let tablausuario = $('#tabla-usuarios').DataTable({
     },
 
 })
-})
+
 
 async function deleteUsuario(id) {
     event.preventDefault();
@@ -143,6 +143,8 @@ async function deleteUsuario(id) {
             , text: "Usuario eliminado con exito"
         });
         await tablausuario.ajax.url(route('getUsuarios')).load();
+
+
     } else {
 
         Swal.fire({

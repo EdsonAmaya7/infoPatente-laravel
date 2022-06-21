@@ -5,7 +5,7 @@ d-flex justofy-content-center">
         <h4>Patentes Registradas</h4>
     </div>
     <div class=" card-body ">
-        <table class="" style="width: 100%;" id="tabla-patentes">
+        <table class="table" style="width: 100%;" id="tabla-patentes">
             <thead>
                 <th>ID</th>
                 <th>Nombre</th>

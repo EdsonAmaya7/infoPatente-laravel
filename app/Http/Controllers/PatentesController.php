@@ -122,10 +122,12 @@ class PatentesController extends Controller
 
     public function getUltimaPatente()
     {
-        $patente = patentes::latest('created_at')->where('user_id', auth()->user()->id)->first();
+        $patente = patentes::latest('id')->where('user_id', auth()->user()->id)->first();
+        // $patente = patentes::latest('id')->where('user_id', 2)->first();
 
-        // dd($patentke);
+        // dd($patente);
 
         return view('patentes.show', compact('patente'));
+        // return $patente;
     }
 }

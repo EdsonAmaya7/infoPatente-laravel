@@ -28,10 +28,10 @@ class patentesFactory extends Factory
                 'email_registro' => $this->faker->unique()->safeEmail,
                 'autorizacion' => 'AUTORIZACION',
                 // 'representantes_id' => $this->faker->randomElement([1,2,3]),
-                'representantes_id' => $this->faker->randomElement([1,2]),
-                // 'cecionario_id' => $this->faker->randomElement([1,2,3]),
-                'cecionario_id' => $this->faker->randomElement([1,3]),
-                'user_id' => $this->faker->randomElement([1]),
+                'representantes_id' => $this->faker->randomElement([1,2,3]),
+                // 'cecionario_id' => $this->faker->randomElement([1]),
+                'cecionario_id' => $this->faker->randomElement([1,2,3]),
+                'user_id' => $this->faker->randomElement([1,2,3]),
             ];
     }
 }

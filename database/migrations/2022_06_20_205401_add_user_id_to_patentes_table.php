@@ -15,7 +15,7 @@ class AddUserIdToPatentesTable extends Migration
     {
         Schema::table('patentes', function (Blueprint $table) {
             //
-            $table->foreignId('user_id')->references('id')->on('patentes');
+            $table->foreignId('user_id')->references('id')->on('users');
         });
     }
 

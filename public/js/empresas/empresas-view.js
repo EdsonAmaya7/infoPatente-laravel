@@ -12,36 +12,39 @@ let tablaEmpresa = $('#tabla-empresas').DataTable({
     language: {
         url: "https://cdn.datatables.net/plug-ins/1.11.4/i18n/es_es.json",
     },
-    scrollY: "300px",
-    scrollX: "500px",
-    scrollCollapse: true,
+    // scrollY: "300px",
+    // scrollX: "500px",
+    // scrollCollapse: true,
     info: false,
     paging: false,
-    autoWidth: true,
+    // autoWidth: true,
+    searching: false,
     responsive: true,
     ajax: {
         url: route('getEmpresas'),
         type: "get",
     },
     columns: [
-       { data : "id"},
-       { data : "nombre"},
-       { data : "nombre_rl"},
-       { data : "direccion1_rl"},
-       { data : "direccion2_rl"},
-       { data : "email_rl"},
-       { data : "telefono"},
-       { data : "updated_at",
-    render: function(fecha){
-        if(fecha == null){
-            return "N/A";
-        }
-        return fecha.slice(0,10);
-    }
-    },
-       { data : "id",
-    render: function(type,data,row){
-        return `<div class="row">
+        { data: "id" },
+        { data: "nombre" },
+        { data: "nombre_rl" },
+        { data: "direccion1_rl" },
+        { data: "direccion2_rl" },
+        { data: "email_rl" },
+        { data: "telefono" },
+        {
+            data: "updated_at",
+            render: function (fecha) {
+                if (fecha == null) {
+                    return "N/A";
+                }
+                return fecha.slice(0, 10);
+            }
+        },
+        {
+            data: "id",
+            render: function (type, data, row) {
+                return `<div class="row">
                 <div class="col">
                     <a target="_blank" onclick='ActualizarEmpresa(${row.id}, "${row.email}")' class="" data-position="bottom" data-tooltip="Autorizar">
                     <i class="fas fa-check"style="color:#008F39"></i>
@@ -53,8 +56,16 @@ let tablaEmpresa = $('#tabla-empresas').DataTable({
                     </a>
                 </div>
             </div>`
-    }},
+            }
+        },
     ],
+    // columnDefs: [
+    //     {
+    //         target: 0,
+    //         visible: false,
+    //         searchable: false,
+    //     }
+    // ],
 
     drawCallback: function () {
         $.ajaxSetup({
@@ -67,7 +78,7 @@ let tablaEmpresa = $('#tabla-empresas').DataTable({
             url: route('empresas.store'),
             editButton: false,
             deleteButton: false,
-            hideIdentifier: false,
+            hideIdentifier: true,
             columns: {
                 identifier: [0, 'id'],
                 editable: [
@@ -93,10 +104,10 @@ let tablaEmpresa = $('#tabla-empresas').DataTable({
 })
 
 
-async function deleteEmpresa(id){
+async function deleteEmpresa(id) {
     event.preventDefault();
 
-    let url = route('empresas.destroy',id)
+    let url = route('empresas.destroy', id)
     let init = {
         method: "DELETE",
         headers: {
@@ -105,11 +116,11 @@ async function deleteEmpresa(id){
             Accept: "application/json",
         },
     }
-    let req = await fetch(url,init)
-    if(req.ok){
+    let req = await fetch(url, init)
+    if (req.ok) {
         await tablaEmpresa.ajax.url(route('getEmpresas')).load()
-        mensajeSwal("Empresa Eliminada","success","success")
-    }else{
+        mensajeSwal("Empresa Eliminada", "success", "success")
+    } else {
         mensajeSwal("Algo Fallo ", "error", "Error")
     }
 }

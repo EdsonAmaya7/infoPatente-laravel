@@ -4,8 +4,8 @@ d-flex justofy-content-center">
     <div class="d-flex justify-content-center">
         <h4>Patentes Registradas</h4>
     </div>
-    <div class=" card-body ">
-        <table class="table" style="width: 100%;" id="tabla-patentes">
+    <div class="card-body" style="overflow-y: auto; max-height: 70vh;">
+        <table class="table" id="tabla-patentes" width="100%">
             <thead>
                 <th>ID</th>
                 <th>Nombre</th>

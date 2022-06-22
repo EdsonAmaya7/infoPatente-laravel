@@ -5,7 +5,7 @@ d-flex justify-content-center">
         <h4>Empresas Registradas</h4>
     </div>
     <div class=" card-body ">
-        <table class="table" style="width: 100%;" id="tabla-empresas">
+        <table class="table" id="tabla-empresas" width="100%" style="overflow-y: auto; max-height: 70vh">
             <thead>
                 <th>id</th>
                 <th>Nombre</th>

@@ -12,36 +12,39 @@ let tablapatente = $('#tabla-patentes').DataTable({
     language: {
         url: "https://cdn.datatables.net/plug-ins/1.11.4/i18n/es_es.json",
     },
-    scrollY: "300px",
-    scrollX: "500px",
-    scrollCollapse: true,
+    // scrollY: "300px",
+    // scrollX: "500px",
+    // scrollCollapse: true,
     info: false,
     paging: false,
-    autoWidth: true,
+    // autoWidth: true,
+    searching: false,
     responsive: true,
     ajax: {
         url: route('getPatentes'),
         type: "get",
     },
     columns: [
-       { data : "id"},
-       { data : "nombre"},
-       { data : "pais_presentacion"},
-       { data : "entidad_pequenia"},
-       { data : "tipo"},
-       { data : "aplicacion"},
-       { data : "autorizacion"},
-       { data : "updated_at",
-    render: function(fecha){
-        if(fecha == null){
-            return "N/A";
-        }
-        return fecha.slice(0,10);
-    }
-    },
-       { data : "id",
-    render: function(type,data,row){
-        return `<div class="row">
+        { data: "id" },
+        { data: "nombre" },
+        { data: "pais_presentacion" },
+        { data: "entidad_pequenia" },
+        { data: "tipo" },
+        { data: "aplicacion" },
+        { data: "autorizacion" },
+        {
+            data: "updated_at",
+            render: function (fecha) {
+                if (fecha == null) {
+                    return "N/A";
+                }
+                return fecha.slice(0, 10);
+            }
+        },
+        {
+            data: "id",
+            render: function (type, data, row) {
+                return `<div class="row">
                 <div class="col">
                     <a target="_blank" onclick='ActualizarPatente(${row.id}, "${row.email}")' class="" data-position="bottom" data-tooltip="Autorizar">
                     <i class="fas fa-check"style="color:#008F39"></i>
@@ -53,8 +56,16 @@ let tablapatente = $('#tabla-patentes').DataTable({
                     </a>
                 </div>
             </div>`
-    }},
+            }
+        },
     ],
+    // columnDefs: [
+    //     {
+    //         target: 0,
+    //         visible: false,
+    //         searchable: false,
+    //     }
+    // ],
 
     drawCallback: function () {
         $.ajaxSetup({
@@ -67,7 +78,7 @@ let tablapatente = $('#tabla-patentes').DataTable({
             url: route('patentes.store'),
             editButton: false,
             deleteButton: false,
-            hideIdentifier: false,
+            hideIdentifier: true,
             columns: {
                 identifier: [0, 'id'],
                 editable: [
@@ -91,10 +102,10 @@ let tablapatente = $('#tabla-patentes').DataTable({
 })
 
 
-async function deletePatente(id){
+async function deletePatente(id) {
     event.preventDefault();
 
-    let url = route('patentes.destroy',id)
+    let url = route('patentes.destroy', id)
     let init = {
         method: "DELETE",
         headers: {
@@ -103,11 +114,11 @@ async function deletePatente(id){
             Accept: "application/json",
         },
     }
-    let req = await fetch(url,init)
-    if(req.ok){
+    let req = await fetch(url, init)
+    if (req.ok) {
         await tablapatente.ajax.url(route('getPatentes')).load()
-        mensajeSwal("Patente Eliminada","success","success")
-    }else{
+        mensajeSwal("Patente Eliminada", "success", "success")
+    } else {
         mensajeSwal("Algo Fallo ", "error", "Error")
     }
 }

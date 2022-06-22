@@ -1,28 +1,27 @@
 
-let empresas = {}
-let empresasJson = {}
+// let empresas = {}
+// let empresasJson = {}
 
 
 
-async function getEmpresas()
-{
-    let url= route('getEmpresas');
-    let init = {
-        method: "get",
-    };
-    let req = await fetch(url,init);
-    let { data } = await req.json();
-    empresas = data
+// async function getEmpresas() {
+//     let url = route('getEmpresas');
+//     let init = {
+//         method: "get",
+//     };
+//     let req = await fetch(url, init);
+//     let { data } = await req.json();
+//     empresas = data
 
- empresasJson = empresas.reduce((acc, opt, index) => {
-  acc[opt.id] = opt.nombre;
-  return acc;
-}, {})
-// console.log(JSON.stringify(empresasJson))
-empresasJson =JSON.stringify(empresasJson)
-// console.log(empresasJson)
-return  empresasJson
-}
+//     empresasJson = empresas.reduce((acc, opt, index) => {
+//         acc[opt.id] = opt.nombre;
+//         return acc;
+//     }, {})
+//     // console.log(JSON.stringify(empresasJson))
+//     empresasJson = JSON.stringify(empresasJson)
+//     // console.log(empresasJson)
+//     return empresasJson
+// }
 // getEmpresas()
 
 
@@ -30,13 +29,14 @@ let tablausuario = $('#tabla-usuarios').DataTable({
     language: {
         url: "https://cdn.datatables.net/plug-ins/1.11.4/i18n/es_es.json",
     },
-    scrollY: "300px",
-    scrollX: "500px",
-    scrollCollapse: true,
+    // scrollY: "300px",
+    // scrollX: "500px",
+    // scrollCollapse: true,
     info: false,
     paging: false,
-    autoWidth: true,
+    // autoWidth: true,
     responsive: true,
+    searching: false,
     ajax: {
         url: route('getUsuarios'),
         type: "get",
@@ -44,10 +44,12 @@ let tablausuario = $('#tabla-usuarios').DataTable({
     columns: [
         { data: "id" },
         { data: "tipo_usuario" },
-        { data: "empresa.nombre",
-    render: function(nombre){
-        return nombre;
-    } },
+        {
+            data: "empresa.nombre",
+            render: function (nombre) {
+                return nombre;
+            }
+        },
         { data: "num_identificacion" },
         { data: "name" },
         { data: "email" },
@@ -79,7 +81,7 @@ let tablausuario = $('#tabla-usuarios').DataTable({
     ],
     // columnDefs: [
     //     {
-    //         target: 1,
+    //         target: 0,
     //         visible: false,
     //         searchable: false,
     //     }
@@ -96,7 +98,7 @@ let tablausuario = $('#tabla-usuarios').DataTable({
             url: route('usuarios.store'),
             editButton: false,
             deleteButton: false,
-            hideIdentifier: false,
+            hideIdentifier: true,
             columns: {
                 identifier: [0, 'id'],
                 editable: [
@@ -107,7 +109,7 @@ let tablausuario = $('#tabla-usuarios').DataTable({
                     [4, 'name'],
                     [5, 'email'],
                     [6, 'telefono'],
-                    [7, 'name'],
+                    // [7, 'name'],
                 ],
                 onSuccess(data, textStatus, jqXHR) {
                     // console.log("SIU");

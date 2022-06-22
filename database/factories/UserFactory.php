@@ -36,7 +36,7 @@ class UserFactory extends Factory
             'telefono' => Str::random(8),
             'estatus' => $this->faker->randomElement([0,1]),
             'empresa_id' => $this->faker->randomElement([1,2,3]),
-
+            'is_admin' => 0,
         ];
     }
 }

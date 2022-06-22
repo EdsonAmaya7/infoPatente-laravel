@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="card-footer border-success">
-                    <a href="{{ route('patentes.show', 1) }}"><i class="fas fa-calendar"></i> Consultar Ultima Patente
+                    <a href="{{ route('ultimaPatente') }}"><i class="fas fa-calendar"></i> Consultar Ultima Patente
                         Aplicada</a>
                 </div>
             </div>

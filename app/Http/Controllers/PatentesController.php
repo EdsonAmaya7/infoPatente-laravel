@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\patentes;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PatentesController extends Controller
@@ -42,7 +43,7 @@ class PatentesController extends Controller
     public function store(Request $request)
     {
         //
-        if($request->action == 'edit'){
+        if ($request->action == 'edit') {
             $empresa = patentes::findOrFail($request->id);
             $request->request->remove("id");
             $request->request->remove("action");
@@ -107,7 +108,14 @@ class PatentesController extends Controller
         return view('patentes.patente-view');
     }
 
-    public function getPatentes(){
+    public function getPatentes()
+    {
+        $id = auth()->id();
+        $isAdmin = User::where('id', $id)->get();
+        if ($isAdmin[0]['is_admin'] == 0) {
+            $data = patentes::all()->where('user_id', $id);
+            return DataTables()->of($data)->make(true);
+        }
         $data = patentes::all();
         return DataTables()->of($data)->make(true);
     }

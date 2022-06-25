@@ -51,6 +51,36 @@ class PatentesController extends Controller
             $empresa->save();
             return;
         }
+
+        $this->validate($request, [
+            "nombre" => "required | max: 20",
+            // "numero_autores" => "required",
+            "pais_presentacion" => "required",
+            "entidad_pequenia" => "required",
+            "representantes_id" => "required",
+            "tipo" => "required",
+            "aplicacion" => "required",
+            "cecionario_id" => "required",
+            // "tarifa_descuento" => "required",
+        ]);
+
+        // dd($request->all());
+
+        patentes::create([
+            "nombre" => $request->nombre,
+            // "numero_autores" => $request->numero_autores,
+            "pais_presentacion" => $request->pais_presentacion,
+            "entidad_pequenia" => $request->entidad_pequenia,
+            "representantes_id" => $request->representantes_id,
+            "tipo" => $request->tipo,
+            "aplicacion" => $request->aplicacion,
+            "cecionario_id" => $request->cecionario_id,
+            "email_registro" => auth()->user()->email,
+            "autorizacion" => "No",
+            "user_id" => auth()->user()->id
+        ]);
+
+        return redirect()->back()->with(['mensaje'=>'Patente agregada con exito']);
     }
 
     /**

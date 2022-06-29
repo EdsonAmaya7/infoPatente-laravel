@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    {{-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
     <!-- Datatables -->
 
@@ -56,7 +56,7 @@
     <link rel="icon" href="{{ asset('img/check.ico') }}">
 
 
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('styles')
 </head>
 

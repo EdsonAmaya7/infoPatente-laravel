@@ -16,6 +16,7 @@
 
 
 @section('main')
+    @include('templates.modal')
     <div class="container-fluid">
         <div class="card-body">
             <div class="card m-3">
@@ -35,8 +36,7 @@
                             <div class="item item-label mb-3" style="margin-left: 150px">
                                 <div class="wrapper mt-4">
                                     <label style="font-size: 20px" for="">Nombre de la Patente</label>
-                                    <input id="nombre" type="text" class="form-control" name="nombre"
-                                        value="{{ old('nombre') }}">
+                                    <input id="nombrePatente" type="text" class="form-control" name="nombre">
                                     <div class="d-flex justify-content-end mt-2">
                                         <i class="fa fa-question" data-bs-toggle="tooltip"
                                             title="Trate de ser conciso y descriptivo de lo que es o hace la patente. Este nombre no es un nombre de archivo."></i>
@@ -50,9 +50,9 @@
                         <div class="col-md-6">
                             <div style="margin-left: 300px">
                                 <div class="">
-                                    <h4 for="" id="numero_autores">Cantidad de Autores</h4>
-                                    <select name="numero_autores" id="numero_autores" class="form-control"
-                                        style="width: 60%;">
+                                    <h4 for="numero_autores">Cantidad de Autores</h4>
+                                    <select name="numero_autores" id="NumAutores" class="form-control" style="width: 60%;">
+                                        <option value="" disabled selected>Seleccione cantidad de autores</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -116,7 +116,7 @@
                             <div style="margin-left: 100px">
                                 <div class="">
                                     <h4 for="">¿Desea agregar un representante legal?</h4>
-                                    <select name="representantes_id" id="representantes_id" class="form-control"
+                                    <select name="representantes_id" id="representante_legal" class="form-control"
                                         style="width: 60%;">
                                         <option value="" disabled selected>Selecciona una opcion</option>
                                         <option value="1">Si</option>
@@ -229,6 +229,7 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('js/patentes/create.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('input').each(function() {

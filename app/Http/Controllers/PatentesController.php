@@ -83,7 +83,7 @@ class PatentesController extends Controller
         return redirect()->back()->with(['mensaje'=>'Patente agregada con exito']);
     }
 
-    /**
+    /**ojoojo
      * Display the specified resource.
      *
      * @param  \App\Models\patentes  $patentes

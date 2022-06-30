@@ -34,7 +34,8 @@
                 <div class="card-footer border-success">
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <button class="btn btn-success">Oficina de patentes Americana</button>
+                            <button id="boton_oficina_patentes" type="button" class="btn btn-success">Oficina de patentes
+                                Americana</button>
                         </div>
                         <div class="col-md-6 text-center">
                             <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
@@ -65,7 +66,7 @@
                 <div class="card-footer border-success">
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <button class="btn btn-success">Wipo</button>
+                            <button id="boton_wipo" type="button" class="btn btn-success">Wipo</button>
                         </div>
                         <div class="col-md-6 text-center">
                             <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
@@ -77,8 +78,8 @@
                 <div class="card-body">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img class="img-fluid rounded-start img-patents" src="{{ asset('img/spacenet.jpg') }}" alt=""
-                                style="width: 80%; height: auto; object-fit: cover">
+                            <img class="img-fluid rounded-start img-patents" src="{{ asset('img/spacenet.jpg') }}"
+                                alt="" style="width: 80%; height: auto; object-fit: cover">
                         </div>
                         <div class="col-md-8">
                             <h4 class="card-title"><b>SpaceNet</b></h4>
@@ -95,7 +96,7 @@
                     <div class="card-footer border-success">
                         <div class="row">
                             <div class="col-md-6 text-center">
-                                <button class="btn btn-success">SpaceNet</button>
+                                <button id="boton_spacenet" type="button" class="btn btn-success">SpaceNet</button>
                             </div>
                             <div class="col-md-6 text-center">
                                 <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
@@ -108,8 +109,8 @@
                 <div class="card-body">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img class="img-fluid rounded-start" src="{{ asset('img/Oficina_espaniola.png') }}" alt=""
-                                style="width: 80%; height: auto; object-fit: cover">
+                            <img class="img-fluid rounded-start" src="{{ asset('img/Oficina_espaniola.png') }}"
+                                alt="" style="width: 80%; height: auto; object-fit: cover">
                         </div>
                         <div class="col-md-8">
                             <h4 class="card-title"><b>Oficina Española</b></h4>
@@ -126,7 +127,7 @@
                     <div class="card-footer border-success">
                         <div class="row">
                             <div class="col-md-6 text-center">
-                                <button class="btn btn-success">Oficina española</button>
+                                <button id="boton_oficina_espaniola" type="button" class="btn btn-success">Oficina española</button>
                             </div>
                             <div class="col-md-6 text-center">
                                 <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
@@ -147,7 +148,7 @@
                             <div class="item item-label mb-5">
                                 <div class="wrapper mt-4">
                                     <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
-                                    <input id="impi" type="impi" class="form-control" name="impi"
+                                    <input id="word_impi_patent" type="impi" class="form-control" name="impi"
                                         value="{{ old('impi') }}" required style="width: 90%;">
                                 </div>
                             </div>
@@ -156,7 +157,7 @@
                     <div class="card-footer border-success">
                         <div class="row">
                             <div class="col-md-6 text-center">
-                                <button class="btn btn-success">IMPI</button>
+                                <button id="boton_impi" type="button" class="btn btn-success">IMPI</button>
                             </div>
                             <div class="col-md-6 text-center">
                                 <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
@@ -169,8 +170,8 @@
                 <div class="card-body">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img class="img-fluid rounded-start" src="{{ asset('img/googlePatents.jpg') }}" alt=""
-                                style="width: 80%; height: auto; object-fit: cover">
+                            <img class="img-fluid rounded-start" src="{{ asset('img/googlePatents.jpg') }}"
+                                alt="" style="width: 80%; height: auto; object-fit: cover">
                         </div>
                         <div class="col-md-8">
                             <h4 class="card-title"><b>Google patents</b></h4>
@@ -187,7 +188,7 @@
                     <div class="card-footer border-success">
                         <div class="row">
                             <div class="col-md-6 text-center">
-                                <button class="btn btn-success">Google</button>
+                                <button id="boton_google" type="button" class="btn btn-success">Google</button>
                             </div>
                             <div class="col-md-6 text-center">
                                 <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
@@ -200,6 +201,7 @@
     @endsection
 
     @push('scripts')
+        <script src="{{ asset('js/patentes/paginasPatente-view.js') }}"></script>
         <script>
             $(document).ready(function() {
                 $('input').each(function() {

@@ -11,10 +11,11 @@ function mensajeSwal(message, icon, title) {
 document.getElementById("NumAutores").onchange = () => {
     let representante = [];
     let autores = document.getElementById("NumAutores").value;
-
+    patente = document.getElementById("nombrePatente").value;
 
     let html = "";
-    if (patente === '') {
+
+    if ([patente].includes('')) {
         mensajeSwal("Favor de ingresar el nombre de la patente para continuar", "error", "Error")
 
         // $("#NumAutores").val("0");

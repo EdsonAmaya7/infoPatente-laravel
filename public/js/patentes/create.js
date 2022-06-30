@@ -17,7 +17,6 @@ document.getElementById("NumAutores").onchange = () => {
 
     if ([patente].includes('')) {
         mensajeSwal("Favor de ingresar el nombre de la patente para continuar", "error", "Error")
-
         // $("#NumAutores").val("0");
         autores = 0
     }
@@ -115,6 +114,9 @@ document.getElementById("NumAutores").onchange = () => {
         $('#modal-autores').modal('show');
     }
 }
+
+
+
 
 // Modal de representante legal
 document.getElementById("representante_legal").onchange = () => {

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAutorsTable extends Migration
+class CreateRepresentantesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAutorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('autores', function (Blueprint $table) {
+        Schema::create('representantes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('apellido_paterno');
@@ -25,7 +25,7 @@ class CreateAutorsTable extends Migration
             $table->string('ciudad');
             $table->string('cp');
             $table->string('nombre_patente');
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId("patente_id")->references("id")->on("patentes");
             $table->timestamps();
         });
     }
@@ -37,6 +37,6 @@ class CreateAutorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('autores');
+        Schema::dropIfExists('representantes');
     }
 }

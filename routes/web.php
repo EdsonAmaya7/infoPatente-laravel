@@ -21,19 +21,16 @@ use App\Http\Controllers\PaginasController;
 |
 */
 
+Route::group(['middleware' => ['auth']], function () {
+
 Route::get('/', function () {
     return view('auth.login');
 });
 
 /* verificar las rutas con el emial confirmado */
 Auth::routes(['verify' => true]);
-// proteger las rutas del controlador con
-/* public function __construct()
-{
-    $this->middleware(['verified']);
-} */
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // ruta para obtener los datos de todos los usuarios
 Route::get('/usuarios-get', [UsuariosController::class, 'getUsuarios'])->name('getUsuarios');
@@ -51,3 +48,5 @@ Route::resources([
     '/empresas' => EmpresaController::class,
     '/patentes' => PatentesController::class
 ]);
+
+});

@@ -80,7 +80,7 @@ class PatentesController extends Controller
             "user_id" => auth()->user()->id
         ]);
 
-        
+
         return redirect()->back()->with(['mensaje'=>'Patente agregada con exito']);
     }
 

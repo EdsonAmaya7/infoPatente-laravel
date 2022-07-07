@@ -74,8 +74,8 @@ Sistema de patentes - Nueva Patente
                                 <select name="entidad_pequenia" id="entidad_pequenia" class="form-control"
                                     style="width: 60%;">
                                     <option value="" disabled selected>Selecciona una opcion</option>
-                                    <option value="0">Si</option>
-                                    <option value="1">No</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
                                 </select>
                                 <div class="d-flex justify-content-end mt-2" style="width: 60%;">
                                     <i class="fa fa-question" data-bs-toggle="tooltip"
@@ -136,8 +136,8 @@ Sistema de patentes - Nueva Patente
                                 <select name="tarifa_descuento" id="tarifa_descuento" class="form-control"
                                     style="width: 60%;">
                                     <option value="" disabled selected>Selecciona una opcion</option>
-                                    <option value="0">Si</option>
-                                    <option value="1">No</option>
+                                    <option value="1">Si</option>
+                                    <option value="0">No</option>
                                 </select>
                                 <div class="d-flex justify-content-end mt-2" style="width: 60%;">
                                     <i class="fa fa-question" data-bs-toggle="tooltip"

@@ -32,7 +32,7 @@
 
     <link rel="icon" href="{{ asset('img/check.ico') }}">
 
-
+    <meta id="csrf" name="csrf-token" content="{{ csrf_token() }}" />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('styles')
 </head>

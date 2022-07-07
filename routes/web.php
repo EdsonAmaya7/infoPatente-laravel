@@ -21,16 +21,21 @@ use App\Http\Controllers\PaginasController;
 |
 */
 
-Route::group(['middleware' => ['auth']], function () {
+
 
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
 
 /* verificar las rutas con el emial confirmado */
 Auth::routes(['verify' => true]);
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::group(['middleware' => ['auth']], function () {
 
 // ruta para obtener los datos de todos los usuarios
 Route::get('/usuarios-get', [UsuariosController::class, 'getUsuarios'])->name('getUsuarios');
@@ -42,6 +47,8 @@ Route::get('/paginasPatente-view', [PaginasController::class, 'paginasPatenteVie
 Route::get('/index', [PaginasController::class, 'patentesIndex'])->name('patentes.index');
 Route::get('/ultima-patente', [PatentesController::class, 'getUltimaPatente'])->name('ultimaPatente');
 
+
+
 Route::resources([
     '/usuarios' => UsuariosController::class,
     '/cecionarios' => CecionariosController::class,
@@ -49,4 +56,4 @@ Route::resources([
     '/patentes' => PatentesController::class
 ]);
 
-});
+// });

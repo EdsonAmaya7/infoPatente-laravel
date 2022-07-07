@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class PatentesController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['verified']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['verified']);
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -53,7 +53,7 @@ class PatentesController extends Controller
         }
 
         $this->validate($request, [
-            "nombre" => "required | max: 20",
+            "nombre" => "required|max:20",
             // "numero_autores" => "required",
             "pais_presentacion" => "required",
             "entidad_pequenia" => "required",
@@ -61,7 +61,7 @@ class PatentesController extends Controller
             "tipo" => "required",
             "aplicacion" => "required",
             // "cecionario_id" => "required",
-            // "tarifa_descuento" => "required",
+            "tarifa_descuento" => "required",
         ]);
 
         // dd($request->all());
@@ -105,9 +105,12 @@ class PatentesController extends Controller
      * @param  \App\Models\patentes  $patentes
      * @return \Illuminate\Http\Response
      */
-    public function edit(patentes $patentes)
+    public function edit(int $id)
     {
         //
+        $patente = patentes::findOrFail($id);
+
+        return view('patentes.edit',compact('patente'));
     }
 
     /**
@@ -117,9 +120,26 @@ class PatentesController extends Controller
      * @param  \App\Models\patentes  $patentes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, patentes $patentes)
+    public function update(Request $request, int $id)
     {
         //
+
+        $patente = patentes::find($id);
+        $this->validate($request, [
+            "nombre" => "required|max:20",
+            // "numero_autores" => "required",
+            "pais_presentacion" => "required",
+            "entidad_pequenia" => "required",
+            // "representantes_id" => "required",
+            "tipo" => "required",
+            "aplicacion" => "required",
+            // "cecionario_id" => "required",
+            "tarifa_descuento" => "required",
+        ]);
+
+        $patente->fill($request->all());
+        $patente->save();
+        dd($request->all());
     }
 
     /**
@@ -132,6 +152,8 @@ class PatentesController extends Controller
     {
         //
         $patente = patentes::find($id)->delete();
+
+
     }
 
     public function patentesView()

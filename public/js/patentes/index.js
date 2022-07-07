@@ -26,12 +26,51 @@ let tablePatentesAplicadas = $("#table-patentes-aplicadas").DataTable({
         { data: "aplicacion"},
         { data: "autorizacion"},
         { data: "updated_at"},
-        { data: null,
-            render: function(){
+        { data: "id",
+            render: function(id){
                 return `
-                <button class="btn btn-primary"><i class="fa-solid fa-trash"></i></button>
+                <div class="d-flex justify-content-center align-items-center">
+                    <a onclick="editarPatente(${id})"
+                                            title="Editar orden de venta"><i class="fas fa-edit"></i></a>
+                    <button onclick="deletePatente(${id})" class="btn "><i class="fa-solid fa-trash" style="color:red"></i></button>
+                </div>
                 `
             }
         }
     ]
 });
+
+
+function mensajeSwal(message, icon, title) {
+    Swal.fire({
+        timer: 1500,
+        icon: icon,
+        title: title,
+        text: message,
+    });
+}
+function editarPatente(id){
+
+    location.href = route('patentes.edit', id)
+    // route('patentes.edit', $patente->id)
+}
+async function deletePatente(id) {
+    event.preventDefault();
+
+    let url = route('patentes.destroy', id)
+    let init = {
+        method: "DELETE",
+        headers: {
+            "X-CSRF-TOKEN": $('#csrf').attr('content'),
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        },
+    }
+    let req = await fetch(url, init)
+    if (req.ok) {
+        await tablePatentesAplicadas.ajax.url(route('getPatentes')).load()
+        mensajeSwal("Patente Eliminada", "success", "success")
+    } else {
+        mensajeSwal("Algo Fallo ", "error", "Error")
+    }
+}

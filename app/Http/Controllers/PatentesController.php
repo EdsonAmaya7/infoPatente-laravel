@@ -77,7 +77,8 @@ class PatentesController extends Controller
             // "cecionario_id" => $request->cecionario_id,
             "email_registro" => auth()->user()->email,
             "autorizacion" => "No",
-            "user_id" => auth()->user()->id
+            "user_id" => auth()->user()->id,
+            "tarifa_descuento" => $request->tarifa_descuento,
         ]);
 
 
@@ -139,7 +140,7 @@ class PatentesController extends Controller
 
         $patente->fill($request->all());
         $patente->save();
-        dd($request->all());
+        return redirect()->back()->with('mensaje','Patente actualizada con exito');
     }
 
     /**

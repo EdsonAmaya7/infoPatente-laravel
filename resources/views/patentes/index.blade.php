@@ -8,8 +8,6 @@
     Sistema de patentes - Patentes Aplicadas
 @endsection
 
-
-
 @push('styles')
     <style>
 

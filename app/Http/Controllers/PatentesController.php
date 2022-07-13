@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class PatentesController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware(['verified']);
-    // }
+    public function __construct()
+    {
+        $this->middleware(['verified']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +20,7 @@ class PatentesController extends Controller
     public function index()
     {
         //
+
         return view('patentes.index');
     }
 
@@ -159,6 +160,12 @@ class PatentesController extends Controller
 
     public function patentesView()
     {
+        $usuarioLogueadoId = auth()->user()->id;
+        $usuarioLogueado = User::findOrFail($usuarioLogueadoId);
+        // dd($usuarioLogueado->is_admin);
+        if($usuarioLogueado->is_admin == 1){
+            return redirect()->route('admin.view');
+        }
         return view('patentes.patente-view');
     }
 

@@ -5,9 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\CecionariosController;
+use App\Http\Controllers\DobleAutentificacionController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PatentesController;
 use App\Http\Controllers\PaginasController;
+use App\Http\Middleware\dobleAutentificacion;
+
 // use phpDocumentor\Reflection\Types\Resource_;
 
 /*
@@ -41,12 +44,25 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/usuarios-get', [UsuariosController::class, 'getUsuarios'])->name('getUsuarios');
 Route::get('/patentes-get', [PatentesController::class, 'getPatentes'])->name('getPatentes');
 Route::get('/empresas-get', [EmpresaController::class, 'getEmpresas'])->name('getEmpresas');
-Route::get('/admin-view', [UsuariosController::class, 'adminView'])->name('admin.view');
-Route::get('/patentes-view', [PatentesController::class, 'patentesView'])->name('patentes.view');
+
+Route::get('/admin-view', [UsuariosController::class, 'adminView'])
+->name('admin.view');
+
+
+Route::get('/patentes-view', [PatentesController::class, 'patentesView'])
+->name('patentes.view');
+
 Route::get('/paginasPatente-view', [PaginasController::class, 'paginasPatenteView'])->name('paginasPatente.view');
 Route::get('/index', [PaginasController::class, 'patentesIndex'])->name('patentes.index');
 Route::get('/ultima-patente', [PatentesController::class, 'getUltimaPatente'])->name('ultimaPatente');
 
+//formulario doble autentificacion
+
+Route::get('/verificacion', [DobleAutentificacionController::class, 'index'])
+->middleware('doble.autentificacion')
+->name('doble.autentificacion');
+
+Route::post('/verificacion', [DobleAutentificacionController::class, 'store'])->name('verificar.codigo');
 
 
 Route::resources([

@@ -16,9 +16,10 @@ class twoFALogin extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($codigoVerificacion)
     {
         //
+        $this->codigoVerificacion = $codigoVerificacion;
     }
 
     /**
@@ -43,8 +44,7 @@ class twoFALogin extends Notification
 
         return (new MailMessage)
                     ->line('Codigo de seguridad doble verificacion.')
-                    ->line('123456')
-                    ->action('Ingresar Código', url('/verificacion'))
+                    ->line($this->codigoVerificacion)
                     ->line('Gracias por Usar Infon Patente!');
     }
 

@@ -160,12 +160,6 @@ class PatentesController extends Controller
 
     public function patentesView()
     {
-        $usuarioLogueadoId = auth()->user()->id;
-        $usuarioLogueado = User::findOrFail($usuarioLogueadoId);
-        // dd($usuarioLogueado->is_admin);
-        if($usuarioLogueado->is_admin == 1){
-            return redirect()->route('admin.view');
-        }
         return view('patentes.patente-view');
     }
 

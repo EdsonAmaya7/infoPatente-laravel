@@ -1,5 +1,7 @@
 // Oficina de patentes americana
 document.getElementById("boton_oficina_patentes").onclick = () => {
+    document.getElementById("select_patente_americana").removeAttribute("hidden");
+    document.getElementById("input_patente_americana").removeAttribute("hidden");
     let input = document.getElementById("word_american_patent").value
     if (input == "") {
         window.open("https://patft.uspto.gov/netahtml/PTO/search-bool.html");
@@ -10,12 +12,16 @@ document.getElementById("boton_oficina_patentes").onclick = () => {
 
 // wipo
 document.getElementById("boton_wipo").onclick = () => {
+    document.getElementById("select_wipo").removeAttribute("hidden");
+    document.getElementById("input_wipo").removeAttribute("hidden");
     let input = document.getElementById("word_wipo_patent").value;
     window.open("https://patentscope.wipo.int/search/en/structuredSearch.jsf");
 }
 
 // SpaceNet
 document.getElementById("boton_spacenet").onclick = () => {
+    document.getElementById("select_space_net").removeAttribute("hidden");
+    document.getElementById("input_space_net").removeAttribute("hidden");
     let input = document.getElementById("word_spacenet_patent").value;
     var campo = input.split(" ");
     if (input == "") {
@@ -27,18 +33,24 @@ document.getElementById("boton_spacenet").onclick = () => {
 
 // Oficina española
 document.getElementById("boton_oficina_espaniola").onclick = () => {
+    document.getElementById("select_oficina_espaniola").removeAttribute("hidden");
+    document.getElementById("input_oficina_espaniola").removeAttribute("hidden");
     let input = document.getElementById("word_espaniola_patent").value;
     window.open("http://invenes.oepm.es/InvenesWeb/faces/busquedaInternet.jsp;jsessionid=-cFpg6g-keG+QsvJs2UdTX0A.srvvarsovia2");
 }
 
 // IMPI
 document.getElementById("boton_impi").onclick = () => {
+    document.getElementById("select_impi").removeAttribute("hidden");
+    document.getElementById("input_impi").removeAttribute("hidden");
     let input = document.getElementById("word_impi_patent").value;
     window.open("https://siga.impi.gob.mx/newSIGA/content/common/principal.jsf");
 }
 
 // Google
 document.getElementById("boton_google").onclick = () => {
+    document.getElementById("select_google").removeAttribute("hidden");
+    document.getElementById("input_google").removeAttribute("hidden");
     let input = document.getElementById("word_google_patent").value;
     if (input == "") {
         window.open("https://www.google.com");
@@ -46,3 +58,5 @@ document.getElementById("boton_google").onclick = () => {
         window.open("https://www.google.com/search?q=" + input)
     }
 }
+
+// TODO: QUITAR ATRIBUTO HIDDEN

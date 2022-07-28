@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarlosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -46,11 +47,11 @@ Route::get('/patentes-get', [PatentesController::class, 'getPatentes'])->name('g
 Route::get('/empresas-get', [EmpresaController::class, 'getEmpresas'])->name('getEmpresas');
 
 Route::get('/admin-view', [UsuariosController::class, 'adminView'])
-->name('admin.view');
+    ->name('admin.view');
 
 
 Route::get('/patentes-view', [PatentesController::class, 'patentesView'])
-->name('patentes.view');
+    ->name('patentes.view');
 
 Route::get('/paginasPatente-view', [PaginasController::class, 'paginasPatenteView'])->name('paginasPatente.view');
 Route::get('/index', [PaginasController::class, 'patentesIndex'])->name('patentes.index');
@@ -59,16 +60,17 @@ Route::get('/ultima-patente', [PatentesController::class, 'getUltimaPatente'])->
 //formulario doble autentificacion
 
 Route::get('/verificacion', [DobleAutentificacionController::class, 'index'])
-->middleware('doble.autentificacion')
-->name('doble.autentificacion');
+    ->middleware('doble.autentificacion')
+    ->name('doble.autentificacion');
 
 Route::post('/verificacion', [DobleAutentificacionController::class, 'store'])->name('verificar.codigo');
 
 
-    Route::get('download', function () {
-        return  response()->download(public_path('/programa/InfoPatent-setup.exe'), 'infoPatent-setup.exe');
-    })->name('download');
+Route::get('download', function () {
+    return  response()->download(public_path('/programa/InfoPatent-setup.exe'), 'infoPatent-setup.exe');
+})->name('download');
 
+Route::get('/carlos', CarlosController::class)->name('carlos');
 
 Route::resources([
     '/usuarios' => UsuariosController::class,

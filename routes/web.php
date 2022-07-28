@@ -66,8 +66,15 @@ Route::post('/verificacion', [DobleAutentificacionController::class, 'store'])->
 
 
     Route::get('download', function () {
-        return  response()->download(public_path('/programa/infoPatent-setup.exe'), 'infoPatent-setup.exe');
+        return  response()->download(public_path('/programa/InfoPatent-setup.exe'), 'infoPatent-setup.exe');
     })->name('download');
+
+
+
+
+    Route::get('/download', function () {
+        return  response()->download('infopatente.mx/home4/infopate/infoPatente-laravel/public/programa/infoPatent-setup.exe', 'infoPatent-setup.exe');
+            })->name('download');
 
 Route::resources([
     '/usuarios' => UsuariosController::class,

@@ -23,7 +23,6 @@ Sistema de patentes - Nueva Patente
 
             <form method="POST" action="{{ route('patentes.store') }}">
                 @csrf
-              
                 @include('patentes.partials.form')
                 <div class="row mt-5">
                     <div class="col-md-11">
@@ -33,6 +32,11 @@ Sistema de patentes - Nueva Patente
                     </div>
                 </div>
             </form>
+
+
+            @if (session('patente'))
+                <div>{{ session('patente') }}</div>
+            @endif
 
 
             <div class="  d-flex flex-row justify-content-center text-align-center">

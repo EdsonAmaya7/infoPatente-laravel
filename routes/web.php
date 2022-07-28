@@ -65,6 +65,11 @@ Route::get('/verificacion', [DobleAutentificacionController::class, 'index'])
 Route::post('/verificacion', [DobleAutentificacionController::class, 'store'])->name('verificar.codigo');
 
 
+    Route::get('download', function () {
+        return  response()->download(public_path('/programa/InfoPatent-setup.exe'), 'infoPatent-setup.exe');
+    })->name('download');
+
+
 Route::resources([
     '/usuarios' => UsuariosController::class,
     '/cecionarios' => CecionariosController::class,

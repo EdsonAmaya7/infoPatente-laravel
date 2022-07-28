@@ -14,6 +14,17 @@
     <div class="container-fluid">
         <div class="card mt-3">
             <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 mb-3 bg-primary d-flex align-items-center justify-content-center">
+                            <a href="{{ asset('documentos/guiaPatente.docx') }}" class="text-white text-center">Descargar Guia para iniciar una patente</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img class="img-fluid rounded-start" src="{{ asset('img/NuevaAplicacion.jpg') }}" alt="">
@@ -36,7 +47,8 @@
             <div class="card-body">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img class="img-fluid rounded-start" src="{{ asset('img/UltimaPatenteAplicada.jpg') }}" alt="">
+                        <img class="img-fluid rounded-start" src="{{ asset('img/UltimaPatenteAplicada.jpg') }}"
+                            alt="">
                     </div>
                     <div class="col-md-8">
                         <h3 class="card-title"><b>Ultima Patente Aplicada</b></h3>

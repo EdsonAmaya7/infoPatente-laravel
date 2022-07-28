@@ -43,9 +43,9 @@ class twoFALogin extends Notification
     {
 
         return (new MailMessage)
-                    ->line('Codigo de seguridad doble verificacion.')
+                    ->line('Codigo de seguridad, doble verificación.')
                     ->line($this->codigoVerificacion)
-                    ->line('Gracias por Usar Infon Patente!');
+                    ->line('Gracias por Usar Info Patente!');
     }
 
     /**

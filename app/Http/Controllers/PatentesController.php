@@ -83,7 +83,7 @@ class PatentesController extends Controller
         ]);
 
 
-        return redirect()->back()->with(['mensaje'=>'Patente agregada con exito']);
+        return redirect()->back()->with(['mensaje'=>'Patente agregada con exito'])->with(['patente' => $patente]);
     }
 
     /**ojoojo

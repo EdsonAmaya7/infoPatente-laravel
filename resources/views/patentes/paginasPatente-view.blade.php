@@ -28,6 +28,20 @@
                                     name="word_american_patent" value="{{ old('word_american_patent') }}" required
                                     style="width: 90%;">
                             </div>
+                            <div class="row mt-4">
+                                <div class="col-md-12">
+                                    <select name="select_patente_americana" id="select_patente_americana" class="form-control" hidden>
+                                        <option value="No utilizabkle">No utilizabkle</option>
+                                        <option value="Necesito mas filtros">Necesito mas filtros</option>
+                                        <option value="Medianamente utilizable">Medianamente utilizable</option>
+                                        <option value="Utilizable">Utilizable</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <input name="input_patente_americana" id="input_patente_americana" class="form-control"
+                                        placeholder="Cantidad de resultados encontrados" hidden>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -38,7 +52,7 @@
                                 Americana</button>
                         </div>
                         <div class="col-md-6 text-center">
-                            <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
+                            <button id="agregar_oficina_americana" class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
                         </div>
                     </div>
                 </div>
@@ -59,6 +73,20 @@
                                 <input id="word_wipo_patent" type="word_wipo_patent" class="form-control"
                                     name="word_wipo_patent" value="{{ old('word_wipo_patent') }}" required
                                     style="width: 90%;">
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-12">
+                                    <select name="select_wipo" id="select_wipo" class="form-control" hidden>
+                                        <option value="No utilizabkle">No utilizabkle</option>
+                                        <option value="Necesito mas filtros">Necesito mas filtros</option>
+                                        <option value="Medianamente utilizable">Medianamente utilizable</option>
+                                        <option value="Utilizable">Utilizable</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <input name="input_wipo" id="input_wipo" class="form-control"
+                                        placeholder="Cantidad de resultados encontrados" hidden>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -89,6 +117,20 @@
                                     <input id="word_spacenet_patent" type="word_spacenet_patent" class="form-control"
                                         name="word_spacenet_patent" value="{{ old('word_spacenet_patent') }}" required
                                         style="width: 90%;">
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+                                        <select name="select_space_net" id="select_space_net" class="form-control" hidden>
+                                            <option value="No utilizabkle">No utilizabkle</option>
+                                            <option value="Necesito mas filtros">Necesito mas filtros</option>
+                                            <option value="Medianamente utilizable">Medianamente utilizable</option>
+                                            <option value="Utilizable">Utilizable</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <input name="input_space_net" id="input_space_net" class="form-control"
+                                            placeholder="Cantidad de resultados encontrados" hidden>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -121,13 +163,28 @@
                                         name="word_espaniola_patent" value="{{ old('word_espaniola_patent') }}" required
                                         style="width: 90%;">
                                 </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+                                        <select name="select_oficina_espaniola" id="select_oficina_espaniola" class="form-control" hidden>
+                                            <option value="No utilizabkle">No utilizabkle</option>
+                                            <option value="Necesito mas filtros">Necesito mas filtros</option>
+                                            <option value="Medianamente utilizable">Medianamente utilizable</option>
+                                            <option value="Utilizable">Utilizable</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <input name="input_oficina_espaniola" id="input_oficina_espaniola" class="form-control"
+                                            placeholder="Cantidad de resultados encontrados" hidden>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer border-success">
                         <div class="row">
                             <div class="col-md-6 text-center">
-                                <button id="boton_oficina_espaniola" type="button" class="btn btn-success">Oficina española</button>
+                                <button id="boton_oficina_espaniola" type="button" class="btn btn-success">Oficina
+                                    española</button>
                             </div>
                             <div class="col-md-6 text-center">
                                 <button class="btn btn-danger"><i class="fas fa-plus"></i> Agregar</button>
@@ -150,6 +207,20 @@
                                     <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
                                     <input id="word_impi_patent" type="impi" class="form-control" name="impi"
                                         value="{{ old('impi') }}" required style="width: 90%;">
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+                                        <select name="select_impi" id="select_impi" class="form-control" hidden>
+                                            <option value="No utilizabkle">No utilizabkle</option>
+                                            <option value="Necesito mas filtros">Necesito mas filtros</option>
+                                            <option value="Medianamente utilizable">Medianamente utilizable</option>
+                                            <option value="Utilizable">Utilizable</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <input name="input_impi" id="input_impi" class="form-control"
+                                            placeholder="Cantidad de resultados encontrados" hidden>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -181,6 +252,20 @@
                                     <input id="word_google_patent" type="word_google_patent" class="form-control"
                                         name="word_google_patent" value="{{ old('word_google_patent') }}" required
                                         style="width: 90%;">
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+                                        <select name="select_google" id="select_google" class="form-control" hidden>
+                                            <option value="No utilizabkle">No utilizabkle</option>
+                                            <option value="Necesito mas filtros">Necesito mas filtros</option>
+                                            <option value="Medianamente utilizable">Medianamente utilizable</option>
+                                            <option value="Utilizable">Utilizable</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <input name="input_google" id="input_google" class="form-control"
+                                            placeholder="Cantidad de resultados encontrados" hidden>
+                                    </div>
                                 </div>
                             </div>
                         </div>

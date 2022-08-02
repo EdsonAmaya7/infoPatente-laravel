@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\CecionariosController;
+use App\Http\Controllers\ConfirmarDatosController;
 use App\Http\Controllers\DobleAutentificacionController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PatentesController;
@@ -66,11 +67,19 @@ Route::get('/verificacion', [DobleAutentificacionController::class, 'index'])
 Route::post('/verificacion', [DobleAutentificacionController::class, 'store'])->name('verificar.codigo');
 
 
+//path that returns a view with a confirmation email after sending an email with the license
+Route::get('/confirmar-datos', [ConfirmarDatosController::class,'index'])->name('correo.download');
+
+//form thaht validate email
+Route::post('/confirmar-form', [ConfirmarDatosController::class,'enviarCorreo'])->name('correo.form');
+
+
 Route::get('download', function () {
     return  response()->download(public_path('/programa/InfoPatent-setup.exe'), 'infoPatent-setup.exe');
 })->name('download');
 
 Route::get('/carlos', CarlosController::class)->name('carlos');
+
 
 Route::resources([
     '/usuarios' => UsuariosController::class,

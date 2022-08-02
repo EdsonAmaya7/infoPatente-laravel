@@ -90,9 +90,9 @@
                         {{-- <div class="row"> --}}
 
                         <div class="p-3 mb-3 bg-primary d-flex align-items-center justify-content-center">
-                                    <a href="{{ route('download') }}" class="text-white text-center">Descargar app</a>
+                                    {{-- <a href="{{ route('download') }}" class="text-white text-center">Descargar app</a> --}}
+                                    <a href="{{ route('correo.download') }}" class="text-white text-center">Descargar app</a>
                         </div>
-                                
                             {{-- <div class="col-md-6"> --}}
                             <div class="text-center mb-3">
                                 <h2 class="card-title text-center">¿Que es Infopatente?</h2>

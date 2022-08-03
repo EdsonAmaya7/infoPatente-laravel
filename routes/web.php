@@ -68,10 +68,10 @@ Route::post('/verificacion', [DobleAutentificacionController::class, 'store'])->
 
 
 //path that returns a view with a confirmation email after sending an email with the license
-Route::get('/confirmar-datos', [ConfirmarDatosController::class,'index'])->name('correo.download');
+Route::get('/confirmar-datos', [ConfirmarDatosController::class, 'index'])->name('correo.download');
 
 //form thaht validate email
-Route::post('/confirmar-form', [ConfirmarDatosController::class,'enviarCorreo'])->name('correo.form');
+Route::post('/confirmar-form', [ConfirmarDatosController::class, 'enviarCorreo'])->name('correo.form');
 
 
 Route::get('download', function () {
@@ -80,12 +80,18 @@ Route::get('download', function () {
 
 Route::get('/carlos', CarlosController::class)->name('carlos');
 
+// Ruta para la vista de inicio
+Route::get('inicio', function () {
+    return view('inicio');
+})->name('inicio');
+
 
 Route::resources([
     '/usuarios' => UsuariosController::class,
     '/cecionarios' => CecionariosController::class,
     '/empresas' => EmpresaController::class,
-    '/patentes' => PatentesController::class
+    '/patentes' => PatentesController::class,
+    '/paginas' => PaginasController::class,
 ]);
 
 // });

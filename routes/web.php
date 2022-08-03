@@ -29,8 +29,18 @@ use App\Http\Middleware\dobleAutentificacion;
 
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('inicio');
+    // return view('auth.login');
+    
 });
+
+// Ruta para la vista de inicio
+Route::get('inicio', function () {
+    return view('inicio');
+})->name('inicio');
+
+
+
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
@@ -61,7 +71,7 @@ Route::get('/ultima-patente', [PatentesController::class, 'getUltimaPatente'])->
 //formulario doble autentificacion
 
 Route::get('/verificacion', [DobleAutentificacionController::class, 'index'])
-    ->middleware('doble.autentificacion')
+     ->middleware('doble.autentificacion')
     ->name('doble.autentificacion');
 
 Route::post('/verificacion', [DobleAutentificacionController::class, 'store'])->name('verificar.codigo');
@@ -80,10 +90,6 @@ Route::get('download', function () {
 
 Route::get('/carlos', CarlosController::class)->name('carlos');
 
-// Ruta para la vista de inicio
-Route::get('inicio', function () {
-    return view('inicio');
-})->name('inicio');
 
 
 Route::resources([

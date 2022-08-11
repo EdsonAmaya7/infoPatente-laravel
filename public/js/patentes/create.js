@@ -8,26 +8,43 @@ function mensajeSwal(message, icon, title) {
         text: message,
     });
 }
-document.getElementById("NumAutores").onchange = () => {
+document.getElementById("NumAutores").onchange = async () => {
     let representante = [];
     let autores = document.getElementById("NumAutores").value;
     patente = document.getElementById("nombrePatente").value;
 
     let html = "";
 
-    if ([patente].includes('')) {
-        mensajeSwal("Favor de ingresar el nombre de la patente para continuar", "error", "Error")
-        // $("#NumAutores").val("0");
-        autores = 0
-    }
-    else {
-        for (let i = 1; i <= autores; i++) {
+    // if ([patente].includes('')) {
+    //     mensajeSwal("Favor de ingresar el nombre de la patente para continuar", "error", "Error")
+    //     // $("#NumAutores").val("0");
+    //     autores = 0
+    // }
+    // else {
+    for (let i = 1; i <= autores; i++) {
+
+        const url = route('ultimaPatenteByUser');
+
+        const init = {
+            method: "GET",
+            headers: {
+                Accept: "application/json"
+            }
+        }
+
+        const req = await fetch(url, init);
+
+        if (req.ok) {
+            const res = await req.json();
+
+            console.log(res);
 
             tituloModal = document.getElementById("tituloModal").innerHTML = "Agregar Autores"
 
             html += `
               <h5 class="text-center">Datos Autor ${i}</h5>
                 <div class="row">
+                <input class="form-control" type="text" id="ultimo_id" value="${res.id}">
                   <div class="col-md-4 mt-2">
                     <label class="text-dark" for="NombreAutor${i}">Nombre </label>
                     <input id="NombreAutor${i}" name="NombreAutor${i}" type="text" class="form-control" placeholder="">

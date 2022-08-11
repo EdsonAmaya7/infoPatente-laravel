@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\autor;
+use App\Models\patentes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AutorController extends Controller
 {
@@ -24,7 +26,6 @@ class AutorController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +36,18 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return DB::transaction(function () use ($request) {
+            $autores = json_decode($request->autores, true);
+            $patente = patentes::find($request->patente_id);
+            if (!$patente) {
+                return response()->json(['No se encontro'], 400);
+            }
+            foreach ($autores as $autor) {
+                $autor['patente_id'] = $patente->id;
+                $autor = autor::create($autor);
+            }
+            return response()->json('Exito');
+        });
     }
 
     /**

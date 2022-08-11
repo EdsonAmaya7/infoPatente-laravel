@@ -31,7 +31,7 @@ use App\Http\Middleware\dobleAutentificacion;
 Route::get('/', function () {
     return view('inicio');
     // return view('auth.login');
-    
+
 });
 
 // Ruta para la vista de inicio
@@ -67,6 +67,9 @@ Route::get('/patentes-view', [PatentesController::class, 'patentesView'])
 Route::get('/paginasPatente-view', [PaginasController::class, 'paginasPatenteView'])->name('paginasPatente.view');
 Route::get('/index', [PaginasController::class, 'patentesIndex'])->name('patentes.index');
 Route::get('/ultima-patente', [PatentesController::class, 'getUltimaPatente'])->name('ultimaPatente');
+
+// Ruta que trae la ultima patente del usuario logueado
+Route::get('/ultima-patente-user', [PatentesController::class, 'getUltimaPatenteByUser'])->name('ultimaPatenteByUser');
 
 //formulario doble autentificacion
 

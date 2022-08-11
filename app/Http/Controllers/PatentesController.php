@@ -185,4 +185,11 @@ class PatentesController extends Controller
         return view('patentes.show', compact('patente'));
         // return $patente;
     }
+
+    // Metodo que trae la ultima patente del usuario que esta logueado
+    public function getUltimaPatenteByUser()
+    {
+        $patente = patentes::latest('id')->where('user_id', auth()->user()->id)->first();
+        return response()->json($patente);
+    }
 }

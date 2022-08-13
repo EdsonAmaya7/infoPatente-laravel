@@ -28,7 +28,7 @@ class ConfirmarDatosController extends Controller
             ]
             );
 
-            Notification::route('mail', 'edson_amaya99@live.com')
+            Notification::route('mail', 'gonzalezc757@gmail.com')
             ->notify(new DescargarAppNotification($request->correo));
 
 

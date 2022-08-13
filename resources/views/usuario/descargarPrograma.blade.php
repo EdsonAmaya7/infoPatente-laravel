@@ -23,7 +23,8 @@ Sistema de patentes - Administrador
 
     <div class=" container mt-5 pt-5 text-center">
         <h2>Ingresa tus datos, para descargar InfoPatente App</h2>
-        <h4>Verifica la carpeta de spam en correo, para la licencia</h4>
+        <h4>Hemos recibido tu solicitud para descargar la app</h4>
+        <h5>En breve te enviaremos un correo con la licencia del producto</h5>
 
         @if(session('mensaje'))
         <p class="

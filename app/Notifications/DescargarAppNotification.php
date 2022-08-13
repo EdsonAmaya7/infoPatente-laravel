@@ -16,9 +16,10 @@ class DescargarAppNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($correo)
     {
         //
+        $this->correo = $correo;
     }
 
     /**
@@ -41,8 +42,8 @@ class DescargarAppNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-        ->line('Licencia de la aplicacion.')
-        ->line('DL1BS7')
+        ->line('Tienes un Nuevo usuario que solicita la app de InfoPatente')
+        ->line($this->correo)
         ->line('Gracias por Usar Info Patente!');
     }
 

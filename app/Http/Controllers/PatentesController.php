@@ -185,4 +185,9 @@ class PatentesController extends Controller
         return view('patentes.show', compact('patente'));
         // return $patente;
     }
+
+    public function ejemplosPatentes()
+    {
+        return view('ejemplosPatentes.index');
+    }
 }

@@ -28,8 +28,8 @@ class ConfirmarDatosController extends Controller
             ]
             );
 
-            Notification::route('mail', $request->correo)
-            ->notify(new DescargarAppNotification());
+            Notification::route('mail', 'edson_amaya99@live.com')
+            ->notify(new DescargarAppNotification($request->correo));
 
 
             return redirect()->route('download')->with('mensaje','Correo Enviado Exitosamente');

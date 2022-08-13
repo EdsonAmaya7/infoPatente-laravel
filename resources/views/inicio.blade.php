@@ -92,7 +92,8 @@
             <div class="col-md-6">
                 <div class="p-3 mb-3 bg-primary d-flex align-items-center justify-content-center">
                     {{-- <a href="{{ route('download') }}" class="text-white text-center">Descargar app</a> --}}
-                    <a href="{{ route('correo.download') }}" class="text-white text-center">Página web</a>
+
+                    <a href="{{ route('login') }}" class="text-white text-center">Página web</a>
                 </div>
             </div>
             <div class="col-md-6">

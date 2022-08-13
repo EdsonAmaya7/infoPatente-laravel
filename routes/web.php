@@ -46,7 +46,7 @@ Route::get('/login', function () {
 Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
- Route::group(['middleware' => ['auth']], function () {
+// Route::group(['middleware' => ['auth']], function () {
 
 // ruta para obtener los datos de todos los usuarios
 Route::get('/usuarios-get', [UsuariosController::class, 'getUsuarios'])->name('getUsuarios');
@@ -106,4 +106,4 @@ Route::resources([
     '/paginas' => PaginasController::class,
 ]);
 
- });
+// });

@@ -24,8 +24,8 @@
                         <div class="item item-label mb-5">
                             <div class="wrapper mt-4">
                                 <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
-                                <input id="word_american_patent" type="word_american_patent" class="form-control"
-                                    name="word_american_patent" value="{{ old('word_american_patent') }}" required
+                                <input id="word_american_patent" type="text" class="form-control"
+                                    name="palabra" value="{{ old('word_american_patent') }}" required
                                     style="width: 90%;">
                             </div>
                             <div class="row mt-4">
@@ -70,8 +70,8 @@
                         <div class="item item-label mb-5">
                             <div class="wrapper mt-4">
                                 <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
-                                <input id="word_wipo_patent" type="word_wipo_patent" class="form-control"
-                                    name="word_wipo_patent" value="{{ old('word_wipo_patent') }}" required
+                                <input id="word_wipo_patent" type="text" class="form-control"
+                                    name="palabra" value="{{ old('word_wipo_patent') }}" required
                                     style="width: 90%;">
                             </div>
                             <div class="row mt-4">
@@ -114,8 +114,8 @@
                             <div class="item item-label mb-5">
                                 <div class="wrapper mt-4">
                                     <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
-                                    <input id="word_spacenet_patent" type="word_spacenet_patent" class="form-control"
-                                        name="word_spacenet_patent" value="{{ old('word_spacenet_patent') }}" required
+                                    <input id="word_spacenet_patent" type="text" class="form-control"
+                                        name="palabra" value="{{ old('word_spacenet_patent') }}" required
                                         style="width: 90%;">
                                 </div>
                                 <div class="row mt-4">
@@ -159,8 +159,8 @@
                             <div class="item item-label mb-5">
                                 <div class="wrapper mt-4">
                                     <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
-                                    <input id="word_espaniola_patent" type="word_espaniola_patent" class="form-control"
-                                        name="word_espaniola_patent" value="{{ old('word_espaniola_patent') }}" required
+                                    <input id="word_espaniola_patent" type="text" class="form-control"
+                                        name="palabra" value="{{ old('word_espaniola_patent') }}" required
                                         style="width: 90%;">
                                 </div>
                                 <div class="row mt-4">
@@ -205,7 +205,7 @@
                             <div class="item item-label mb-5">
                                 <div class="wrapper mt-4">
                                     <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
-                                    <input id="word_impi_patent" type="impi" class="form-control" name="impi"
+                                    <input id="word_impi_patent" type="text" class="form-control" name="palabra"
                                         value="{{ old('impi') }}" required style="width: 90%;">
                                 </div>
                                 <div class="row mt-4">
@@ -249,8 +249,8 @@
                             <div class="item item-label mb-5">
                                 <div class="wrapper mt-4">
                                     <label style="font-size: 15px" for="">Escribe la palabra a buscar</label>
-                                    <input id="word_google_patent" type="word_google_patent" class="form-control"
-                                        name="word_google_patent" value="{{ old('word_google_patent') }}" required
+                                    <input id="word_google_patent" type="text" class="form-control"
+                                        name="palabra" value="{{ old('word_google_patent') }}" required
                                         style="width: 90%;">
                                 </div>
                                 <div class="row mt-4">

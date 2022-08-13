@@ -9,6 +9,7 @@ use App\Http\Controllers\CecionariosController;
 use App\Http\Controllers\ConfirmarDatosController;
 use App\Http\Controllers\DobleAutentificacionController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\MostrarDocuementosController;
 use App\Http\Controllers\PatentesController;
 use App\Http\Controllers\PaginasController;
 use App\Http\Middleware\dobleAutentificacion;
@@ -27,10 +28,15 @@ use App\Http\Middleware\dobleAutentificacion;
 */
 
 
-
 Route::get('/', function () {
-    return view('auth.login');
+ return view('inicio');
 });
+
+// Ruta para la vista de inicio
+Route::get('inicio', function () {
+    return view('inicio');
+})->name('inicio');
+
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
@@ -40,7 +46,7 @@ Route::get('/login', function () {
 Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::group(['middleware' => ['auth']], function () {
+ Route::group(['middleware' => ['auth']], function () {
 
 // ruta para obtener los datos de todos los usuarios
 Route::get('/usuarios-get', [UsuariosController::class, 'getUsuarios'])->name('getUsuarios');
@@ -61,31 +67,43 @@ Route::get('/ultima-patente', [PatentesController::class, 'getUltimaPatente'])->
 //formulario doble autentificacion
 
 Route::get('/verificacion', [DobleAutentificacionController::class, 'index'])
-    ->middleware('doble.autentificacion')
+     ->middleware('doble.autentificacion')
     ->name('doble.autentificacion');
 
 Route::post('/verificacion', [DobleAutentificacionController::class, 'store'])->name('verificar.codigo');
 
 
 //path that returns a view with a confirmation email after sending an email with the license
-Route::get('/confirmar-datos', [ConfirmarDatosController::class,'index'])->name('correo.download');
+Route::get('/confirmar-datos', [ConfirmarDatosController::class, 'index'])->name('correo.download');
 
 //form thaht validate email
-Route::post('/confirmar-form', [ConfirmarDatosController::class,'enviarCorreo'])->name('correo.form');
+Route::post('/confirmar-form', [ConfirmarDatosController::class, 'enviarCorreo'])->name('correo.form');
 
 
 Route::get('download', function () {
     return  response()->download(public_path('/programa/InfoPatent-setup.exe'), 'infoPatent-setup.exe');
 })->name('download');
 
+Route::get('download/infoWine', function () {
+    return  response()->download(public_path('/programa/InfoWine.exe'), 'InfoWine.exe');
+})->name('download.infoWine');
+
+
 Route::get('/carlos', CarlosController::class)->name('carlos');
+
+
+
+Route::get('/mostrar',[MostrarDocuementosController::class,'pdf'])->name('mostrarPdf');
+Route::get('/mostrarEjemplo',[MostrarDocuementosController::class,'word'])->name('mostrarWord');
+Route::get('/ejemplos-patentes',[PatentesController::class,'ejemplosPatentes'])->name('patentes.ejemplosPatentes');
 
 
 Route::resources([
     '/usuarios' => UsuariosController::class,
     '/cecionarios' => CecionariosController::class,
     '/empresas' => EmpresaController::class,
-    '/patentes' => PatentesController::class
+    '/patentes' => PatentesController::class,
+    '/paginas' => PaginasController::class,
 ]);
 
-// });
+ });

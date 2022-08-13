@@ -35,7 +35,9 @@ class PaginasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $palabra = $request->input('palabra');
+        $insert = paginas::insert('insert into busquedas values (?,?,?)', $palabra, 1, 1);
+        return response()->json($insert);
     }
 
     /**

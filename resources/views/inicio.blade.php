@@ -96,5 +96,10 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div id="paypal-button-container"></div>
+            </div>
+        </div>
     </div>
 @endsection

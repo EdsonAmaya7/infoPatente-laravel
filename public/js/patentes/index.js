@@ -6,28 +6,39 @@ let tablePatentesAplicadas = $("#table-patentes-aplicadas").DataTable({
     paging: false,
     sort: false,
     searching: false,
-    ajax:{
+    ajax: {
         url: route('getPatentes'),
         type: 'GET',
     },
     columns: [
-        { data: "nombre"},
-        { data: "pais_presentacion"},
-        { data: null,
-        render: function(data){
-            if(data.entidad_pequenia == 1){
-                return "Si";
-            } else {
-                return "No"
+        { data: "nombre" },
+        {
+            data: null,
+            render: function (data) {
+                if (data.pais_presentacion == 1) {
+                    return "México"
+                } else {
+                    return "USA"
+                }
             }
-        }
-    },
-        { data: "tipo"},
-        { data: "aplicacion"},
-        { data: "autorizacion"},
-        { data: "updated_at"},
-        { data: "id",
-            render: function(id){
+        },
+        {
+            data: null,
+            render: function (data) {
+                if (data.entidad_pequenia == 1) {
+                    return "Si";
+                } else {
+                    return "No"
+                }
+            }
+        },
+        { data: "tipo" },
+        { data: "aplicacion" },
+        { data: "autorizacion" },
+        { data: "updated_at" },
+        {
+            data: "id",
+            render: function (id) {
                 return `
                 <div class="d-flex justify-content-center align-items-center">
                     <a onclick="editarPatente(${id})"
@@ -49,7 +60,7 @@ function mensajeSwal(message, icon, title) {
         text: message,
     });
 }
-function editarPatente(id){
+function editarPatente(id) {
 
     location.href = route('patentes.edit', id)
     // route('patentes.edit', $patente->id)

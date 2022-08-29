@@ -19,7 +19,7 @@
                     {{-- @include('nominas.nomina.gastosOperacion.partials.form') --}}
                     <div id="modal-contenido-autores"></div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn boton-nomina mb-0 m-0 mt-5" type="button">Guardar</button>
+                        <button type="submit" class="btn boton-nomina mb-0 m-0 mt-5" type="button" id="btn_guardar">Guardar</button>
                     </div>
                 </form>
             </div>

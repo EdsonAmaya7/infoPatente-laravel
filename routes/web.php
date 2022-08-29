@@ -74,7 +74,7 @@ Route::get('/ultima-patente-user', [PatentesController::class, 'getUltimaPatente
 //formulario doble autentificacion
 
 Route::get('/verificacion', [DobleAutentificacionController::class, 'index'])
-     ->middleware('doble.autentificacion')
+    ->middleware('doble.autentificacion')
     ->name('doble.autentificacion');
 
 Route::post('/verificacion', [DobleAutentificacionController::class, 'store'])->name('verificar.codigo');
@@ -101,6 +101,7 @@ Route::resources([
     '/empresas' => EmpresaController::class,
     '/patentes' => PatentesController::class,
     '/paginas' => PaginasController::class,
+    'autor' => AutorController::class,
 ]);
 
 // });

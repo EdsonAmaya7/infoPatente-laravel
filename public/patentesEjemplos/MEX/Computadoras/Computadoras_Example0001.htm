@@ -1,0 +1,1627 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><body>
+Solicitante:
+MICROSOFT CORPORATION<BR>Inventors: DEHGHAN David B., SHEPARD 
+                        Marc, AVERBUCH Aaron H., MARL Dennis Craig, MENZIES Derek P., FISHER Jeanette 
+                        R., KHANG Seong Kook<BR>Agents: SERGIO L. OLIVARES RODRIGUEZ
+<br>Número de Patente: MXPA2005001673<BR>
+         Title: <B>ESQUEMA A BASE DE ETIQUETA PARA 
+                        DISRIBUIR METADATOS DE ACTUALIZACION EN UN SISTEMA DE 
+                        DISTRIBUCION DE ACTUALIZACION</B><hR><a name="Abstract_Bookmark">RESUMEN</a><BR> Se 
+                        presenta una estructura a base de etiqueta para 
+                        comunicar información de metadatos de actualización de 
+                        software a computadoras de cliente y nodos de servicio 
+                        de actualización. Un archivo de metadatos de 
+                        actualización incluye:una etiqueta de identificador que 
+                        incluye un identificador de actualización de software 
+                        queúnicamente identifica la actualización de 
+                        software;cero o más etiquetas de propiedades generales 
+                        que llevan información de propiedad general con relación 
+                        a la actualización de software;cero o más etiquetas de 
+                        propiedades localizadas que llevan información de 
+                        propiedad localizada organizada de acuerdo con un 
+                        lenguaje o idioma;cero o más etiquetas de relación que 
+                        identifican relaciones de dependencia de la 
+                        actualización de software actual, como se describen en 
+                        los metadatos de actualización, que tiene con otras 
+                        actualizaciones de software;cero o más etiquetas de 
+                        reglas de aplicabilidad que llevan información para 
+                        determinar la aplicabilidad de la actualización de 
+                        software para una computadora del cliente;cero o más 
+                        etiquetas de archivos que llevan información con 
+                        relación a los archivos de carga útil de la actualización 
+                        de software;y etiquetas de datos específicos de 
+                        manejador que llevan información dirigida al manejador 
+                        de software para instalar la actualización de 
+                        software.<BR>
+
+       </P>
+  <P><a name="Resumen_Bookmark">CAMPO DE LA INVENCION</a></P>
+                  <P>La presente invención se refiere a software y redes de 
+                  computadora, y en particular, la presente invención se refiere 
+                  a un esquema a base de etiquetas para distribuir metadatos de 
+                  actualización en un sistema de distribución de 
+                  actualización.</P>
+                  <P><a name="Background_Bookmark">ANTECEDENTES DE LA INVENCION</a></P>
+                  <P>Casi todos los productos de software comercialmente 
+                  disponibles experimentan un proceso de revisión continua para 
+                  reparar o actualizar características o aspectos del software. 
+                  Cada revisión de un producto de software frecuentemente 
+                  requiere de la adición de nuevos archivos, del reemplazo de 
+                  archivos existentes con revisiones más nuevas, de la 
+                  eliminación de archivos obsoletos, o varias combinaciones de 
+                  estas acciones. Este proceso de reemplazar archivos más 
+                  antiguos, agregar nuevos archivos y eliminar archivos 
+                  obsoletos de un producto de software se denominarán de aquí en 
+                  adelante como "actualización del producto", y la colección de 
+                  datos, incluyendo archivos binarios, archivos de datos, 
+                  instrucciones de actualización, metadatos y similares, 
+                  utilizados en la actualización del producto, se denominarán de 
+                  aquí en adelante más simplemente como una "actualización". 
+                  <BR>Una vez que un proveedor de software ha creado una 
+                  actualización de un producto de software, ya sea para fijar un 
+                  problema, mejorar la seguridad, o agregar nuevas 
+                  características, el proveedor de software deseará hacer que 
+                  esa actualización quede ampliamente disponible a su base de 
+                  clientes. Por lo general, tal como cuando la actualización es 
+                  dirigida para corregir un defecto en el producto o dirigir una 
+                  emisión de seguridad crítica, el proveedor de software deseará 
+                  que la actualización instalada en las computadoras de los 
+                  clientes se haga los más rápidamente posible. En realidad, la 
+                  mayoría de los proveedores de software tienen un incentivo de 
+                  negocios para distribuir actualizaciones en el software a sus 
+                  clientes lo más rápidamente posible y libre de problema. 
+                  <BR>La industria de la computadora o computación ha 
+                  experimentado un crecimiento explosivo en el número de 
+                  computadoras conectadas a redes, y en particular, al Internet. 
+                  Debido a este crecimiento explosivo, y debido a las 
+                  habilidades de comunicación disponibles a través de una 
+                  conexión al Internet, el Internet se ha convertido en un canal 
+                  importante e integral para que los proveedores de software 
+                  distribuyan actualizaciones a sus clientes. En realidad, el 
+                  Internet se ha convertido en el canal de distribución primario 
+                  para muchos proveedores de software para proporcionar 
+                  actualizaciones de software a sus clientes. Por lo regular el 
+                  mayor interís de los proveedores de software es distribuir 
+                  actualizaciones de software a través del Internet, ya que la 
+                  distribución de actualización electrónica a través del 
+                  Internet reduce sus costos totales y permite que los clientes 
+                  obtengan las actualizaciones de software los más rápidamente 
+                  posible y disponibles. Más y más frecuentemente, estas 
+                  actualizaciones de software son conducidas automáticamente a 
+                  través del Internet, sin ninguna intervención por parte del 
+                  usuario. <BR>Aunque el Internet ahora se utiliza conmúmente 
+                  como un conducto para distribuir actualizaciones de software 
+                  de proveedores de software, surgen frecuentemente varias 
+                  emisiones. Dos de estas emisiones incluyen, (1) eficiencia con 
+                  relación a la infraestructura/recursos de distribución de 
+                  actualización, y (2) control administrativo a través de la 
+                  distribución e instalación de actualizaciones de software. 
+                  <BR>Con respecto a la eficiencia de los recursos de 
+                  distribución las redes, incluyendo el Internet, poseen 
+                  solamente una cantidad finita de recursos de comunicación, por 
+                  lo regular denominados como achura de banda. Una cantidad 
+                  finita de anchura de banda de comunicación frecuentemente da 
+                  como resultado cuellos de botella, especialmente con respecto 
+                  a las actualizaciones de software para productos de software 
+                  populares, tales como la familia de Windows de Microsoft 
+                  Corporation de sistemas operativos y productos de 
+                  productividad relacionados. Dichos cuellos de botella existen 
+                  aún cuando las actualizaciones de software se hacen 
+                  disponibles en múltiples sitios descargados distribuidos a 
+                  través del Internet. Una razón de que dichos cuellos de 
+                  botella ocurran es el modelo de acceso no estructurado que se 
+                  hace disponible a través del Internet. Por ejemplo, si un 
+                  primer usuario en una computadora A solicita la última 
+                  descarga de un producto de software, la descarga pasa a través 
+                  del primer proveedor de servicio independiente (ISP) del 
+                  usuario. Además, la solicitud es tratada como un acceso 
+                  individualizado, único, significando que la solicitud es 
+                  tratada independiente de, y no relacionada con ningún otro 
+                  tráfico y/o solicitud de red. Como tal, si un segundo usuario 
+                  en una computadora B, quien también tiene el mismo ISP, 
+                  solicita la misma descarga como al primer usuario, la 
+                  solicitud del segundo usuario también es tratada como un 
+                  acceso individualizado, único. En este ejemplo, la misma 
+                  descarga será transmitida a través de la misma infraestructura 
+                  dos veces, ya que cada solicitud fue tratada como un 
+                  aislamiento. Claramente, si el número de usuarios se 
+                  incrementa sustancialmente, la anchura de banda de 
+                  comunicación finita se convertirá en un cuello de botella. En 
+                  este ejemplo, el cual es muy común, podráa ser mucho más 
+                  eficiente si la descarga se hubiera guardado en memoria caché 
+                  en un sitio local, y cada solicitud de usuario se satisficiera 
+                  de esa memoria caché local. <BR>Con respecto al control de la 
+                  distribución, muchas organizaciones, especialmente 
+                  organizaciones grandes, tienen razones legítimas para 
+                  controlar la distribución de actualizaciones a sus 
+                  computadoras. Por ejemplo, desafortunadamente algunas 
+                  actualizaciones tienen o introducen defectos, frecuentemente 
+                  denominados como errores, que "rompen" las características o 
+                  aspectos de un producto de software. Estas características 
+                  rotas pueden ser insignificantes, pero todas por lo regular 
+                  pueden interrumpir una caracterástica crítica de misión del 
+                  negocio. Ya que un negocio no puede permitirse la pérdida de 
+                  sus características críticas de misión, un negocio responsable 
+                  primero evaluará y probará cada actualización de software 
+                  dentro de un ambiente controlado durante cierto periodo de 
+                  tiempo antes de la liberación de la actualización al resto de 
+                  sus computadoras. Este periodo de evaluación permite a la 
+                  organización validar si una actualización adversamente 
+                  afectará una caracterástica crítica de misión. Solamente 
+                  después de que se ha determinado satisfactoriamente que una 
+                  actualización no proporcionará ninguna caracterástica crítica 
+                  de misión entonces la actualización permitida será distribuida 
+                  al resto de las computadoras de la organización. Claramente, 
+                  la mayoría de las organizaciones deben ejercer control sobre 
+                  la instalación de actualizaciones de software en sus 
+                  computadoras. <BR>Otra razón que un negocio o una organización 
+                  por lo regular necesita controlar la distribución de 
+                  actualizaciones de software es asegurar la consistencia entre 
+                  las computadoras en la organización. Es muy importante para el 
+                  servicio de información que los departamentos tengan una 
+                  plataforma objetivo estandarizada en donde todas las 
+                  computadoras operan, si es para un procesador de palabra o 
+                  para un sistema operativo. Sin un esténdar, el mantenimiento 
+                  de software y de computadora puede ser innecesariamente 
+                  complejo y difícil. <BR>Otra razón más de que el control local 
+                  sea importante es para propósitos de facturación. En 
+                  organizaciones grandes, por lo regular es ineficiente instalar 
+                  individualmente el software en una computadora, o mantener 
+                  individualmente licencias para un producto de software 
+                  particular para cada computadora en la organización. Más bien, 
+                  una sola licencia de sitio permite que una organización corra 
+                  un producto de software en numerosas computadoras. De esta 
+                  manera, se requiere que una organización reporte el número de 
+                  computadoras que corren un producto bajo la licencia de sitio, 
+                  o-puede necesitar limitar el número de computadoras que corren 
+                  un producto bajo una licencia de sitio. Todas estas razones 
+                  por lo regular requieren de un control local sobre la 
+                  distribución de actualización de software. <BR>En vista de las 
+                  varias emisiones identificadas anteriormente con relación a la 
+                  distribución de actualización de software, lo que se necesita 
+                  es una arquitectura de distribución de actualización de 
+                  software extensible para proporcionar control sobre la 
+                  distribución de actualizaciones de software, así como 
+                  incrementar su eficiencia de distribución. La presente 
+                  invención dirige estas y otras emisiones encontradas en la 
+                  técnica anterior.</P>
+                  <P><a name="Summary_Bookmark">COMPENDIO DE LA INVENCION</a></P>
+                  <P>De acuerdo con los aspectos de la invención, se presenta 
+                  una estructura a base de etiquetas para comunicar metadatos de 
+                  actualización de un nodo de servicio de actualización a un 
+                  nodo de servicio de actualización hijo o una computadora de 
+                  cliente. La estructura a base de etiquetas incluye: una 
+                  etiqueta de identificador incluyendo un identificador de 
+                  actualización de software que únicamente identifica la 
+                  actualización de software; cero o más etiquetas de propiedades 
+                  generales para llevar la información de propiedad general con 
+                  relación a la actualización de software; cero o más etiquetas 
+                  de propiedades localizadas que llevan información de propiedad 
+                  localizada organizada de acuerdo con el lenguaje; cero o más 
+                  etiquetas de relación que identifican relaciones de 
+                  dependencia de la actualización de software actual, como se 
+                  describen en los metadatos de actualización, que tienen con 
+                  otras actualizaciones de software; cero o más etiquetas de 
+                  reglas de aplicabilidad que llevan información para determinar 
+                  la aplicabilidad de la actualización de software a una 
+                  computadora de cliente; cero o más etiquetas de archivos que 
+                  llevan información con relación a los archivos de carga útil 
+                  de actualización de software; y etiquetas de datos específicos 
+                  de manejador que llevan información dirigida al manejador del 
+                  software para instalar la actualización de software. <BR>De 
+                  acuerdo con aspectos adicionales de la presente invención, se 
+                  presenta una estructura a base de etiquetas para comunicar 
+                  metadatos de actualización de un nodo de servicio de 
+                  actualización a un nodo de servicio de actualización hijo o a 
+                  una computadora de cliente. La estructura a base de etiquetas 
+                  incluye: una etiqueta de identificador que incluye un 
+                  identificador de actualización de software que únicamente 
+                  identifica la actualización de software; cero o más etiquetas 
+                  de relación que identifican relaciones de dependencia de la 
+                  actualización de software actual, como se describen en los 
+                  metadatos de actualización, que tienen con otras 
+                  actualizaciones de software; y cero o más etiquetas de 
+                  archivos que llevan información con relación a los archivos de 
+                  carga útil de actualización de software.</P>
+                  <P><a name="Drawings_Bookmark">BREVE DESCRIPCION DE LOS DIBUJOS</a></P>
+                  <P>Los aspectos anteriores y muchas de las ventajas pendientes 
+                  de esta invención serán más fácilmente apreciadas a medida que 
+                  se entiendan mejor haciendo referencia a la siguiente 
+                  descripción detallada, cuando se tome junto con los dibujos 
+                  anexos, en donde: <BR>La Figura 1 es un diagrama pictórico de 
+                  un sistema de distribución de actualización ilustrativo 
+                  formado de acuerdo con los aspectos de la presente invención; 
+                  <BR>La Figura 2 es un diagrama de bloque que ilustra 
+                  componentes lógicos ilustrativos de un nodo de servicio de 
+                  actualización formado de acuerdo con los aspectos de la 
+                  presente invención; <BR>La Figura 3 es un diagrama de bloque 
+                  que muestra componentes lógicos ilustrativos de un nodo de 
+                  servicio de actualización de raíz formado de acuerdo con los 
+                  aspectos de la presente invención; </P>
+                  <P>Las Figuras 4A y 4B son diagramas de bloque que muestran un 
+                  intercambio ilustrativo entre un nodo de servicio de 
+                  actualización padre y un nodo de servicio de actualización 
+                  hijo para proporcionar una actualización de software del nodo 
+                  de servicio de actualización padre al nodo de servicio de 
+                  actualización hijo de acuerdo con los aspectos de la presente 
+                  invención; <BR>La Figura 5 es un diagrama de flujo que muestra 
+                  una rutina ilustrativa ejecutada en un nodo de servicio de 
+                  actualización hijo para obtener periódicamente actualizaciones 
+                  de su nodo de servicio de actualización padre; <BR>La Figura 6 
+                  es un diagrama de flujo de una subrutina ilustrativa adecuada 
+                  para utilizarse en la rutina ilustrativa de la Figura.5 para 
+                  obtener un catálogo de actualizaciones de un nodo de servicio 
+                  de actualización padre; <BR>La Figura 7 es un diagrama de 
+                  flujo de una subrutina ilustrativa adecuada para utilizarse en 
+                  la rutina ilustrativa de la Figura 5 para obtener una 
+                  actualización de software de un nodo de servicio de 
+                  actualización padre; <BR>La Figura 8 es un diagrama de flujo 
+                  de una rutina ilustrativa para procesar una solicitud de 
+                  actualización de un nodo de servicio de actualización hijo; y 
+                  <BR>La Figura 9 es un diagrama de bloque que muestra porciones 
+                  de un esquema de metadatos de actualización a base de XML 
+                  ilustrativo que define los contenidos de un archivo de 
+                  metadatos de actualización. </P>
+                  <P><a name="Detail_Bookmark">DESCRIPCION DETALLADA</a></P>
+                  <P>De acuerdo con los aspectos de la presente invención, se 
+                  presenta un sistema de distribución de actualización, 
+                  organizado en una forma jerárquica, para distribuir 
+                  actualizaciones de software. La Figura 1 es un diagrama 
+                  pictórico de un sistema de distribución de actualización 100 
+                  ilustrativo formado de acuerdo con los aspectos de la presente 
+                  invención. De acuerdo con la presente invención, en la "parte 
+                  superior" del sistema de distribución de actualización, tal 
+                  como el sistema de distribución de actualización ilustrado, 
+                  esté un nodo de servicio de actualización de raíz 102. Los 
+                  proveedores de software, tales como el proveedor de software 
+                  110, distribuyen sus actualizaciones de software a través del 
+                  sistema de distribución de actualización 100 presentando las 
+                  actualizaciones al nodo de servicio de actualización de raíz 
+                  102. De acuerdo con los aspectos de la presente invención, los 
+                  proveedores de software, tales como el proveedor de software 
+                  110, pueden presentar sus actualizaciones de software al nodo 
+                  de servicio de actualización de raíz 102 a través de una red, 
+                  tal como el Internet 108. <BR>Un sistema de distribución de 
+                  actualización jerárquico, tal como el sistema de distribución 
+                  áde actualización 100 ilustrativo, probablemente incluirá por 
+                  lo menos otro nodo de servicio de actualización además del 
+                  nodo de servicio de actualización de raíz 102. Como se ílustra 
+                  en la Figura 1, el sistema de distribución de actualización 
+                  100 ilustrativo incluye el nodo de servicio de actualización 
+                  de raíz 102 y dos nodos de servicio de actualización 
+                  adicionales: el nodo de servicio de actualización 104 y el 
+                  nodo de servicio de actualización 106. De acuerdo con la 
+                  presente invención, cada sistema de distribución de 
+                  actualización jerárquico esté organizado en una estructura de 
+                  tipo árbol por abajo del nodo de servicio de actualización de 
+                  raíz 102. En otras palabras, cada nodo de servicio de 
+                  actualización en un sistema de distribución de actualización 
+                  tiene cero o más nodos de servicio de actualización hijo. De 
+                  esta manera, aunque el sistema de distribución de 
+                  actualización 100 ilustrativo muestra que cada nodo de 
+                  servicio de actualización padre, es decir, el nodo de servicio 
+                  de actualización de raíz 102 y el nodo de servicio de 
+                  actualización 104, tiene solamente un hijo, es solamente para 
+                  propósitos de ilustración, y no debe ser construido como 
+                  limitante de la presente invención. Además, con la excepción 
+                  del nodo de servicio de actualización de raíz 102, cada nodo 
+                  de servicio de actualización en un sistema de distribución de 
+                  actualización tiene un nodo de servicio de actualización 
+                  padre. Por consiguiente, como se muestra en la Figura 1, el 
+                  nodo de servicio de actualización 104 es un nodo hijo para el 
+                  nodo de servicio de actualización de raíz 102, y el nodo de 
+                  servicio de actualización 106 es un nodo hijo para el nodo de 
+                  servicio de actualización 104. Como se puede ver, cada nodo de 
+                  servicio de actualización, con la excepción del nodo de 
+                  servicio de actualización raíz 102, ambos pueden ser un nodo 
+                  de servicio de actualización hijo y un nodo de servicio de 
+                  actualización padre. </P>
+                  <P>Como se ilustra en el sistema de distribución de 
+                  actualización 100 ilustrativo, el nodo de servicio de 
+                  actualización de raíz 102 se comunica con el nodo de servicio 
+                  de actualización 104 a través de Internet 108. Sin embargo, se 
+                  debe entender que esto es solamente ilustrativo, y no debe ser 
+                  construido como limitante de la presente invención. Cada nodo 
+                  de servicio de actualización en un sistema de distribución de 
+                  ^actualización solamente necesita ser capaz de comunicarse con 
+                  su hijo y/o padre a través de alguna red de comunicación. De 
+                  esta manera, aunque el nodo de servicio de actualización 104 
+                  se comunica con su padre, el nodo de servicio de actualización 
+                  de raíz 102, a través del internet 108, alternativamente puede 
+                  comunicarse con sus nodos de servicio de actualización hijos, 
+                  tales como el nodo de servicio de actualización 106, a través 
+                  de una red de área local 124. <BR>También como se muestra en 
+                  la Figura 1, el nodo de servicio de actualización 106 reside 
+                  dentro de una sub-red 126 de la red de área local 124. Como un 
+                  ejemplo, la red de área local 124 puede corresponder a una red 
+                  corporativa general de organización, y el nodo de servicio de 
+                  actualización 104 representa el enlace de la corporación al 
+                  sistema de distribución de actualización 100 a través de su 
+                  conexión a su nodo de servicio de actualización de raíz padre 
+                  102. Además, la sub-red 126 puede corresponder a un grupo 
+                  identificable de computadoras dentro de la red corporativa, 
+                  tal como un grupo de prueba/evaluación, una oficina 
+                  remotamente ubicada, o un grupo crítico de misión. Como se 
+                  describirá con mayor detalle más adelante, de acuerdo con los 
+                  aspectos de la presente invención, un administrador en el nodo 
+                  de servicio de actualización 104 es capaz de controlar la 
+                  distribución de actualizaciones hacia el nodo de servicio de 
+                  actualización 106, y finalmente a las computadoras de 
+                  clientes. <BR>Se debe apreciar que cada nodo de servicio de 
+                  actualización, incluyendo tanto el nodo de servicio de 
+                  actualización de raíz 102 como los nodos de servicio de 
+                  actualización 104 y 106, esté configurado para distribuir 
+                  actualizaciones de software a cualquiera de los nodos de 
+                  servicio de actualización hijos así como a computadoras de 
+                  clientes. Como se muestra en la Figura 1, el sistema de 
+                  distribución de actualización 100 ilustrativo incluye las 
+                  computadoras de cliente 112-122. Cada nodo de servicio de 
+                  actualización, incluyendo el nodo de servicio de actualización 
+                  de raíz 102, distribuye actualizaciones a los nodos de 
+                  servicio de actualización hijos y a las computadoras de 
+                  clientes de acuerdo con la información de configuración local. 
+                  De acuerdo con una modalidad, un administrador define grupos y 
+                  asocia reglas de distribución de actualización con aquellos 
+                  grupos. Cada nodo de servicio de actualización tiene por lo 
+                  menos un grupo de distribución. <BR>Como un ejemplo para 
+                  ílustrar cómo el sistema de distribución de actualización 
+                  opera, asumir que la red de área local 24 corresponde a una 
+                  red corporativa de organización de negocios. De acuerdo con 
+                  una modalidad de la presente invención, un administrador, en 
+                  el nodo de servicio de actualización 104, puede definir 
+                  múltiples grupos de distribución para red corporativa 124, 
+                  incluyendo un grupo de evaluación, que corresponde a la 
+                  sub-red 126 incluyendo el nodo de servicio de actualización 
+                  106 y las computadoras de cliente 120 y 122, para evaluar la 
+                  conveniencia de una actualización para red corporativa general 
+                  124, así como un grupo corporativo general incluyendo el nodo 
+                  de servicio de actualización 104 y las computadoras de 
+                  clientes 114-118. <BR>Con respecto al grupo de evaluación, el 
+                  administrador incluye el nodo de servicio de actualización 106 
+                  como un miembro, y asocia las reglas con ese grupo de manera 
+                  que las actualizaciones son inmediatamente distribuidas a los 
+                  miembros del grupo de evaluación a medida que quedan 
+                  disponibles. Alternativamente, con respecto al grupo de 
+                  corporativo general, el administrador agrega computadoras de 
+                  cliente 114-118, y asocia una regla de manera que las 
+                  actualizaciones solamente son distribuidas a los miembros de 
+                  grupo corporativo generales si específicamente son autorizadas 
+                  por el administrador. Asumir también que un administrador para 
+                  el nodo de servicio de actualización hijo 106 crea un grupo 
+                  por omisión consistiendo de las computadoras de clientes 120 y 
+                  122 en la sub-red de evaluación 126, en donde cualquier nueva 
+                  actualización de software puede ser inmediatamente 
+                  distribuida. <BR>Continuando con el ejemplo anterior, un 
+                  proveedor de software 110 presenta una actualización de 
+                  software al nodo de servicio de actualización de raíz 102. De 
+                  acuerdo con las reglas establecidas en el nodo de servicio de 
+                  actualización de raíz 102, la actualización finalmente es 
+                  distribuida al nodo de servicio de actualización corporativo 
+                  104. Después de recibir la actualización, por las reglas 
+                  establecidas por el administrador, el nodo de servicio de 
+                  actualización corporativo 104 distribuye la actualización a 
+                  los miembros del grupo de evaluación (definido como el único 
+                  nodo de servicio de actualización hijo 106), pero oculta la 
+                  actualización de la autorización específica pendiente del 
+                  grupo corporativo general para distribuir la actualización a 
+                  ese grupo. <BR>Continuando con el ejemplo anterior, después de 
+                  recibir la actualización, el nodo de servicio de actualización 
+                  de evaluación 106 procesa la actualización con respecto a cada 
+                  grupo definido. En este ejemplo, el nodo de servicio de 
+                  actualización de evaluación 106 solamente tiene un grupo. Sin 
+                  embargo, como se mencioná previamente, en una implementación 
+                  actual, pueden existir múltiples grupos definidos, cada uno 
+                  con un grupo único de reglas de distribución asociadas. Para 
+                  este ejemplo, el nodo de servicio de actualización de 
+                  evaluación 106 inmediatamente hace que la actualización quede 
+                  disponible para la distribución a las computadoras de cliente 
+                  120 y 122. Las computadoras de cliente 120 y 122 ahora pueden 
+                  ser actualizadas y el periodo/proceso de evaluación puede 
+                  comenzar. <BR>Siguiendo con el ejemplo anterior, cuando el 
+                  administrador en ei nodo de servicio de actualización 
+                  corporativo 104 esté suficientemente satisfecho de que la 
+                  actualización es adecuada para su distribución a través de 
+                  toda la red corporativa 124, el administrador entonces 
+                  explícitamente autoriza que la actualización sea distribuida a 
+                  los miembros del grupo corporativo general. El nodo de 
+                  servicio de actualización corporativo 104 correspondientemente 
+                  hace que la actualización quede disponibles a las computadoras 
+                  de cliente 114-118. Se debe entender que el nodo de servicio 
+                  de actualización de evaluación 106 también puede ser incluido 
+                  en el grupo corporativo genera!. Sin embargo, ya que el nodo 
+                  de servicio de actualización de evaluación 106 ya ha sido 
+                  actualizado, no se necesita de ninguna acción relacionada con 
+                  la actualización para distribuir la actualización a la sub-red 
+                  de evaluación 126. <BR>Como se puede ver por el ejemplo 
+                  anterior, la presente invención ofrece beneficios 
+                  significativos en términos de control de distribución local y 
+                  eficiencia de descarga. Además de los aspectos antes descritos 
+                  del control de distribución local, también se pueden presentar 
+                  ahorros significativos en la anchura de banda de comunicación. 
+                  Por ejemplo, aunque la red corporativa 124 ilustrativa 
+                  presentada en la Figura 1 incluye 5 computadoras de cliente, 
+                  la actualización del proveedor de software fue descarga del 
+                  nodo de servicio de actualización de raíz 102 al nodo de 
+                  servicio de actualización corporativo 104 solamente una vez. 
+                  Claramente después, a medida que el número de computadoras de 
+                  cliente que tienen servicio por un nodo de servicio de 
+                  actualización se incrementa, el uso de anchura de banda de 
+                  comunicación entre un nodo de servicio de actualización padre 
+                  y un nodo de servicio de actualización de cliente permanece 
+                  constante, reduciendo así sustancialmente la cantidad de 
+                  anchura de banda de comunicación que de otra manera podráa ser 
+                  utilizada. Además, el sistema de distribución de actualización 
+                  es tanto extensible como escalable. El sistema de distribución 
+                  de actualización es extensible en por lo menos dos formas: 
+                  cualquier número de nodos de servicio de actualización hijos 
+                  puede ser agregado a un nodo de servicio de actualización 
+                  padre, y los nodos de servicio de actualización hijos también 
+                  pueden ser un nodo de servicio de actualización padre. Cada 
+                  sub árbol de sistema de distribución de actualización, por lo 
+                  tanto, puede ser diseñado para satisfacer necesidades 
+                  individuales. <BR>La Figura 2 es un diagrama de bloque que 
+                  muestra componentes lógicos ilustrativos de un nodo de 
+                  servicio de actualización 200, tal como el nodo de servicio de 
+                  actualización corporativo 104 (Figura 1) o el nodo de servicio 
+                  de actualización de evaluación 106 (Figura 1), formado de 
+                  acuerdo con los aspectos de la presente invención. Como se 
+                  muestra en la Figura 2, un nodo de servicio de actualización 
+                  200 incluye un servicio web de actualización 202, un módulo de 
+                  actualización de cliente 204, un módulo de actualización hijo 
+                  206 y un módulo de reporte 208. El nodo de servicio de 
+                  actualización 200 ilustrativo también incluye un módulo de 
+                  autenticación/autorización 210, una interfase de programación 
+                  de aplicación de administración (API) 212, un almacenamiento 
+                  de contenido de actualización 214, una interfase de usuario de 
+                  administración 218, y un almacenamiento de información de 
+                  actualización 216. </P>
+                  <P>El servicio web de actualización 202 proporciona un grupo 
+                  común de servicios Web a través de los cuales las computadoras 
+                  de cliente, los nodos de servicio de actualización hijos, y un 
+                  nodo de servicio de actualización padre pueden comunicarse con 
+                  un nodo de servicio de actualización. Por ejemplo, con 
+                  referencia a la Figura 1, con el fin de que un nodo de 
+                  servicio de actualización hijo/evaluación 106 obtenga una 
+                  actualización de software del nodo de servicio de 
+                  actualización padre/corporativo 104, el cliente se comunica a 
+                  través del servicio web de actualización 202 del padre. 
+                  Similarmente, cuando un nodo de servicio de actualización 
+                  padre, tal como el nodo de servicio de actualización de raíz 
+                  102, tiene información, incluyendo actualizaciones, para 
+                  comunicarlas a su nodo de servicio de actualización hijo 104, 
+                  el nodo de servicio de actualización padre se comunica a 
+                  través del servicio web de actualización 202 del hijo. El 
+                  módulo de actualización de cliente 204 maneja comunicaciones 
+                  entre una computadora de cliente y el nodo de servicio de 
+                  actualización 200 con respecto a actualizaciones e información 
+                  de actualización almacenada en el nodo de servicio de 
+                  actualización. Las comunicaciones relacionadas con la 
+                  actualización incluyen, pero no se limitan a, distribuir 
+                  actualizaciones con respuesta a las solicitudes de clientes y 
+                  proporcionar una lista de productos de software disponibles y 
+                  actualizaciones asociadas para la computara de cliente. El 
+                  módulo de actualización de cliente 204 también es responsable 
+                  de la determinación si una computadora de cliente esté 
+                  autorizada para obtener una actualización particular de 
+                  acuerdo con las reglas de distribución asociadas, y responde a 
+                  una computadora de cliente con la información relacionada con 
+                  la actualización de que la computadora de cliente tiene un 
+                  acceso autorizado. <BR>El módulo de actualización hijo 206 
+                  maneja las comunicaciones relacionadas con la actualización 
+                  entre uno nodo de servicio de actualización padre y sus nodos 
+                  de servicio de actualización hijos. Las comunicaciones 
+                  relacionadas con la actualización incluyen, pero no se limitan 
+                  a, identificar listas de productos de software y 
+                  actualizaciones asociadas disponibles con un nodo de servicio 
+                  de actualización hijo, así como responder a solicitudes de 
+                  actualización de un nodo de servicio de actualización hijo. El 
+                  módulo de actualización corriente abajo 206 es responsable de 
+                  determinar si un nodo de servicio de actualización hijo esté 
+                  autorizado para obtener una actualización particular de 
+                  acuerdo con las reglas de distribución asociadas, y responde a 
+                  un nodo de servicio de actualización hijo con la información 
+                  relacionada con la actualización de que el nodo de servicio de 
+                  actualización hijo tiene a un acceso autorizado. <BR>El módulo 
+                  de reporte 208 genera reportes relacionados con la 
+                  actualización, tales como que grupos han o no han recibido una 
+                  actualización particular, que computadoras de cliente han o no 
+                  descarga/instalado una actualización, y que actualizaciones 
+                  estén disponibles en el nodo de servicio de actualización, y 
+                  similares. Estos reportes pueden ser utilizados internamente, 
+                  tales como a través de un administrador, y también presentados 
+                  al nodo de servicio de actualización padre, a través de la 
+                  interfase de servicio de actualización 202 del padre. Como se 
+                  describió anteriormente, por lo regular es necesario que las 
+                  corporaciones determinen que computadoras de cliente tienen 
+                  una actualización particular instalada, tal como para 
+                  propósitos de facturación o para propósitos de mantenimiento. 
+                  La información/reporte generados por el módulo de reporte 208 
+                  puede ser la base de estos reportes. <BR>El módulo de 
+                  autenticación/autorización 210 es responsable de la 
+                  autenticación, es decir, de la determinación de ia identidad 
+                  de, una computadora de cliente particular o un nodo de 
+                  servicio de actualización hijo, y determinar si una 
+                  computadora de cliente o un nodo de servicio de actualización 
+                  hijo esté autorizado a tener acceso disponible para 
+                  actualizaciones en el nodo de servicio de actualización 200. 
+                  Para aquellas computadoras de cliente y nodos de servicio de 
+                  actualización hijos que sean autenticados y autorizados para 
+                  tener acceso a actualizaciones en el nodo de servicio de 
+                  actualización, el módulo de autenticación/autorización 210 
+                  emite un símbolo de autorización que debe ser utilizado junto 
+                  con la obtención de actualizaciones. La emisión y el uso de un 
+                  símbolo de actualización se describen con mayor detalle más 
+                  adelante con respecto a las Figuras 4A y 4B. <BR>La 
+                  administración API 212 representa la interfase de aplicación a 
+                  través de la cual se ejerce control del nodo de servicio de 
+                  actualización 200, y a través del cual se almacenan y 
+                  distribuyen finalmente las actualizaciones. Cuando el servicio 
+                  web de actualización 202 recibe varias solicitudes 
+                  relacionadas con la actualización de computadoras de cliente y 
+                  de nodos de servicio de actualización hijos, estas solicitudes 
+                  finalmente son divididas en llamadas a la administración API 
+                  212, ya sea directa o indirectamente a través del módulo de 
+                  actualización de cliente 204 y el módulo de actualización hijo 
+                  206. Junto con la interfase de usuario de administración 218 o 
+                  algún otro programa instalado en el modo de servicio de 
+                  actualización 200 convenientemente configurado para utilizar 
+                  la administración API 212, un administrador finalmente 
+                  controla todos los aspectos del proceso de actualización para 
+                  ese nodo de servicio de actualización, así como cualquiera de 
+                  los nodos de servicio de actualización hijos y las 
+                  computadoras de cliente. <BR>A través de la interfase de 
+                  usuario de administración 218, los administradores pueden 
+                  configurar y mantener un nodo de servicio de actualización 
+                  200, a través de la administración API 212. De esta manera, a 
+                  través de la interfase de usuario de administración 218, un 
+                  administrador crea, modifica y elimina grupos, así como asocia 
+                  reglas para cada grupo. Además, al utilizar la interfase de 
+                  usuario de administración 218, un administrador establece a 
+                  que grupo pertenece una computadora de cliente o un nodo de 
+                  servicio de actualización hijo. A través de la interfase de 
+                  usuario de administración 218, un administrador también puede 
+                  autorizar explícitamente la distribución de actualizaciones a 
+                  computadoras de cliente o a nodos de servicio de actualización 
+                  hijos, configurar el nodo de servicio de actualización 200 
+                  para solicitar periódicamente su nodo de servicio de 
+                  actualización padre para nuevas actualizaciones, configurar 
+                  parámetros de reporte y de reportes internos, y similares. 
+                  Como se mencioná anteriormente, aunque la interfase de usuario 
+                  de administración 218 permite que un administrador ejerza 
+                  control sobre los aspectos del nodo de servicio de 
+                  actualización 200, otra aplicación que reside en el nodo de 
+                  servicio de actualización 200, convenientemente adaptada para 
+                  operar con la administración API 212, puede ser utilizada en 
+                  lugar de la interfase de usuario de administración 218. 
+                  <BR>Como se mencioná anteriormente, de acuerdo con una 
+                  modalidad de la presente invención, un nodo de servicio de 
+                  actualización 200 incluye tanto un almacenamiento de contenido 
+                  de actualización 214 como un almacenamiento de información de 
+                  actualización 216. El almacenamiento de contenido de 
+                  actualización 214 almacena los archivos reales que representan 
+                  las actualizaciones de software, tales como binarios y 
+                  archivos de parche. En contraste, el almacenamiento de 
+                  información de actualización 216 almacena información y 
+                  metadatos que corresponden a las actualizaciones disponibles 
+                  en el nodo de servicio 200, incluyendo los archivos de 
+                  actualización almacenados en el almacenamiento de contenido de 
+                  actualización 214. De acuerdo con una modalidad, el 
+                  almacenamiento de contenido de actualización 214 y el 
+                  almacenamiento de información de actualización 216 ambos son 
+                  bases de datos relaciónales. Aunque el nodo de servicio de 
+                  actualización 200 ilustrativo se muestra como teniendo dos 
+                  almacenamiento de datos, la presente invención no debe ser 
+                  limitada a éstos. En una modalidad alternativa, tanto el 
+                  almacenamiento de contenido de actualización 214 como el 
+                  almacenamiento de información de actualización 216 pueden ser 
+                  combinados en un solo almacenamiento de información. <BR>De 
+                  acuerdo con los aspectos de la presente invención, una 
+                  actualización de software puede ser presentada como estando 
+                  "disponibles" en un nodo de servicio de actualización 200 a 
+                  las computadoras de cliente y nodos de servicio de 
+                  actualización hijos aunque la actualización no esté almacenada 
+                  físicamente en el almacenamiento de contenido de actualización 
+                  214. Más particularmente, en lugar de descargar y almacenar 
+                  inmediatamente los archivos de actualización actuales en un 
+                  nodo de servicio de actualización 200, un enlace haciendo 
+                  referencia a los archivos de actualización en el nodo de 
+                  servicio de actualización padre o cualquier otra parte, pueden 
+                  ser más almacenados en el nodo de servicio de actualización. 
+                  De esta manera, si una computadora de cliente solicita la 
+                  actualización, o un nodo de servicio de actualización hijo 
+                  solicita la actualización actual, la actualización después es 
+                  llevada del nodo de servicio de actualización padre y 
+                  almacenada en el almacenamiento de contenido de actualización 
+                  214, para la preparación para suministrarlo a la computadora 
+                  de cliente o al nodo de servicio de actualización hijo. 
+                  Aquellos expertos en la técnica reconocerán este tipo de 
+                  acceso de actualización que se denomina como una descarga 
+                  justo en tiempo. De esta manera, una actualización 
+                  "disponible" no necesita ser distribuida a través de los 
+                  varios canales de red hasta que en realidad sea solicitada. De 
+                  acuerdo con los aspectos de la presente invención, un 
+                  administrador de un nodo de servicio de actualización 200 
+                  selectivamente puede determinar si obtener actualización de 
+                  software en una forma justo en tiempo. <BR>Aunque la 
+                  descripción anterior de la Figura 2 ílustra varios componentes 
+                  de un módulo de servicio de actualización 200 ilustrativo, se 
+                  debe apreciar que otros componentes de un módulo de servicio 
+                  de actualización también pueden existir. Además, los 
+                  componentes antes descritos se debe entender que son 
+                  componentes lógicos, no necesariamente componentes reales. En 
+                  una implementación actual o real, los componentes antes 
+                  identificados pueden ser combinados conjuntamente y/o con 
+                  otros componentes de acuerdo con las determinaciones de la 
+                  implementación. Además, se debe apreciar que aunque un nodo de 
+                  servicio de actualización 200 puede ser visto como una 
+                  computadora de servidor en una red, en una implementación 
+                  actual, un nodo de servicio de actualización puede ser 
+                  implementado en cualquier número de tipos de dispositivos de 
+                  cúmputo. Por ejemplo, cada nodo de servicio de actualización 
+                  200 puede ser implementado y/o instalado en un sistema de 
+                  computadora independiente individual o, alternativamente, en 
+                  un sistema de computo distribuido que comprende múltiples 
+                  dispositivos de cúmputo. <BR>La Figura 3 es un diagrama de 
+                  bloque que muestra componentes lógicos ilustrativos de un nodo 
+                  de servicio de actualización de raíz 300, tal como el nodo de 
+                  servicio de actualización de raíz 102 ilustrado en la Figura 
+                  1, formado de acuerdo con los aspectos de la presente 
+                  invención. Similar a los componentes lógicos de un nodo de 
+                  servicio de actualización 200 (Figura 2), un nodo de servicio 
+                  de actualización de raíz 300 incluye un<SUP>'</SUP>servicio 
+                  web de actualización 202, un módulo de actualización hijo 206, 
+                  y un módulo de autenticación/autorización 210. Además, un nodo 
+                  de servicio de actualización de raíz ilustrativo 300 también 
+                  incluye una administración API 212, un almacenamiento de 
+                  contenido de actualización 214, y un almacenamiento de 
+                  información de actualización 216. Opcionalmente, el nodo de 
+                  servicio de actualización de raíz 300 también puede incluir un 
+                  módulo de actualización de cliente 204, un módulo de reporte 
+                  208, y una interfase de usuario de administración 218. <BR>El 
+                  módulo de actualización de cliente 204 es un componente 
+                  opcional para un nodo de servicio de actualización de raíz 300 
+                  dependiendo si el nodo de servicio de actualización de raíz 
+                  proporciona actualizaciones de software directamente a 
+                  computadoras cliente. Por ejemplo, con referencia a la Figura 
+                  1, en nodo de servicio de actualización de raíz 102 podráa 
+                  incluir el módulo de actualización de cliente opcional 204 
+                  como el nodo de servicio de actualización de raíz que 
+                  directamente da servicio a la computadora de cliente 112. Sin 
+                  embargo, si un nodo de servicio de actualización de raíz 300 
+                  no fuera directamente a dar servicio a las computadoras de 
+                  cliente, el módulo de actualización de cliente 204 puede ser 
+                  omitido. <BR>El módulo de reporte 208 es opcional para un nodo 
+                  de servicio de actualización de raíz 300, ya que un nodo de 
+                  servicio de actualización de raíz no tiene ningún nodo de 
+                  servicio de actualización al cual se le proporcionen reportes 
+                  de actualización. Sin embargo, al grado de que los reportes de 
+                  actualización sean deseables para ei administrador del nodo de 
+                  servicio de actualización de raíz, el módulo de reporte 208 
+                  opcionalmente puede ser incluido. <BR>Además de comprender los 
+                  componentes lógicos incluidos en un nodo de servicio de 
+                  actualización 200 (Figura 2), el nodo de servicio de 
+                  actualización de raíz 300 también incluye una interfase de 
+                  proveedor de software 302. La interfase de proveedor de 
+                  software 302 proporciona la interfase de comunicación a través 
+                  de la cual un proveedor de software 110 (Figura 1) presenta 
+                  actualizaciones de software directamente al nodo de servicio 
+                  de actualización de raíz 300, e indirectamente al sistema de 
+                  distribución de actualización 100 ilustrativo. <BR>Similar al 
+                  nodo de servicio de actualización 200 de la Figura 2, la 
+                  descripción anterior de la Figura 3 ilustra varios componentes 
+                  de un módulo de servicio de actualización de raíz 300 
+                  ilustrativo. Sin embargo, se debe apreciar que otros 
+                  componentes de un módulo de servicio de actualización de raíz 
+                  también pueden existir. Además, se debe entender que los 
+                  componentes antes descritos son componentes lógicos, no 
+                  necesariamente componentes actuales o reales. En una 
+                  implementación actual o real, los componentes antes 
+                  identificados pueden ser combinados conjuntamente y/o con 
+                  otros componentes de acuerdo con las determinaciones de la 
+                  implementación. Además, se debe apreciar que aunque un nodo de 
+                  servicio de actualización de raíz 200 pueda ser visto como una 
+                  computadora servidora en una red, en una implementación actual 
+                  o real, un nodo de servicio de actualización puede ser 
+                  implementado en cualquier número de dispositivos de cúmputo. 
+                  Por ejemplo, el modo de servicio de actualización de raíz 300 
+                  puede ser implementado y/o instalado en un sistema de 
+                  computadora independiente individual o, alternativamente, en 
+                  un sistema de cúmputo distribuido que comprende múltiples 
+                  dispositivos de cúmputo. <BR>Con el fin de entender mejor cómo 
+                  una actualización es distribuida del nodo de servicio de 
+                  actualización de raíz a través de un sistema de distribución 
+                  de actualización 100, se garantiza una ilustración de un 
+                  intercambio ilustrativo entre un nodo de servicio de 
+                  actualización padre y un nodo de servicio de actualización 
+                  hijo. La Figura 4 es un diagrama de bloque que muestra un 
+                  intercambio ilustrativo 400 entre un nodo de servicio de 
+                  actualización padre 402 un nodo de servicio de actualización 
+                  hijo 404 para propagar una actualización de software del nodo 
+                  de servicio de actualización padre al nodo de servicio de 
+                  actualización hijo, de acuerdo con los aspectos de la presente 
+                  invención. Como se puede ver, el diagrama 400 ilustrativo esté 
+                  dividido a la mitad, la mitad izquierda del cual corresponde a 
+                  acciones y eventos del nodo de servicio de actualización padre 
+                  402, y la mitad derecha corresponde a acciones y eventos del 
+                  nodo de servicio de actualización hijo 404. <BR>Para 
+                  propósitos de discusión con respecto a la Figura 4, se debe 
+                  entender además que el nodo de servicio de actualización padre 
+                  402 puede o no ser el nodo de servicio de actualización de 
+                  raíz en el sistema de distribución de actualización de 100. 
+                  Además, para propósitos de esta discusión, se asume que el 
+                  nodo de servicio de actualización padre 402 ha sido 
+                  configurado por un administrador de manera que el nodo de 
+                  servicio de actualización hijo 404 puede no recibir 
+                  actualizaciones de software a menos que explícitamente quede 
+                  autorizado para hacer esto por parte del administrador. 
+                  <BR>Como se muestra en el intercambio 400 ilustrativo, 
+                  comenzando en el evento 406, el nodo de servicio de 
+                  actualización padre 402 recibe una actualización de software 
+                  de un proveedor de software 110, ya sea directamente, si el 
+                  nodo de servicio de actualización padre es el nodo de servicio 
+                  de actualización de raíz 102, o indirectamente a través del 
+                  sistema de distribución de actualización 100. En algún punto 
+                  después de que el nodo de servicio de actualización padre 402 
+                  recibe la actualización de software del proveedor de software 
+                  110, el nodo de servicio de actualización hijo 404 comienza un 
+                  proceso de para obtener actualizaciones de software del nodo 
+                  de servicio de actualización padre. <BR>De acuerdo con una 
+                  modalidad, un nodo de servicio de actualización hijo 404 puede 
+                  ser configurado para obtener automáticamente las 
+                  actualizaciones de software disponibles de un nodo de servicio 
+                  de actualización hijo 202 en una base periódica. Más 
+                  particularmente, un administrador, a través de la interfase de 
+                  usuario de administración 218, selectivamente puede configurar 
+                  el nodo de servicio de actualización hijo 404 para obtener 
+                  automáticamente las últimas actualizaciones de software 
+                  disponibles en el nodo de servicio de actualización padre 402 
+                  en una base periódica. Como un ejemplo, un administrador puede 
+                  configurar el nodo de servicio de actualización hijo 404 para 
+                  obtener las últimas actualizaciones de software de su nodo de 
+                  servicio de actualización padre 402 en una base diaria y/o por 
+                  horas, así como especificar la hora del día en el que comienza 
+                  el proceso de actualización automático. Otros programas y 
+                  criterios periódicos también pueden ser utilizados. 
+                  Similarmente, un administrador puede iniciar manualmente el 
+                  proceso de actualización a través de la interfase de usuario 
+                  de administración 218. <BR>Para comenzar el proceso de 
+                  actualización, en el evento 408, el nodo de servicio de 
+                  actualización hijo 404 lo autentica y autoriza con el nodo de 
+                  servicio de actualización padre 402. La autenticación y 
+                  autorización con el nodo de servicio de actualización padre 
+                  402 proporciona un elemento de control a través de la 
+                  distribución de actualizaciones software, limitando la 
+                  distribución de actualización a nodo de servicio de 
+                  actualización autorizados. Las técnicas de autenticación y 
+                  autorización son bien conocidas en el campo, cualquier número 
+                  de las cuales puede ser empleado para autenticar y autorizar a 
+                  un nodo de servicio de actualización hijo 404 con el nodo de 
+                  servicio de actualización padre 402. La presente invención no 
+                  esté restringida a ninguna de estas técnicas. <BR>Después de 
+                  autenticar y autorizar apropiadamente con el nodo de servicio 
+                  de actualización padre 402, en el evento 410, el nodo de 
+                  servicio de actualización padre 402 regresa un símbolo de 
+                  autorización al nodo de servicio de actualización hijo 404. De 
+                  acuerdo con una modalidad, un símbolo de autorización es un 
+                  símbolo sensible al tiempo que proporciona al nodo de servicio 
+                  de actualización hijo 404 la autorización para conducir más 
+                  actividades de actualización con el nodo de servicio de 
+                  actualización padre durante una cantidad limitada de tiempo. 
+                  De esta manera, si el nodo de servicio de actualización hijo 
+                  404 no es apropiadamente autenticado y autorizado con el nodo 
+                  de servicio de actualización padre, ningún símbolo de 
+                  autorización es regresado y el nodo de servicio de 
+                  actualización hijo es incapaz de realizar cualquier otra 
+                  actividad relacionada con la actualización, excepto la 
+                  autenticación y autorización. Similarmente, después que el 
+                  símbolo de actualización ha expirado, el nodo de servicio de 
+                  actualización hijo 404 es incapaz de realizar ninguna 
+                  actividad adicional relaciona con la actualización con el nodo 
+                  de servicio de actualización padre 402, excepto la 
+                  reautenticación y reautorización. <BR>Después de recibir el 
+                  símbolo de autorización, en el evento 412, el nodo de servicio 
+                  de actualización hijo 404 presenta una solicitud al nodo de 
+                  servicio de actualización padre para un catálogo de 
+                  actualización de producto junto con el símbolo de 
+                  autorización. Un catálogo de actualización de producto 
+                  representa una lista, o tabla de contenidos, de productos de 
+                  software para los cuales el nodo de servicio de actualización 
+                  padre 402 distribuye actualizaciones de software. <BR>De 
+                  acuerdo con los aspectos de la presente invención, un nodo de 
+                  servicio de actualización hijo 404 no es requerido para 
+                  propagar todas las actualizaciones de software disponibles en 
+                  nodo de servicio de actualización padre 402. Por ejemplo, con 
+                  referencia al sistema de distribución de actualización 
+                  ilustrativo de la Figura 1, el nodo de servicio de 
+                  actualización corporativo 104 puede tener licencias de sitio 
+                  solamente para una fracción de productos de software 
+                  disponibles en el nodo de servicio de actualización de raíz 
+                  102. Por consiguiente, podráa ser necesario que el nodo de 
+                  servicio de actualización corporativo 104 obtenga todas las 
+                  actualizaciones de software disponibles en el nodo de servicio 
+                  de actualización de raíz 102, aunque muchos no hayan sido 
+                  utilizados. Por consiguiente, un administrador en un nodo de 
+                  servicio de actualización selectivamente puede establecer que 
+                  actualizaciones de producto de software estarán disponibles en 
+                  el nodo de servicio de actualización.</P>
+                  <P>De acuerdo con un aspecto de la presente invención, el 
+                  catálogo de producto de actualización, obtenido de un nodo de 
+                  servicio de actualización padre 402, identifica todos los 
+                  productos de software para los cuales estén disponibles 
+                  actualizaciones, si el nodo de servicio de actualización hijo 
+                  404 esté o no configurado para distribuir actualizaciones para 
+                  cada producto. Sin embargo, de acuerdo con un aspecto 
+                  alternativo de la presente invención, el catálogo de producto 
+                  de actualización, obtenido de un nodo de servicio de 
+                  actualización padre 402, identifica solamente aquellos 
+                  productos de software para los cuales el nodo de servicio de 
+                  actualización hijo solicita para que sean configurados para 
+                  distribuir actualizaciones. Por ejemplo, la limitación de que 
+                  productos de software estén listados en el catálogo de 
+                  actualización de producto puede ser determinada de acuerdo con 
+                  el grupo o grupos a los cuales pertenece el nodo de servicio 
+                  de actualización hijo 404. <BR>En el evento 414, el nodo de 
+                  servicio de actualización padre 402 regresa a un catálogo de 
+                  actualización de producto al nodo de servicio de actualización 
+                  hijo 404. En el evento 416, el nodo de servicio de 
+                  actualización hijo 404 selecciona aquellos productos del 
+                  catálogo de actualización de producto para el cual en realidad 
+                  se desean las últimas actualizaciones. Se debe observar que 
+                  aunque el catálogo de actualización de producto puede listar 
+                  solamente aquellos productos de software que el nodo de 
+                  servicio de actualización hijo 404 distribuye, el nodo de 
+                  servicio de actualización hijo puede ser configurado para 
+                  obtener actualizaciones para diferentes productos de software 
+                  en diferentes tiempos o en diferentes horarios periódicos. 
+                  <BR>En el evento 418, el nodo de servicio de actualización 
+                  hijo 404 presenta una solicitud de sincronización de 
+                  actualización, junto con el símbolo de autorización, 
+                  identificando los productos seleccionados para esas 
+                  actualizaciones que en realidad esté buscando el nodo de 
+                  servicio de actualización hijo. En la solicitud de 
+                  sincronización se incluye información que identifica la última 
+                  actualización disponible para un producto en el nodo de 
+                  servicio de actualización hijo 404. La información que 
+                  identifica la última actualización para un producto de aquí en 
+                  adelante es denominada como un "ancla de actualización". Las 
+                  anclas de actualización para cada producto de software 
+                  típicamente estén almacenadas en el almacenamiento de 
+                  información de actualización 216 (Figura 2). En una modalidad, 
+                  un ancla de actualización incluye un número de revisión y una 
+                  fecha asociada con el número de revisión. <BR>En respuesta a 
+                  la solicitud de sincronización de actualización, en el evento 
+                  420, el nodo de servicio de actualización padre 402 determina 
+                  que nuevas actualizaciones, si hay algunas, estén disponibles 
+                  para el nodo de servicio de actualización hijo 404. Como se 
+                  mencioná anteriormente que esta determinación se basa en las 
+                  reglas específicas asociadas con actualizaciones de software 
+                  particulares y el grupo o grupos de las cuales es un miembro 
+                  en modo de actualización hijo 404, así como el ancla de 
+                  actualización. Para este ejemplo, como se mencioná 
+                  previamente, la actualización de software previamente recibida 
+                  fue explícitamente no autorizada para el nodo de servicio de 
+                  actualización hijo 404. Por lo tanto, la actualización de 
+                  software recibida en el evento 406 no queda determinada como 
+                  "disponibles" para el nodo de servicio de actualización hijo 
+                  404. Por consiguiente, en el evento 422 se regresa una lista 
+                  de actualización al nodo de servicio de actualización hijo 404 
+                  sin identificar la actualización de software recibida en el 
+                  evento 406. De acuerdo con los aspectos de la presente 
+                  invención, la lista de actualización identifica todas las 
+                  actualizaciones "disponibles" en el nodo de servicio de 
+                  actualización padre 402 de acuerdo con la solicitud de 
+                  sincronización. En una modalidad, la lista de actualización 
+                  identifica cada información de actualización "disponible" por 
+                  un identificador único asociado con una actualización. <BR>En 
+                  el evento 424, ya que la lista de actualización esté vacía, es 
+                  decir, no hay ninguna actualización actualmente "disponible" 
+                  en el nodo de servicio de actualización padre 402, el proceso 
+                  de actualización del nodo de servicio de actualización hijo 
+                  404 simplemente se retraza, o se duerme, durante una cantidad 
+                  predeterminada de tiempo. De acuerdo con el ejemplo actual, 
+                  durante este periodo de retrazo, en el evento 426, un 
+                  administrador en el nodo de servicio de actualización padre 
+                  402 autoriza la actualización de software, recibida en el 
+                  evento 406, para que sea distribuida al nodo de servicio de 
+                  actualización hijo 404. <BR>En el evento 428 (Figura 4B), el 
+                  nodo de servicio de actualización hijo 404 otra vez comienza 
+                  el proceso de actualización automático autenticándolo y 
+                  autorizándolo con el nodo de servicio de actualización padre 
+                  402. En respuesta, en el evento 430, el nodo de servicio de 
+                  actualización padre 402 regresa a un símbolo de autorización 
+                  al nodo de servicio de actualización hijo 404. <BR>En el 
+                  evento 432, el nodo de servicio de actualización hijo 404 
+                  presenta una solicitud, junto con el símbolo de autorización, 
+                  el nodo de servicio de actualización padre 402 para un 
+                  catálogo de actualización de producto. En el evento 434, el 
+                  nodo de servicio de actualización padre 402 regresa el 
+                  catálogo de actualización de producto al nodo de servicio de 
+                  actualización hijo 404. En el evento 436, el nodo de servicio 
+                  de autorización hijo 404 selecciona los productos para el 
+                  catálogo de actualización para los cuales se desean 
+                  actualizaciones. En el evento 438, el nodo de servicio de 
+                  actualización hijo 404 presenta la solicitud de sincronización 
+                  de actualización identificando aquellos productos 
+                  seleccionados con el símbolo de autorización. <BR>Ya que el 
+                  nodo de servicio de actualización hijo 404 ha sido autorizado 
+                  para obtener la actualización de software previamente recibida 
+                  en el evento 406, en el evento 440 el nodo de servicio de 
+                  actualización padre 402 determina que la actualización de 
+                  software esté "disponible" para el nodo de servicio de 
+                  actualización hijo e incluye información de actualización 
+                  correspondiente en la lista de actualización. Después, en el 
+                  evento 442, el nodo de servicio de actualización padre 402 
+                  regresa a la lista de actualización, ahora identificando la 
+                  actualización de software recibida en el evento 406, al nodo 
+                  de servicio de actualización hijo 404. <BR>Con una lista de 
+                  actualización identificando una actualización "disponible" en 
+                  el nodo de servicio de actualización padre 402, el nodo de 
+                  servicio de actualización hijo 404 ahora tiene la información 
+                  necesaria para obtener la actualización de software. De 
+                  acuerdo con una modalidad de la presente invención, un nodo de 
+                  servicio de actualización hijo 404 obtiene la actualización de 
+                  software del nodo de servicio de actualización padre 402 en 
+                  dos partes: obtener metadatos de actualización y obtener el 
+                  contenido de actualización o archivos, de aquí en adelante 
+                  denominados como la carga útil de actualización. Como se 
+                  describirá con detalle más adelante, los metadatos de 
+                  actualización describen aspectos pertinentes de la 
+                  actualización del software, Incluyendo, pero no limitándose a: 
+                  un identificador de actualización que solamente identifica la 
+                  actualización, información de número de revisión asociada con 
+                  la actualización de software, si la actualización de software 
+                  debe ser considerada como una prioridad, información de 
+                  lenguaje específico, relaciones con otras actualizaciones de 
+                  software, ubicación de la carga útil de la actualización para 
+                  propósitos de descarga, rutinas de manejador de instalación, y 
+                  similares. <BR>Algunas de las razones que es por lo general 
+                  benífica para descargar toda la actualización de software en 
+                  dos partes, es decir, los metadatos de actualización y la 
+                  carga útil de actualización, es que la carga útil de 
+                  actualización por lo regular es sustancialmente más grande que 
+                  los metadatos de actualización, y la carga útil de 
+                  actualización no siempre es inmediatamente necesaria, es 
+                  decir, necesaria para la instalación en una computadora de 
+                  cliente, si esto es necesario. De esta manera, de acuerdo con 
+                  una modalidad de la presente invención, la carga útil de 
+                  actualización es descargada separadamente de los metadatos de 
+                  actualización y solamente cuando se necesita. Aquellos 
+                  expertos en la técnica reconocerán a esta técnica de descarga 
+                  como una descarga lenta, o alternati amente como una descarga 
+                  justo en tiempo. De acuerdo con los aspectos de la presente 
+                  invención, un administrador puede configurar un nodo de 
+                  servicio de actualización para obtener la carga útil de 
+                  actualización en una forma justo en tiempo, o inmediatamente 
+                  después de obtener los metadatos de actualización. Además, en 
+                  una modalidad alternativa, tanto los metadatos de 
+                  actualización como la carga útil de actualización pueden ser 
+                  descargados conjuntamente. <BR>Como se muestra en la Figura 
+                  4B, con una actualización identificada en la lista de 
+                  actualización, en el evento 444, el nodo de servicio de 
+                  actualización hijo 404 solicita los metadatos de actualización 
+                  para la actualización de software "disponible" de acuerdo con 
+                  su identificador único en la lista de actualización. Como con 
+                  la mayoría de los otros intercambios de comunicación con el 
+                  nodo de servicio de actualización padre 402, la solicitud de 
+                  actualización es presentada con el símbolo de autorización. Se 
+                  debe observar que aunque en el ejemplo ilustrado todos los 
+                  metadatos de actualización son descargados en un acceso, de 
+                  acuerdo con aspectos alternativos de la presente invención (no 
+                  mostrados), los metadatos de actualización pueden ser 
+                  descargados en más de un acceso. Por ejemplo, en un primer 
+                  acceso, solamente los elementos de los metadatos de 
+                  actualización que son necesarios para determinar si una 
+                  actualización de software es aplicable y/o deseable primero 
+                  son descargados, tales como reglas de aplicabilidad y 
+                  dependencias en otras actualizaciones de software. Después, 
+                  inmediatamente después de que se determina que una 
+                  actualización es aplicable y/o deseable, el resto de los 
+                  metadatos de la actualización puede ser obtenido. En 
+                  respuesta, en el evento 446, el nodo de servicio de 
+                  actualización padre 402 regresa los metadatos de actualización 
+                  para el nodo de servicio de actualización hijo 404 de ia 
+                  actualización de software, que a su vez almacena los metadatos 
+                  de actualización en el almacenamiento de información de 
+                  actualización 216. <BR>Opcionalmente, en el evento 448, el 
+                  nodo de servicio de actualización hijo 404 presenta una 
+                  solicitud para descarga la carga útil de actualización del 
+                  nodo de servicio de actualización padre 402. En respuesta, en 
+                  el evento 450, el nodo de servicio de actualización padre 402 
+                  regresa la carga útil de actualización al nodo de servicio de 
+                  actualización hijo 404, que a su vez lo almacena en el 
+                  almacenamiento de contenido de actualización 214. En una 
+                  modalidad alternativa, el nodo de servicio de actualización 
+                  hijo 404 descarga la carga útil de actualización de una 
+                  ubicación de almacenamiento, que puede no ser el nodo de 
+                  servicio de actualización padre 402, de una ubicación 
+                  especificada en los metadatos de actualización. <BR>Ya que la 
+                  actividad de actualización ahora ha ocurrido en el nodo de 
+                  servicio de actualización hijo 404, en el evento 452, el nodo 
+                  de servicio de actualización hijo genera y presenta un reporte 
+                  de actualización al nodo de servicio de actualización padre 
+                  402, subrayando las actividades de actualización que acaban de 
+                  ocurrir recientemente. Después, el nodo de servicio de 
+                  actualización hijo 404 comienza a retrazarse hasta la 
+                  siguiente vez en el que proceso de actualización es programado 
+                  para correr (no mostrado). <BR>Aquellos expertos en la técnica 
+                  apreciarán que los eventos antes descritos son solo para 
+                  propósitos ilustrativos, y reflejan un grupo ilustrativo 
+                  particular de eventos y circunstancias. Claramente, otros 
+                  eventos también pueden ocurrir de acuerdo con detalles 
+                  específicos y circunstancias que ocasionarán alguna variación 
+                  a los eventos antes descritos. Además, se debe entender que 
+                  aunque el modo de servicio de actualización hijo 404 esté 
+                  obteniendo las actualizaciones de software "disponibles" 
+                  últimas del nodo de servicio de actualización padre 402, el 
+                  nodo de servicio de actualización hijo simultáneamente puede 
+                  ser de solicitudes de actualización de procesamiento de sus 
+                  nodos de servicio de actualización hijos. Por consiguiente, la 
+                  secuencia anterior de eventos debe ser vista solamente como 
+                  ilustrativa, y no como limitante de la presente invención. 
+                  <BR>La Figura 5 es un diagrama de flujo que muestra una rutina 
+                  500 ilustrativa ejecutada en un nodo de servicio de 
+                  actualización hijo, tal como el nodo de servicio de 
+                  actualización corporativo 104 de la Figura 1, para obtener 
+                  periódicamente actualizaciones de su nodo de servicio de 
+                  actualización padre. Comenzando en el bloque 502, el nodo de 
+                  servicio de actualización hijo obtiene una lista de 
+                  actualización sincronizada de actualizaciones "disponibles" 
+                  del nodo de servicio de actualización padre. La obtención de 
+                  una lista de actualización sincronizada de actualizaciones 
+                  "disponible" del nodo de servicio de actualización padre se 
+                  describe a continuación con respecto a la Figura 6. <BR>La 
+                  Figura 6 es un diagrama de flujo de una subrutina 600 
+                  ilustrativa, adecuada para utilizarse en la rutina 500 
+                  ilustrativa de la Figura 5, para obtener una lista de 
+                  actualización sincronizada de actualizaciones "disponible" de 
+                  un nodo de servicio de actualización padre. Comenzando en ei 
+                  bloque 602, como se discutir previamente con respecto a las 
+                  Figuras 4A y 4B, el nodo de servicio de actualización hijo se 
+                  autentica y autoriza asimismo con el nodo de servicio de 
+                  actualización padre y, en respuesta a una autenticación y 
+                  autorización apropiada, recibe un símbolo de autorización. En 
+                  el bloque 604, junto con el símbolo de autorización, el nodo 
+                  de servicio de actualización hijo establece parámetros de 
+                  comunicación con el nodo de servicio de actualización padre. 
+                  El establecimiento de parámetros de comunicación permite a los 
+                  nodos de servicio de actualización padre e hijo establecer 
+                  apropiadamente una base común que entiende tanto el padre como 
+                  el hijo. Los parámetros de comunicación incluyen, pero no se 
+                  limitan a protocolos o versiones de actualización de 
+                  comunicación; <SUP>""</SUP> agrupaciones de producto; y 
+                  similares. <BR>Después de haber establecido los parámetros de 
+                  comunicación con el nodo de servicio de actualización padre en 
+                  el bloque 606, el nodo de servicio de actualización hijo 
+                  obtiene un catálogo de actualización de producto que describe 
+                  productos de software para los cuales el nodo de servicio de 
+                  actualización padre proporciona/distribuye actualizaciones. En 
+                  el bloque 608, el nodo de servicio de actualización hijo 
+                  selecciona aquellas actualizaciones de producto de software 
+                  para las cuales se estén buscando en realidad actualizaciones. 
+                  En el bloque 610, el nodo de servicio de actualización hijo 
+                  presenta una solicitud de sincronización de actualización al 
+                  nodo de servicio de actualización padre, incluyendo tanto el 
+                  símbolo de autorización como un "ancla" asociada con los 
+                  productos de software seleccionados que identifican la 
+                  revisión actual y las actualizaciones ya en el nodo de 
+                  servicio de actualización hijo. <BR>En respuesta a la 
+                  solicitud de sincronización de actualización, en el bloque 
+                  612, en nodo de servicio de actualización hijo tiene una lista 
+                  de actualización del nodo de servicio de actualización padre, 
+                  sincronizado de acuerdo con las actualizaciones de software 
+                  "disponible" en el nodo de servicio de actualización padre de 
+                  acuerdo con los que actualmente esté almacenado en el nodo de 
+                  servicio de actualización hijo. Como se mencioná 
+                  anteriormente, la lista de actualización identifica, a través 
+                  de un identificador único, aquellas actualizaciones de 
+                  software en el nodo de servicio de actualización padre que 
+                  estén "disponibles" al nodo de servicio de actualización hijo. 
+                  Después, la subrutina 600 ilustrativa termina. </P>
+                  <P>Con referencia de nuevo a la Figura 5, después de haber 
+                  obtenido una lista de actualización sincronizada del nodo de 
+                  servicio de actualización padre, en el bloque de decisión 504 
+                  se hace una determinación de que si cualquiera de las 
+                  actualizaciones de software estén actualmente "disponible" 
+                  para descargarla del nodo de servicio de actualización padre. 
+                  Esta determinación se hace de acuerdo con si existen 
+                  identificadores de actualización listados en la lista de 
+                  actualización sincronizada. Si no hay ninguna actualización 
+                  actualmente "disponible" para descarga, la rutina 500 
+                  ilustrativa prosigue al bloque de retrazo 510, en donde la 
+                  rutina ilustrativa se retraza/duerme hasta que ocurre el 
+                  siguiente periodo de actualización. Alternativamente, si 
+                  existen actualizaciones "disponibles" para descargarse del 
+                  nodo de servicio de actualización padre, en el bloque 506, el 
+                  nodo de servicio de actualización hijo obtiene las 
+                  actualizaciones del nodo de servicio de actualización padre. 
+                  La obtención de actualizaciones "disponible" del nodo de 
+                  servicio de actualización padre se describe a continuación con 
+                  respecto a la Figura 7. <BR>La figura 7 es un diagrama de 
+                  flujo de una subrutina 700 ilustrativa, adecuada para 
+                  utilizarse en la rutina 500 ilustrativa de la Figura 5, para 
+                  obtener actualizaciones de software "disponible" de un nodo de 
+                  servicio de actualización padre. Comenzando en el bloque 702, 
+                  se selecciona un primer identificador de actualización en la 
+                  lista de actualización. En el bloque 704, el nodo de servicio 
+                  de actualización hijo obtiene los metadatos de actualización 
+                  que corresponden al identificador de actualización 
+                  seleccionado del nodo de actualización padre y los almacena en 
+                  el almacenamiento de información de actualización 216. <BR>De 
+                  acuerdo con una modalidad, en el bloque 706, el nodo de 
+                  servicio de actualización hijo obtiene la carga útil de 
+                  actualización que corresponde al identificador de 
+                  actualización seleccionado del nodo de servicio de 
+                  actualización padre, y almacena la carga útil de actualización 
+                  en el almacenamiento de contenido de actualización 212. 
+                  Opcionalmente, el contenido de actualización no necesita ser 
+                  inmediatamente descargo al nodo de servicio de actualización 
+                  hijo. Como se mencioná previamente, un nodo de servicio de 
+                  actualización hijo puede ser selectivamente configurado para 
+                  descargar actualizaciones de un nodo de servicio de 
+                  actualización padre en una forma justo en tiempo. De acuerdo 
+                  con este tratamiento opcional, como se ilustra en la Figura 7, 
+                  en lugar de proseguir del bloque 704 al bloque 706, la 
+                  subrutina 700 ilustrativa opcionalmente prosigue del bloque 
+                  704 al bloque de decisión 708. <BR>En el bloque de decisión 
+                  708, después de haber obtenido los metadatos de actualización 
+                  para el identificador de actualización seleccionado, y 
+                  opcionalmente la carga útil de actualización se hace una 
+                  determinación si existe cualesquiera identificadores de 
+                  actualización adicionales en la lista de actualización. Si 
+                  existen identificadores de actualización adicionales, en el 
+                  bloque 710, el siguiente identificador de actualización en la 
+                  lista de actualización es seleccionado, y la subrutina 700 
+                  regresa al bloque 704 para procesamiento adicional. La rutina 
+                  700 continua hasta que, en el bloque de decisión 708, se 
+                  determina que ya no hay más identificadores de actualización 
+                  en la lista de actualización, por lo que la subrutina 700 
+                  ilustrativa termina. <BR>Regresando ahora a la Figura 5, 
+                  después de haber obtenido las actualizaciones "disponible" del 
+                  nodo de servicio de actualización padre, en el bloque 508, el 
+                  nodo de servicio de actualización reporta las actividades de 
+                  actualización al nodo de servicio de actualización padre. 
+                  Después, en el bloque de retraso 510, la rutina 500 
+                  ilustrativa se retraza/duerme durante una cantidad 
+                  predeterminada de tiempo hasta el siguiente periodo de 
+                  actualización, y después prosigue al bloque 502 para repetir 
+                  los procedimientos de actualización antes identificados. 
+                  <BR>Como se ilustra en la Figura 5, en el bloque de decisión 
+                  504, aún cuando no haya ninguna actualización "disponible" en 
+                  un nodo de servicio de actualización padre, un nodo de 
+                  servicio de actualización hijo opcionalmente puede ser 
+                  configurado para reportar sus actividades de actualización al 
+                  nodo de servicio de actualización padre. De acuerdo con esta 
+                  configuración alternativa, cuando no hay ninguna actualización 
+                  disponible, la rutina 500 ilustrativa puede proseguir al 
+                  bloque 508 para reportar las actividades de actualización. 
+                  <BR>La Figura 8 es un diagrama de flujo de una rutina 800 
+                  ilustrativa, implementada en un nodo de servicio de 
+                  actualización padre, para generar una lista de actualización 
+                  sincronizada que identifica actualizaciones "disponibles" en 
+                  respuesta a una solicitud de sincronización de actualización 
+                  de un nodo de servicio de actualización hijo. Comenzando en el 
+                  bloque 802, el nodo de servicio de actualización padre recibe 
+                  una solicitud de sincronización de actualización de un nodo de 
+                  servicio de actualización hijo de una lista de actualización 
+                  que identifica actualizaciones "disponibles". En el bloque 
+                  804, el primer producto de software identificado en la 
+                  solicitud de sincronización de actualización es seleccionado. 
+                  <BR>En el bloque de decisión 806, se hace una determinación de 
+                  si existen actualizaciones disponibles para el producto de 
+                  software identificado. Esta determinación se hace de acuerdo 
+                  con los metadatos para el producto de software almacenados en 
+                  el almacenamiento de información de actualización 216, de 
+                  acuerdo con el ancla de actualización provista por el nodo de 
+                  servicio de actualización hijo, y de acuerdo con las reglas de 
+                  distribución asociadas con el grupo al cual pertenece el nodo 
+                  de servicio de actualización hijo. De acuerdo con esta 
+                  determinación, si existen actualizaciones "disponibles", en el 
+                  bloque 808, los ídentificadores de actualización únicos 
+                  asociados con las actualizaciones "disponibles" son escritos 
+                  en una lista de actualización. Después de haber escrito los 
+                  ídentificadores de actualización únicos para actualizaciones 
+                  "disponibles" en la lista de actualización, en el bloque de 
+                  decisión 810, se hace una determinación de si existen más 
+                  productos de software adicionales identificados en la 
+                  solicitud de sincronización de actualización. Si existen 
+                  productos de software de actualización adicionales en la 
+                  solicitud de sincronización de actualización, en el bloque 
+                  814, el nodo de servicio de actualización padre selecciona el 
+                  siguiente producto de software identificado en la solicitud de 
+                  sincronización de actualización y regresa al bloque de 
+                  decisión 806 para determinar si existen actualizaciones 
+                  "disponibles" para el producto de software seleccionado. 
+                  Alternativamente, si no hay más productos de software 
+                  identificados en la solicitud de sincronización de 
+                  actualización, en el bloque 814, la lista de actualización es 
+                  regresada al nodo de servicio de actualización hijo. Después, 
+                  la subrutina 800 ilustrativa termina. <BR>Como se mencioná 
+                  previamente, ios metadatos de actualización describen aspectos 
+                  pertinentes de una actualización de software. En realidad, 
+                  muchos de estos aspectos son tan importantes para la 
+                  actualización de software como la misma carga útil de la 
+                  actualización. Por ejemplo, si los metadatos de actualización 
+                  para una primera actualización de software indican que una 
+                  actualización de software anterior debe ser instalada como un 
+                  pre-requisito, y que la actualización de software anterior 
+                  actualmente no esté instalada de acuerdo con las decisiones 
+                  del administrador, no tendría valor el descargar la carga útil 
+                  de actualización de la primera actualización de software. 
+                  Consecuentemente, al no descargar la carga útil de 
+                  actualización de la primera actualización de software, se 
+                  puede conservar una anchura de banda de comunicación 
+                  importante. Claro que, aquellos expertos en la técnica 
+                  reconocerán que esto solo es un ejemplo de cómo los metadatos 
+                  de actualización proporcionan información importante y 
+                  pertinente con relación a una actualización de software. 
+                  <BR>Aunque los metadatos de actualización pueden ser 
+                  transmitidos en un archivo de cualquier formato, de acuerdo 
+                  con los aspectos de la presente invención, los metadatos de 
+                  actualización que corresponden a una actualización de software 
+                  son descritos y estén contenidos en un archivo a base de 
+                  etiquetas, tal como un archivo de lenguaje de marcación 
+                  extensible (XML). Cualquier formato de archivo a base de 
+                  etiquetas adecuado puede ser utilizado que permita que 
+                  etiquetas normales describan y contengan datos. Los archivos a 
+                  base de etiquetas, tales como los archivos a base de XML o 
+                  lenguaje de marcación de hipertexto (HTML), para describir y 
+                  contener información, son bien conocidos en la técnica. Como 
+                  es bien conocido en la técnica, los contenidos de un archivo 
+                  XML a base de etiqueta frecuentemente son determinados de 
+                  acuerdo con un archivo de definición, denominado como esquema. 
+                  Estos metadatos de actualización son utilizados tanto por los 
+                  nodos de servicio de actualización hijos y también por 
+                  computadoras de cliente. <BR>En una modalidad actual de la 
+                  presente invención, los metadatos de actualización para una 
+                  actualización de software estén contenidos en un archivo a 
+                  base de XML conformándose a un esquema de metadatos de 
+                  actualización. La Figura 9 es un diagrama de bloque que 
+                  ilustra porciones de un esquema de metadatos de actualización 
+                  900 a base de XML ilustrativo, que define los contenidos de un 
+                  archivo de metadatos de actualización. En particular, el 
+                  esquema de metadatos de actualización 900 ilustrativo define 
+                  una actualización 902 como comprendiendo los siguientes 
+                  elementos: un elemento de Identidad de Actualización 904; 
+                  elementos de Propiedades 906; elementos de Colección de 
+                  Propiedades Localizadas 908; elementos de Relaciones 910; 
+                  elementos de Reglas de Aplicabilidad 912; elementos de 
+                  Archivos 914; y elementos de Datos Específicos de Manejador 
+                  916. Con respecto a los elementos 906-916, un archivo de 
+                  metadatos de actualización adecuado puede incluir cero o más 
+                  de estos elementos, así como por el calificador de etiqueta 
+                  "minOcurre = "0"" 918. En contraste, un archivo de metadatos 
+                  de actualización debe incluir un elemento de Identidad de 
+                  Actualización 902. De acuerdo con el esquema de metadatos 900 
+                  ílustrado, cada elemento de actualización en un archivo de 
+                  metadatos de actualización, si esté presente, debe aparecer de 
+                  acuerdo con el orden anteriormente descrito. <BR>Como se 
+                  mencioná previamente, a cada actualización de software se le 
+                  asigna un identificador único. De acuerdo con los aspectos de 
+                  la presente invención, el elemento de Identidad de 
+                  Actualización 902 incluye este identificador único, así como 
+                  otra información para identificar la actualización de 
+                  software, tal como un número de revisión también asociado con 
+                  la actualización de software. <BR>El elemento de Propiedades 
+                  904 proporciona información con relación a la actualización de 
+                  software incluyendo, pero no limitándose a: un lenguaje o 
+                  idioma, es decir, inglés, español, francés, etc., al cual ha 
+                  sido localizada la actualización de software; información que 
+                  sugiere el impacto que la actualización probablemente tendrá 
+                  en un sistema de cúmputo durante la instalación, por ejemplo, 
+                  mínimo, alto impacto, puede o requerirá de reiniciar el 
+                  sistema de cúmputo, y similares; el tipo de software que será 
+                  actualizado por la actualización de software, tal como un 
+                  controlador de sistema o una aplicación de software; una 
+                  escala de importancia que corresponde a la importancia de la 
+                  actualización de software para el proveedor de software; un 
+                  boletín de seguridad relacionado del proveedor de software; y 
+                  una identificación del manejador de actualización para 
+                  identificar un manejador de actualización para la 
+                  actualización de software. Como se puede ver a partir de los 
+                  varios tipos de propiedades listadas anteriormente, puede 
+                  haber de cero o más elementos de Propiedades 904 en un archivo 
+                  de metadatos de actualización. <BR>El elemento de Colección de 
+                  Propiedades Localizadas 906 proporciona información específica 
+                  del lenguaje o idioma con relación a la actualización de 
+                  software tal como, pero no limitándose a: un título de 
+                  actualización; una descripción de la actualización de software 
+                  que se pretende presentar a un usuario de la computadora; 
+                  notas de liberación del proveedor de software; acuerdos de 
+                  licencia del usuario final e información relacionada; 
+                  dirección de usuario para desinstalar la actualización de 
+                  software; y similares. De acuerdo con los aspectos de la 
+                  presente invención, las propiedades localizadas son agrupadas 
+                  de acuerdo con un lenguaje o idioma. Por ejemplo, aunque el 
+                  elemento de Colección de Propiedades Localizadas 906 puede 
+                  incluir múltiples piezas de información, las versiones de 
+                  inglés de inglés de la información anterior pueden ser 
+                  agrupadas conjuntamente, y las versiones en español 
+                  simllarmente pueden ser agrupadas. Como el elemento de 
+                  Propiedades 904 anterior, también existen de cero o más 
+                  elementos de Colección de Propiedades Localizadas 906 en un 
+                  archivo de metadatos de actualización. <BR>El elemento de 
+                  Relaciones 908 proporciona información con respecto a las 
+                  relaciones que la actualización de software presente tiene 
+                  para otras actualizaciones de software. Ejemplos de estas 
+                  relaciones incluye, pero no se limitan a, actualizaciones de 
+                  software de pre-requisito, actualizaciones de software de 
+                  reemplazo, y actualizaciones de software enlazadas. Una 
+                  relación de actualización de software de pre-requisito indica 
+                  que otra actualización de software identificada por su 
+                  identificador de actualización único, debe ser instalada en un 
+                  sistema de computadora de cliente antes de instalar la 
+                  actualización de software presente. Las relaciones de 
+                  pre-requisito múltiples pueden ser unidas con operadores 
+                  boléanos, tales como los operadores lógicos Y/O, en 
+                  determinaciones lógicas de manera que la evaluación de las 
+                  determinaciones lógicas determina la conveniencia de la 
+                  actualización de software para la instalación en una 
+                  computadora de cliente. <BR>Una actualización de software 
+                  enlaza identifica una pluralidad de actualizaciones de 
+                  software que van a ser instaladas conjuntamente. Como un 
+                  ejemplo, una aplicación enlazada puede indicar una 
+                  interdependencia entre la actualización de software presente y 
+                  otras actualizaciones de software, de manera que todas las 
+                  actualizaciones identificadas en el enlace, identificadas por 
+                  el identificador de actualización único, deben ser instaladas 
+                  si cualquiera esté instalada en un sistema de computadora. 
+                  Como con las actualizaciones de software de pre-requisito 
+                  anteriores, los elementos de una actualización de software 
+                  enlazada pueden ser unidos con operadores boléanos para formar 
+                  determinaciones lógicas para evaluar la conveniencia de la 
+                  actualización de software enlazada para la instalación en una 
+                  computadora de cliente. En contraste, una actualización de 
+                  software de reempplazo identifica otras actualizaciones de 
+                  software que han sido reemplazadas por la actualización de 
+                  software presente. Como con el elemento de Propiedades 904 
+                  anterior, existen cero o más elementos de Relaciones 908 en un 
+                  archivo de metadatos de actualización. <BR>El elemento de 
+                  Reglas de Aplicabilidad 912 proporciona reglas o pruebas para 
+                  determinar si una actualización de software es aplicable y/o 
+                  apropiada para instalarse en un sistema de cúmputo. Aunque 
+                  similar con respecto a las relaciones del elemento de 
+                  Relaciones 908, el elemento de Reglas de Aplicabilidad 912 
+                  prueba condiciones en el sistema de cúmputo que pueden o no 
+                  relacionarse específicamente con otra actualización de 
+                  software. Como con la mayoría de los otros elementos 
+                  identificados anteriormente, existe de cero o más elementos de 
+                  regias de aplicabilidad 912 en un archivo de metadatos de 
+                  actualización. </P>
+                  <P>El elemento de Archivos 914 identifica los archivos, es 
+                  decir, la carga útil de actualización, asociados con la 
+                  actualización de software, así como información relacionada 
+                  con esos archivos. Esta información adicional incluye, pero no 
+                  se limita a: si existe uno o muchos archivos en la carga útil 
+                  de actualización; una actualización a partir de la cual se 
+                  pueden obtener los archivos; el tamaño de los archivos; el 
+                  nombre del archivo; la fecha de creación del archivo; y 
+                  similares. Aquellos expertos en la técnica fácilmente 
+                  reconocerán que una sola actualización de software puede ser 
+                  instalada en una computadora de cliente en múltiples formas. 
+                  Como un ejemplo, la misma actualización de software puede ser 
+                  instalada modificando porciones de archivos existentes con un 
+                  parche, o alternativamente, simplemente reemplazando los 
+                  archivos existentes con versiones más nuevas. De esta manera, 
+                  de acuerdo con los aspectos de la presente invención, la carga 
+                  útil de actualización de un elemento de Archivos 914 puede 
+                  incluir o hacer referencia a: un parche para archivos 
+                  existentes, archivos de reemplazo, o ambos, y un parche y 
+                  archivos de reemplazo. Puede haber cero o más elementos de 
+                  Archivos 914 en un archivo de metadatos de actualización. 
+                  <BR>Las actualizaciones pueden ser provista en una variedad de 
+                  formatos, tales como parches delta que describen áreas de un 
+                  archivo que van ha ser re-escritas con la información de 
+                  parche delta, archivos ejecutables, archivos de reemplazo, y 
+                  similares. Cada uno de estos tipos de actualizaciones requiere 
+                  de un manejador de actualización específico con el fin de 
+                  realizar la actualización de software en el sistema de 
+                  cúmputo. Por consiguiente, el elemento de Datos Específicos de 
+                  Manejador 916 proporciona una ubicación en el archivo de 
+                  metadatos de actualización para incluir datos/información 
+                  específica del manejador. Por ejemplo, esta información puede 
+                  incluir, pero no se limita a, un directorio en donde el 
+                  manejador debe trabajar, argumentos de línea de comando para 
+                  un manejador, acciones que serán tomadas si algunos aspectos 
+                  de la instalación fallan, acciones que se deben tomar si la 
+                  instalación tiene éxito, y similares. Un archivo de metadatos 
+                  de actualización puede incluir cero o más elementos de Datos 
+                  Específicos de Manejador 916. <BR>Aunque se han ilustrado y 
+                  descrito varias modalidades y aspectos de la presente 
+                  invención, incluyendo la modalidad preferida, se apreciará que 
+                  se pueden hacer varios cambios sin apartarse del espíritu y 
+                  alcance la invención. Por ejemplo, aunque la presente 
+                  invención ha sido descrita como proporcionando actualizaciones 
+                  de software a través de un sistema de distribución de 
+                  actualización a través de una red de comunicación, metadatos 
+                  de actualización, así como cargas de pago de actualización, 
+                  pueden ser suministradas de un nodo de servicio de 
+                  actualización a una computadora de<SUP>"</SUP> cliente a 
+                  través de un medio legible por computadora, tal como un disco 
+                  compacto o un disco flexible. 
+        </P>
+   <P><a name="Claims_Bookmark">REIVINDICACIONES</a></P>
+                  <P>1.- Un medio legible por computadora que almacena datos 
+                  legibles por computadora organizados en una estructura de 
+                  datos a base de etiquetas para comunicar metadatos de 
+                  actualización que corresponden a una actualización de software 
+                  a un nodo de servicio de actualización o una computadora de 
+                  cliente, la estructura de datos comprende: <BR>un elemento de 
+                  Identidad de Actualización utilizado para identificar 
+                  únicamente la actualización de software; <BR>cero o más 
+                  elementos de Propiedades para almacenar propiedades generales 
+                  con relación a la actualización de software; <BR>cero o más 
+                  elementos de Colección de Propiedades Localizadas para 
+                  almacenar contenido dirigido a un usuario de computadora con 
+                  relación a la actualización de software; <BR>cero o más 
+                  elementos de Relaciones para almacenar relaciones que la 
+                  actualización de software tenga para otras actualizaciones de 
+                  software; <BR>cero o más elementos de Reglas de Aplicabilidad 
+                  para almacenar reglas para determinar la aplicabilidad de 
+                  actualización del software para una computadora de cliente; 
+                  <BR>cero o más elementos de Archivos para almacenar 
+                  información que describe información con relación a la carga 
+                  útil de actualización de software; y <BR>cero o más etiquetas 
+                  de Datos Específicos de anejador para almacenar información 
+                  para el manejador de actualización para la instalación del 
+                  tipo específico de actualización de software. <BR>2. - La 
+                  estructura de datos a base de etiqueta de acuerdo con la 
+                  reivindicación 1, en donde la estructura de datos a base de 
+                  etiqueta es una estructura de datos de XML. <BR>3. - La 
+                  estructura de datos a base de etiqueta de acuerdo con la 
+                  reivindicación 1, en donde los elementos de la estructura de 
+                  datos a base de etiqueta, si estén presentes, estén incluidos 
+                  en los metadatos de actualización de acuerdo con el orden 
+                  anteriormente descrito. <BR>4. - La estructura de datos a base 
+                  de etiqueta de acuerdo con la reivindicación 1, en donde el 
+                  elemento de Identidad de Actualización incluye un sub-elemento 
+                  identificador único que únicamente identifica la actualización 
+                  de software, y un sub-elemento de número de revisión que 
+                  identifica un número de revisión asociado con la actualización 
+                  de software. <BR>5. - La estructura de datos a base de 
+                  etiqueta de acuerdo con la reivindicación 1, en donde un 
+                  elemento de Relaciones incluye un sub-elemento de 
+                  pre-requisito que identifica una segunda actualización de 
+                  software que debe ser instalada antes de que la actualización 
+                  de software se instale. <BR>6. - La estructura de datos a base 
+                  de etiqueta de acuerdo con la reivindicación 5, en donde el 
+                  elemento de Relaciones incluye una pluralidad de sub-elementos 
+                  de pre-requisito que identifican una pluralidad de 
+                  actualizaciones de software unidas conjuntamente con 
+                  operadores boléanos en una determinación lógica, de manera que 
+                  la evaluación de la determinación lógica determina la 
+                  conveniencia de la actualización de software para la 
+                  instalación en una computadora de cliente. <BR>7.- La 
+                  estructura de datos a base de etiqueta de acuerdo con la 
+                  reivindicación 1, en donde un elemento de relaciones incluye 
+                  un sub-elemento de enlace que identifica una pluralidad de 
+                  actualizaciones de software que deben ser instaladas 
+                  coextensivamente. <BR>8.- La estructura de datos a base de 
+                  etiqueta de acuerdo con la reivindicación 7, en donde la 
+                  pluralidad de actualizaciones de software en el sub-elemento 
+                  de enlace se unen conjuntamente con operadores boléanos en una 
+                  determinación lógica, de manera que la evaluación de la 
+                  determinación lógica determina la conveniencia de la 
+                  actualización de software para instalarse en una computadora 
+                  de cliente. <BR>9. - La estructura de datos a base de etiqueta 
+                  de acuerdo con la reivindicación 1, en donde un elemento de 
+                  Relaciones incluye un sub-elemento de reemplazo que identifica 
+                  por lo menos otra actualización de software que es reemplazada 
+                  por la actualización de software. <BR>10. - La estructura de 
+                  datos a base de etiqueta de acuerdo con la reivindicación 1, 
+                  en donde un elemento de Relaciones incluye cualquier número de 
+                  sub-elementos de pre-requisito que identifican otras 
+                  actualizaciones de software que deben ser instaladas antes de 
+                  que la actualización de software se instale, sub-elementos de 
+                  enlace que identifican una pluralidad de actualizaciones de 
+                  software que deben ser instaladas coextensivamente, y 
+                  sub-elementos de reemplazo que identifican por lo menos otra 
+                  actualización de software que es reemplazada por la 
+                  actualización software. <BR>11. - La estructura de datos a 
+                  base de etiqueta de acuerdo con la reivindicación 1, en donde 
+                  el elemento de Archivos incluye información que identifica la 
+                  carga útil de actualización del software para poner parche a 
+                  archivos existentes en una computadora de cliente. <BR>12. - 
+                  La estructura de datos a base de etiqueta de acuerdo con la 
+                  reivindicación 1, en donde un elemento de Archivos incluye 
+                  información que identifica la carga útil de actualización de 
+                  software para reemplazar archivos existentes en una 
+                  computadora de cliente. 13.- La estructura de datos a base de 
+                  etiqueta de acuerdo con la reivindicación 12, en donde un 
+                  elemento de Archivos incluye información que identifica la 
+                  carga útil de actualización del software tanto para poner 
+                  parche a archivos existentes en una computadora de cliente 
+                  como para reemplazar archivos existentes en una computadora de 
+                  cliente. <BR>14.- Un medio legible por computadora que 
+                  almacena datos legibles por computadora organizados en una 
+                  estructura de datos a base de etiqueta para comunicar 
+                  metadatos de actualización que corresponden a una 
+                  actualización de software a un nodo de servicio de 
+                  actualización o computadora de cliente, la estructura de datos 
+                  a base de etiqueta comprende: <BR>un elemento de Identidad de 
+                  Actualización utilizado para identificar únicamente la 
+                  actualización de software; <BR>cero o más elementos de 
+                  Relaciones para almacenar relaciones para que la actualización 
+                  de software sea para otras actualizaciones de software; y 
+                  <BR>cero o más elementos de archivos para almacenar 
+                  información que describe información con relación a la carga 
+                  útil de actualización de software. <BR>15.- La estructura de 
+                  datos a base de etiqueta de acuerdo con la reivindicación 14, 
+                  en donde la estructura de datos a base de etiqueta es una 
+                  estructura de datos de XML. <BR>16. - La estructura de datos a 
+                  base de etiqueta de acuerdo con la reivindicación 14, en donde 
+                  el elemento de Identidad de Actualización incluye un 
+                  sub-elemento ídentificador único que únicamente identifica la 
+                  actualización de software, y un sub-elemento de número de 
+                  revisión que identifica un número de revisión asociado con la 
+                  actualización de software. <BR>17. - La estructura de datos a 
+                  base de etiqueta de acuerdo con la reivindicación 16, en donde 
+                  un elemento de Relaciones incluye un sub-elemento de 
+                  pre-requisito que identifica una segunda actualización de 
+                  software que debe ser instalada antes de que la actualización 
+                  de software se instale. <BR>18. - La estructura de datos a 
+                  base de etiqueta de acuerdo con la reivindicación 17, en donde 
+                  el elemento de Relaciones incluye una pluralidad de 
+                  sub-elementos de pre-requisito que identifican una pluralidad 
+                  de actualizaciones de software unidas conjuntamente con 
+                  operadores boléanos en una determinación lógica, de manera que 
+                  la evaluación de la determinación lógica determina la 
+                  conveniencia de la actualización de software para la 
+                  instalación en una computadora de cliente. <BR>19. - La 
+                  estructura de datos a base de etiqueta de acuerdo con la 
+                  reivindicación 16, en donde un elemento de relaciones incluye 
+                  un sub-elemento de enlace que identifica una pluralidad de 
+                  actualizaciones de software que deben ser instaladas 
+                  coextensivamente. <BR>20. - La estructura de datos a base de 
+                  etiqueta de acuerdo con la reivindicación 19, en donde la 
+                  pluralidad de actualizaciones de software en el sub-elemento 
+                  de enlace se unen conjuntamente con operadores boléanos en una 
+                  determinación lógica, de manera que la evaluación de la 
+                  determinación lógica determina la conveniencia de la 
+                  actualización de software para instalarse en una computadora 
+                  de cliente. <BR>21. - La estructura de datos a base de 
+                  etiqueta de acuerdo con la reivindicación 16, en donde un 
+                  elemento de Relaciones incluye un sub-elemento de reemplazo 
+                  que identifica por lo menos otra actualización de software que 
+                  es reemplazada por la actualización de software. <BR>22. - La 
+                  estructura de datos a base de etiqueta de acuerdo con la 
+                  reivindicación 16, en donde un elemento de Relaciones incluye 
+                  cualquier número de sub-elementos de pre-req uisito que 
+                  identifican otras actualizaciones de software que deben ser 
+                  instaladas antes de que la actualización de software se 
+                  instale, sub-elementos de enlace que identifican una 
+                  pluralidad de actualizaciones de software que deben ser 
+                  instaladas coextensivamente , y sub-elementos de reemplazo que 
+                  identifican por lo menos otra actualización de software que es 
+                  reemplazada por la actualización software. <BR>23. - La 
+                  estructura de datos a base de etiqueta de acuerdo con la 
+                  reivindicación 16, en donde el elemento de Archivos incluye 
+                  información que identifica la carga útil de actualización del 
+                  software para poner parche a archivos existentes en una 
+                  computadora de cliente. <BR>24. - La estructura de datos a 
+                  base de etiqueta de acuerdo con la reivindicación 16, en donde 
+                  un elemento de Archivos incluye información que identifica la 
+                  carga útil de actualización de software para reemplazar 
+                  archivos existentes en una computadora de cliente.</P>
+                  <P>25. - La estructura de datos a base de etiqueta de acuerdo 
+                  con la reivindicación 24, en donde un elemento de Archivos 
+                  incluye información que identifica la carga útil de 
+                  actualización del software tanto para poner parche a archivos 
+                  existentes en una computadora de cliente como para reemplazar 
+                  archivos existentes en una computadora de cliente. 
+              </P>
+
+<a name ="Actual_Drawings_Bookmark"></a><CENTER>
+
+<img src="Computadoras_Example0001_archivos\MXPA2005001673-Fig01.jpg" width="1000">
+<img src="Computadoras_Example0001_archivos\MXPA2005001673-Fig02.jpg" width="1000">
+<img src="Computadoras_Example0001_archivos\MXPA2005001673-Fig03.jpg" width="1000">
+<img src="Computadoras_Example0001_archivos\MXPA2005001673-Fig04.jpg" width="1000">
+<img src="Computadoras_Example0001_archivos\MXPA2005001673-Fig05.jpg" width="1000">
+<img src="Computadoras_Example0001_archivos\MXPA2005001673-Fig06.jpg" width="1000">
+<img src="Computadoras_Example0001_archivos\MXPA2005001673-Fig07.jpg" width="1000">
+<img src="Computadoras_Example0001_archivos\MXPA2005001673-Fig08.jpg" width="1000">
+<img src="Computadoras_Example0001_archivos\MXPA2005001673-Fig09.jpg" width="1000">
+
+
+</BODY></HTML>

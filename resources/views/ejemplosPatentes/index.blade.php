@@ -93,6 +93,11 @@
                 <option value="materiales">Materiales</option>
                 <option value="computadoras">Computadoras</option>
             </select>
+
+            <div class="d-flex justify-content-between">
+                <button id="anterior">Anterior</button>
+                <button id="siguiente">Siguiente</button>
+            </div>
         </div>
 
         <div class="col-4">

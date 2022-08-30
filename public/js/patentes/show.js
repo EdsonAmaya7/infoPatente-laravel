@@ -12,7 +12,14 @@ let tableUltimaPatente = $("#table-ultima-patente").DataTable({
     },
     columns: [
         { data: "nombre" },
-        { data: "pais_presentacion" },
+        {
+            data: null,
+            render: function (data) {
+                if (data.pais_presentacion == 1) {
+                    return "México"
+                }
+            }
+        },
         {
             data: null,
             render: function (data) {

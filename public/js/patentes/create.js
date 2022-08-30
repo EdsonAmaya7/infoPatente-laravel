@@ -8,60 +8,74 @@ function mensajeSwal(message, icon, title) {
         text: message,
     });
 }
-document.getElementById("NumAutores").onchange = () => {
-    let representante = [];
+document.getElementById("NumAutores").onchange = async () => {
     let autores = document.getElementById("NumAutores").value;
     patente = document.getElementById("nombrePatente").value;
 
     let html = "";
 
-    if ([patente].includes('')) {
-        mensajeSwal("Favor de ingresar el nombre de la patente para continuar", "error", "Error")
-        // $("#NumAutores").val("0");
-        autores = 0
-    }
-    else {
-        for (let i = 1; i <= autores; i++) {
+    // if ([patente].includes('')) {
+    //     mensajeSwal("Favor de ingresar el nombre de la patente para continuar", "error", "Error")
+    //     // $("#NumAutores").val("0");
+    //     autores = 0
+    // }
+    // else {
+    for (let i = 1; i <= autores; i++) {
+
+        const url = route('ultimaPatenteByUser');
+
+        const init = {
+            method: "GET",
+            headers: {
+                Accept: "application/json"
+            }
+        }
+
+        const req = await fetch(url, init);
+
+        if (req.ok) {
+            const res = await req.json();
 
             tituloModal = document.getElementById("tituloModal").innerHTML = "Agregar Autores"
 
             html += `
               <h5 class="text-center">Datos Autor ${i}</h5>
                 <div class="row">
+                <input class="form-control" type="text" id="ultimo_id" name="ultimo_id" value="${res.id}">
                   <div class="col-md-4 mt-2">
                     <label class="text-dark" for="NombreAutor${i}">Nombre </label>
-                    <input id="NombreAutor${i}" name="NombreAutor${i}" type="text" class="form-control" placeholder="">
+                    <input id="NombreAutor" name="NombreAutor" type="text" class="form-control" placeholder="">
                   </div>
                   <div class="col-md-4 mt-2 ">
                     <label class="text-dark" for="ApellidoPAutor${i}">Apellido Paterno</label>
-                    <input id="ApellidoPAutor${i}" name="ApellidoPAutor${i}" type="text" class="form-control" placeholder="">
+                    <input id="ApellidoPAutor" name="ApellidoPAutor" type="text" class="form-control" placeholder="">
                   </div>
                   <div class="col-md-4 mt-2 ">
                     <label class="text-dark" for="ApellidoMAutor${i}">Apellido Materno</label>
-                    <input id="ApellidoMAutor${i}" name="ApellidoMAutor${i}" type="text" class="form-control" placeholder="">
+                    <input id="ApellidoMAutor" name="ApellidoMAutor" type="text" class="form-control" placeholder="">
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-4 mt-2">
                     <label class="text-dark" for="Direccion1Autor${i}">Direccion 1 (Calle y Numero)</label>
-                    <input id="Direccion1Autor${i}" name="Direccion1Autor${i}" type="text" class="form-control" placeholder="">
+                    <input id="Direccion1Autor" name="Direccion1Autor" type="text" class="form-control" placeholder="">
                   </div>
                   <div class="col-md-4 mt-2">
                     <label class="text-dark" for="Direccion1Autor${i}">Direccion 2 (Colonia)</label>
-                    <input id="Direccion2Autor${i}" name="Direccion2Autor${i}" type="text" class="form-control" placeholder="">
+                    <input id="Direccion2Autor" name="Direccion2Autor" type="text" class="form-control" placeholder="">
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-4 mt-2">
                     <label class="text-dark" for="Pais${i}">Pais</label>
-                    <select id="PaisAutor${i}" name="PaisAutor${i}" class="form-control">
+                    <select id="PaisAutor" name="PaisAutor" class="form-control">
                       <option disabled selected value>Seleccione pais</option>
                       <option value="Mexico">Mexico</option>
                     </select>
                   </div>
                   <div class="col-md-4 mt-2">
                     <label class="text-dark" for="Estado${i}">Estado</label>
-                    <select id="EstadoAutor${i}" name="EstadoAutor${i}" class="form-control">
+                    <select id="EstadoAutor" name="EstadoAutor" class="form-control">
                       <option disabled selected value>Seleccione Estado</option>
                       <option value="Aguascalientes">Aguascalientes</option>
                       <option value="Baja California">Baja California</option>
@@ -99,11 +113,11 @@ document.getElementById("NumAutores").onchange = () => {
                   </div>
                   <div class="col-md-4 mt-2">
                     <label class="text-dark" for="CiudadAutor${i}">Ciudad</label>
-                    <input id="CiudadAutor${i}" name="CiudadAutor${i}" type="text" class="form-control" placeholder="">
+                    <input id="CiudadAutor" name="CiudadAutor" type="text" class="form-control" placeholder="">
                   </div>
                   <div class="col-md-4 mt-2">
                     <label class="text-dark" for="CPAutor${i}">Codigo Postal</label>
-                    <input id="CPAutor${i}" name="CPAutor${i}" type="text" class="form-control" placeholder="" maxlength="5">
+                    <input id="CPAutor" name="CPAutor" type="text" class="form-control" placeholder="" maxlength="5">
                   </div>
                 </div>
               </div>
@@ -112,6 +126,46 @@ document.getElementById("NumAutores").onchange = () => {
         document.getElementById("modal-contenido-autores").innerHTML = html;
 
         $('#modal-autores').modal('show');
+    }
+
+    document.getElementById("btn_guardar").onclick = async () => {
+        let autor = [];
+        const url = route('autor.store');
+
+        const formData = new FormData();
+
+        for (let i = 1; i <= $('#NumAutores').val(); i++) {
+            ob = {
+                ultimo_id: $("#ultimo_id").val(),
+                nombre: $(`#NombreAutor`).val().toUpperCase(),
+                apellido_paterno: $(`#ApellidoPAutor`).val().toUpperCase(),
+                apellido_materno: $(`#ApellidoMAutor`).val().toUpperCase(),
+                direccion1: $(`#Direccion1Autor`).val().toUpperCase(),
+                direccion2: $(`#Direccion2Autor`).val().toUpperCase(),
+                pais: $(`#PaisAutor`).val().toUpperCase(),
+                estado: $(`#EstadoAutor`).val().toUpperCase(),
+                ciudad: $(`#CiudadAutor`).val().toUpperCase(),
+                cp: $(`#CPAutor`).val(),
+            }
+            autor.push(ob);
+        }
+        formData.append("autor", JSON.stringify(autor));
+        formData.append("patente_id", document.getElementById("ultimo_id").value);
+
+        const init = {
+            method: 'POST',
+            body: formData,
+            headers: {
+                Accept: 'application/json',
+                'X-CSRF-TOKEN': $('#csrf').attr('content'),
+            }
+        }
+
+        const req = await fetch(url, init);
+
+        if (req.ok) {
+            alert("Autor/es registrados correctamente");
+        }
     }
 }
 

@@ -64,10 +64,13 @@ Route::get('/paginasPatente-view', [PaginasController::class, 'paginasPatenteVie
 Route::get('/index', [PaginasController::class, 'patentesIndex'])->name('patentes.index');
 Route::get('/ultima-patente', [PatentesController::class, 'getUltimaPatente'])->name('ultimaPatente');
 
+// Ruta que trae la ultima patente del usuario logueado
+Route::get('/ultima-patente-user', [PatentesController::class, 'getUltimaPatenteByUser'])->name('ultimaPatenteByUser');
+
 //formulario doble autentificacion
 
 Route::get('/verificacion', [DobleAutentificacionController::class, 'index'])
-     ->middleware('doble.autentificacion')
+    ->middleware('doble.autentificacion')
     ->name('doble.autentificacion');
 
 Route::post('/verificacion', [DobleAutentificacionController::class, 'store'])->name('verificar.codigo');
@@ -104,6 +107,7 @@ Route::resources([
     '/empresas' => EmpresaController::class,
     '/patentes' => PatentesController::class,
     '/paginas' => PaginasController::class,
+    'autor' => AutorController::class,
 ]);
 
 // });

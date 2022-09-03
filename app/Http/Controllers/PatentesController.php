@@ -192,4 +192,10 @@ class PatentesController extends Controller
         $patente = patentes::latest('id')->where('user_id', auth()->user()->id)->first();
         return response()->json($patente);
     }
+
+
+    public function ejemplosPatentes()
+    {
+        return view('ejemplosPatentes.index');
+    }
 }

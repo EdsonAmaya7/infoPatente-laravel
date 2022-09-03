@@ -107,7 +107,7 @@ Route::resources([
     '/empresas' => EmpresaController::class,
     '/patentes' => PatentesController::class,
     '/paginas' => PaginasController::class,
-    'autor' => AutorController::class,
+    //'autor' => AutorController::class,
 ]);
 
 // });

@@ -103,14 +103,14 @@
         <div class="col-4">
             <label class="d-block" for="">Seccion</label>
             <select name="" class="col-12" id="seccion">
-                <option  value="Abstract_Bookmark">Resumen De La Invencion</option>
-                <option  value="Resumen_Bookmark">Antecedentes De La Invencion</option>
-                <option  value="Background_Bookmark">Realizacion Preferente / Sumario</option>
-                <option  value="Summary_Bookmark">Breve Descripcion De Los Dibujos</option>
-                <option  value="Drawings_Bookmark">Descripcion Detallada Del Invento</option>
-                <option  value="Detail_Bookmark">Reivindicaciones</option>
-                <option  value="Claims_Bookmark">Objeto/Campo Tecnico De La Invencion</option>
-                <option  value="Actual_Drawings_Bookmark">Dibujos</option>
+                <option  value="#Abstract_Bookmark">Resumen De La Invencion</option>
+                <option  value="#Background_Bookmark">Antecedentes De La Invencion</option>
+                <option  value="#Summary_Bookmark">Realizacion Preferente / Sumario</option>
+                <option  value="#Detail_Bookmark">Breve Descripcion De Los Dibujos</option>
+                <option  value="#Drawings_Bookmark">Descripcion Detallada Del Invento</option>
+                <option  value="#Claims_Bookmark">Reivindicaciones</option>
+                <option  value="#Actual_Drawings_Bookmark">Objeto/Campo Tecnico De La Invencion</option>
+                <option  value="#Resumen_Bookmark">Dibujos</option>
             </select>
         </div>
     </div>

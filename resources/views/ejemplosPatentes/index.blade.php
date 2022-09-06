@@ -3,78 +3,12 @@
 
 @section('main')
 
-{{-- <div class="d-flex flex-row justify-content-between" style="height:85%">
-    <div class="col-3">
-        <ul>
-            <li>
-                <h2>Español</h2>
-                <ul>
-                    <li>
-                        <a href="">Alimentacion</a>
-                        <ul>
-                            <li>
-                                <a href="">ejemplo 1</a>
-                            </li>
-                            <li>
-                                <a href="">ejemplo 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">Automotriz</a>
-                        <ul>
-                            <li>
-                                <a href="">ejemplo 1</a>
-                            </li>
-                            <li>
-                                <a href="">ejemplo 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h2>English</h2>
-                <ul>
-                    <li>
-                        <a href="">Automotive</a>
-                        <ul>
-                            <li>
-                                <a href="">example 1</a>
-                            </li>
-                            <li>
-                                <a href="">example 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="">Computers</a>
-                        <ul>
-                            <li>
-                                <a href="">example 1</a>
-                            </li>
-                            <li>
-                                <a href="">example 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div> --}}
-
-    {{-- <div class="col">
-        <iframe src="{{ asset('/patentesEjemplos/MEX/Alimentacion/Alimentacion_Example0001.htm') }}" frameborder="0"
-            height="100%" width="100%"></iframe>
-    </div> --}}
-    {{--
-</div> --}}
-
-
 <div class="container">
-    <div class="d-flex mt-4 container">
-        <div class="col-4">
-            <label class="d-block" for="">Arreglo de ventanas como quieres trabajar</label>
+
+    <div id="leyenda" class="m-4 p-4 bg-danger"></div>
+    <div class="d-flex mt-4 container flex-column flex-sm-column flex-md-row">
+        <div class="col-sm-12 col-md-4">
+            <label class="d-block" for="">¿Como quieres trabajar?</label>
             <select name="tiposVentanas" id="tiposVentanas" class="col-12">
                 <option value="--" selected hidden disabled>--Seleccionar--</option>
                 <option value="descripcion">Aplicacion-Descripcion</option>
@@ -82,7 +16,7 @@
             </select>
         </div>
 
-        <div class="col-4" id="ejemplosPatentes">
+        <div class="col-sm-12 col-md-4" id="ejemplosPatentes">
             <label class="d-block" for="">Ejemplos de</label>
             <select name="ejemplosEspecificos" id="ejemplosEspecificos" class="col-12">
                 <option value="joyeria">Joyeria</option>
@@ -94,13 +28,13 @@
                 <option value="computadoras">Computadoras</option>
             </select>
 
-            <div class="d-flex justify-content-between">
-                <button id="anterior">Anterior</button>
-                <button id="siguiente">Siguiente</button>
+            <div class="d-flex justify-content-between mt-2" >
+                <button class="btn btn-backgorund" id="anterior">Anterior</button>
+                <button class="btn btn-backgorund" id="siguiente">Siguiente</button>
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-sm-12 col-md-4">
             <label class="d-block" for="">Seccion</label>
             <select name="" class="col-12" id="seccion">
                 <option  value="#Abstract_Bookmark">Resumen De La Invencion</option>

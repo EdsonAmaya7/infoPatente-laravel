@@ -4,25 +4,26 @@ const tiposVentanas = document.querySelector('#tiposVentanas'),
     divShowResultados = document.querySelector('#showResultados'),
     divSeccion = document.querySelector('#seccion'),
     frameResultados = document.querySelector('#frameResultados'),
-    selectEjemplosPatentes = document.querySelector('#ejemplosEspecificos')
-    btnanterior = document.querySelector('#anterior')
-    btnsiguiente = document.querySelector('#siguiente');
+    selectEjemplosPatentes = document.querySelector('#ejemplosEspecificos'),
+    btnanterior = document.querySelector('#anterior'),
+    btnsiguiente = document.querySelector('#siguiente'),
+    divLeyenda = document.querySelector('#leyenda');
 
 const rutasPatentes = {
     'joyeria': '/patentesEjemplos/MEX/Joyeria/Joyeria_Example0001.htm',
-    'joyeria2' : '/patentesEjemplos/MEX/Joyeria/Joyeria_Example0002.htm',
+    'joyeria2': '/patentesEjemplos/MEX/Joyeria/Joyeria_Example0002.htm',
     'alimentacion': '/patentesEjemplos/MEX/Alimentacion/Alimentacion_Example0001.htm',
-    'alimentacion2' : '/patentesEjemplos/MEX/Alimentacion/Alimentacion_Example0002.htm',
+    'alimentacion2': '/patentesEjemplos/MEX/Alimentacion/Alimentacion_Example0002.htm',
     'automotriz': '/patentesEjemplos/MEX/Automotriz/Automotriz_Example0001.htm',
-    'automotriz2' : '/patentesEjemplos/MEX/Automotriz/Automotriz_Example0002.htm',
+    'automotriz2': '/patentesEjemplos/MEX/Automotriz/Automotriz_Example0002.htm',
     'medico': '/patentesEjemplos/MEX/Medico/Medico_Example0001.htm',
-    'medico2' : '/patentesEjemplos/MEX/Medico/Medico_Example0002.htm',
+    'medico2': '/patentesEjemplos/MEX/Medico/Medico_Example0002.htm',
     'farmaceutico': '/patentesEjemplos/MEX/Farmaceutico/Farmaceutico_Example0001.HTM',
-    'farmaceutico2' : '/patentesEjemplos/MEX/Farmaceutico/Farmaceutico_Example0002.HTM',
+    'farmaceutico2': '/patentesEjemplos/MEX/Farmaceutico/Farmaceutico_Example0002.HTM',
     'materiales': '/patentesEjemplos/MEX/Materiales/Materiales_Example0001.htm',
-    'materiales2' : '/patentesEjemplos/MEX/Materiales/Materiales_Example0002.htm',
+    'materiales2': '/patentesEjemplos/MEX/Materiales/Materiales_Example0002.htm',
     'computadoras': '/patentesEjemplos/MEX/Computadoras/Computadoras_Example0001.htm',
-    'computadoras2' : '/patentesEjemplos/MEX/Computadoras/Computadoras_Example0002.htm',
+    'computadoras2': '/patentesEjemplos/MEX/Computadoras/Computadoras_Example0002.htm',
 }
 
 const rutaPreseleccionada = rutasPatentes['joyeria'];
@@ -63,12 +64,15 @@ const aplicacionDescripcion = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    crearLeyenda()
+
     frameResultados.src = rutaPreseleccionada
     tiposVentanas.addEventListener('change', seleccionarInfo)
     divSeccion.addEventListener('change', seleccionarInfo)
     selectEjemplosPatentes.addEventListener('change', seleccionarInfo)
-    btnanterior.addEventListener('click',anterior)
-    btnsiguiente.addEventListener('click',siguiente)
+    btnanterior.addEventListener('click', anterior)
+    btnsiguiente.addEventListener('click', siguiente)
 })
 
 function seleccionarInfo() {
@@ -81,14 +85,14 @@ function seleccionarInfo() {
     }
 }
 
-function buscarSeccionPatente(ruta){
+function buscarSeccionPatente(ruta) {
     let src = ruta
     let frame = document.getElementById("frameResultados")
 
-    if(tiposVentanas.value === "ejemplos"){
+    if (tiposVentanas.value === "ejemplos") {
 
         console.log(src + divSeccion.value, "ruta");
-        frame.src = src  + divSeccion.value
+        frame.src = src + divSeccion.value
     }
 }
 
@@ -109,10 +113,25 @@ function clearForms() {
     }
 }
 
-function anterior(){
-    createUI(rutasPatentes[selectEjemplosPatentes.value])    
+function anterior() {
+    createUI(rutasPatentes[selectEjemplosPatentes.value])
 }
 
-function siguiente(){
-    createUI(rutasPatentes[selectEjemplosPatentes.value+2])
+function siguiente() {
+    createUI(rutasPatentes[selectEjemplosPatentes.value + 2])
+}
+
+
+
+
+const crearLeyenda = function () {
+    const parrafo = document.createElement('p')
+
+    parrafo.innerHTML = "Para una Mejor experiencia, se recomienda poner el navegador en pantalla dividida"
+    parrafo.classList.add('text-white', 'text-center')
+    divLeyenda.appendChild(parrafo)
+
+    setTimeout(() => {
+        divLeyenda.remove(parrafo)
+    }, 7000);
 }
